@@ -1,0 +1,156 @@
+body {
+  background-image: url("../img/background.jpg");
+  margin-bottom: 40px;
+}
+div.navbar-collapse.collapse {
+  display: block;
+  overflow: hidden;
+  max-height: 0px;
+  -webkit-transition: max-height .3s ease;
+  -moz-transition: max-height .3s ease;
+  -o-transition: max-height .3s ease;
+  transition: max-height .3s ease;
+}
+div.navbar-collapse.collapse.in {
+  max-height: 2000px;
+}
+
+div.navbar-header {
+  text-align: center;
+}
+header .navbar {
+  background-color: white;
+}
+header .navbar-fixed-top {
+  background-color: #ACE1AF;
+  background: rgba(172, 225, 175, 0.9);
+
+}
+header .navbar .collapse ul li a {
+  color: #567456;
+}
+header .navbar-fixed-top .collapse ul li a {
+  color: white;
+  font-weight: 600;
+}
+
+/*#map {
+  height: 500px;
+  width:550px;
+}*/
+#contactId .col-md-8 #map{
+  width: 80%;
+  margin: auto;
+  height: 500px;
+  width: 550px;
+}
+
+.headClass {
+  background-color: #ACE1AF;
+  height: 130px;
+}
+.brand {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  margin: 30%;
+}
+.brand:hover .brand:active {
+  color: white;
+  text-decoration: none;
+}
+.brand:visited {
+  color: white;
+  text-decoration: none;
+}
+.brand:active {
+  color: white;
+  text-decoration: none;
+}
+footer {
+  height: 18px;
+  background-color: #374b37;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+#imgHome {
+  background-image: url("../img/vegExampleHome.jpg");
+  width: 454px;
+  height: 680px;
+  float: left;
+}
+#textHome {
+  width: 900px;
+}
+
+div.col-sm-12 .col-xs-12 {
+  width: 100%;
+}
+div div#menuId div#menuStyle {
+  text-align: center;
+  font-style: italic;
+  font-size: 150%;
+}
+div div#tableArea {
+  margin: auto;
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize {
+  background-image: url("../img/restaurantMap.png");
+  background-repeat:no-repeat;
+  background-size:contain;
+  height: 533px;
+  width: 339px;
+}
+div div#tableArea div#calendar div .well.well-sm {
+  width: 200px;
+}
+div div#tableArea div img {
+  position: absolute;
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li {
+  list-style: none;
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li input[type="checkbox"]  {
+  /*background-image: url('../img/table_four.png');
+  height: 30px;*/
+  display: none;
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li .four + label  {
+  background-image: url("../img/table_four_xs2.png");
+  height: 43px;
+  width: 67px;
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li .four:checked + label  {
+  background-image: url("../img/table_four_xs_selected.png");
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li .two + label  {
+  background-image: url("../img/table_two_xs2.png");
+  height: 51px;
+  width: 43px;
+
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li .two:checked + label  {
+  background-image: url("../img/table_two_xs_selected.png");
+}
+div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li label  {
+  position: relative;
+
+}
+div div#menuId ul#publicMenu {
+
+}
+div div#menuId ul#publicMenu li{
+  list-style: none;
+  text-align: center;
+}
+div div#menuId ul#publicMenu li div.menuTrida {
+  font-size: 160%;
+  color: #374b37;
+  font-style: italic;
+  font-weight: 600;
+}
+div div#menuId ul#publicMenu li ul li {
+  font-size: 130%;
+}

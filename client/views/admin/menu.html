@@ -1,0 +1,51 @@
+<div ng-controller="menuCtrl" id="homeAdmin">
+    <form class="form-inline">
+        <uib-tabset type="pills">
+            <uib-tab heading="Jidelni listek">
+                <div class="tableMenu">
+                    <table class="table table-hover">
+                        <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
+                                <th class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Složení</th>
+                                <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
+                                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Typ</th>
+                                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
+                                <th class="col-lg-2 col-md-1 col-sm-1 col-xs-1">Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in dataMenu" id="{{x._id}}">
+                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{x.foodName}}</td>
+                                <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4">{{x.foodDescription}}</td>
+                                <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}</td>
+                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodType}}</td>
+                                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodSort}}</td>
+                                <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                    <div class="btn-group btn-group-sm" role="group">
+                                        <button class="btn btn-default" ng-click="setAction('edit', x._id);"><span class="glyphicon glyphicon-edit"></span></button>
+                                        <button class="btn btn-default" ng-click="setAction('delete', x._id);"><span class="glyphicon glyphicon-trash"></span></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">
+
+                                </td>
+                                <td colspan="2">
+                                    <div class="btn-group btn-group-md" role="group">
+                                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null);"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                        <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </uib-tab>
+            <uib-tab heading="Napojovy listek">
+
+            </uib-tab>
+        </uib-tabset>
+    </form>
+</div>

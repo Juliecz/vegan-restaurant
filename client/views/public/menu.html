@@ -1,0 +1,13 @@
+<div ng-controller="menuCtrlP">
+    <div class="col-lg-1 col-md-1"><h1></h1></div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12" id="menuId">
+        <ul id="publicMenu">
+            <li ng-repeat="x in tridaVar" > <div class="menuTrida">{{x.text}}</div>
+                <ul>
+                    <li ng-repeat="d in data |filter:x.name " class="menuFood"> {{d.foodName}}...............{{d.price}} Kč</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-lg-1 col-md-1"></div>
+</div>

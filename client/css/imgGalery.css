@@ -1,0 +1,16 @@
+div div.imgGallery img {
+    /*width: 100px;
+    height: 100px;
+    */
+    width: 20%;
+    height: 20%;
+    float: left;
+    margin: 12px;
+}
+
+div div.imgGallery {
+    width: 80%;
+    margin: auto;
+    /*border: solid 1px ;*/
+}
+

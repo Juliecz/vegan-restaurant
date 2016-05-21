@@ -1,0 +1,10 @@
+doctype html
+html(ng="http://angularjs.org", lang="en" ng-app='VeganApp')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    include links
+
+  body(ng-controller='contentCtrl')
+    div(ui-view='main')
