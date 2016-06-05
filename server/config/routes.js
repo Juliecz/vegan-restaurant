@@ -6,7 +6,8 @@ var index = require('../controllers/index'),
     tables = require('../controllers/table'),
     dailyMenu = require('../controllers/dailyMenu'),
     auth = require('../controllers/authenticate'),
-    passport = require('passport');
+    passport = require('passport'),
+    LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function(app, passport) {
 

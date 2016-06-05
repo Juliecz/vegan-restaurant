@@ -1,4 +1,6 @@
-routeAppAdmin.controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', 'dailyMenuAdmin', function($scope, $state, $stateParams, dailyMenuAdmin) {
+//angular.module('admin', ['ui.router', 'ngRoute'])
+angular.module('veganapp.admin')
+    .controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', 'dailyMenuAdmin', function($scope, $state, $stateParams, dailyMenuAdmin) {
     $scope.day=['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek'];
     $scope.dayObj = [];
     //send action to edit

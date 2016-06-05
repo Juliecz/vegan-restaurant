@@ -1,28 +1,30 @@
 /**
  * Created by yuliya on 14.11.15.
  */
-routeAppAdmin.controller('homeCtrl', ['$scope', '$http', function($scope, $http){
-    $scope.test = 'my admin test';
-    //divMenuAdmin1(50);
-    /*$http.post('/admin/#/home')
-        .success(function(data) {
-            $scope.users = data;
-            console.log(data);
-        })
-        .error(function(data) {
-            console.log('Error: ' + data);
-        });*/
-
-
-    /*
-    $scope.navigationLeft = function () {
-        if (window.innerWidth<820) {
-            menuWidth = angular.element("#right");
-            console.log(menuWidth.offsetWidth);
-        }
-    };
-    $scope.navigationLeft();
-    //$scope.loginPost = loginPost();
+angular.module('veganapp.admin')
+    .controller('homeCtrlA', ['$scope', '$http', '$stateParams', 'authProvider', function($scope, $http, $stateParams, authProvider){
+        /*$scope.ifAuth = function () {
+            var check;
+            authProvider.isLoggedIn()
+                .then(function (data) {
+                    check = data;
+                }); 
+            return check;
+        };
+        console.log('IF AUTH FUNCTION: ', $scope.ifAuth());
+        $scope.test = 'my admin test';
+        console.log('State home params: ', $stateParams.user);
+        //divMenuAdmin1(50);
+    
+        /*
+        $scope.navigationLeft = function () {
+            if (window.innerWidth<820) {
+                menuWidth = angular.element("#right");
+                console.log(menuWidth.offsetWidth);
+            }
+        };
+        $scope.navigationLeft();
+        //$scope.loginPost = loginPost();
 */
 }]);
 
@@ -67,6 +69,7 @@ $(window).resize(function () {
     }
  });
 */
+//TODO change function
 function loginPost()
 {
     $(document).ready(function() {

@@ -1,7 +1,8 @@
 /**
  * Created by yuliya on 12.11.15.
  */
-routeApp.controller('tablesCtrl', ['$scope', 'getTable', function($scope, getTable) {
+angular.module('veganapp.public')
+    .controller('tablesCtrl', ['$scope', 'getTable', function($scope, getTable) {
     /*if (window.innerWidth>=1050) {     $('#tableArea').css('width', '80%'); }
     else {
         $('#tableArea').css('width', '100%');

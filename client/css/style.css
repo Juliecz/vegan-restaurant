@@ -1,8 +1,229 @@
 body {
   background-image: url("../img/background.jpg");
-  margin-bottom: 40px;
 }
+.contentPublic {
+  /*todo depends on footer size*/
+  margin-bottom: 20px;
+}
+/* header style for public page */
+.headClass {
+  background-color: #ACE1AF;
+  height: 130px;
+}
+.navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+/* footer style for public page */
+footer {
+  height: 18px;
+  background-color: #374b37;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  position: relative;
+}
+/*@media screen and (min-height: 633px)
+and (min-width: 801px) {
+  footer {
+    position: absolute;
+  }
+}
+/*
+@media screen and (max-width: 800px)
+and (orientation: landscape) {
+  footer {
+    height: 18px;
+    background-color: #374b37;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 800px)
+and (min-width: 750px)
+and (orientation: portrait) {
+  footer {
+    height: 18px;
+    background-color: #374b37;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+}
+*/
+
+/*public menu page*/
+div#menuTabs {
+  text-align: center;
+}
+div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs nav ul li a:visited, div#menuTabs nav ul li a:link {
+  text-decoration: none;
+}
+
+/* large desktop */
+@media screen and (min-width: 1200px) {
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+  }
+  .flex > div {
+    width: 50%;
+  }
+  /*public home page flexbox */
+  .flex > div > img {
+    float: right;
+  }
+  .flex > #textHome {
+    margin-left: 23px;
+  }
+  /* public contact page */
+  .flex > div > #map {
+    max-width: 600px;
+    height: 370px;
+    font-weight: 800;
+  }
+  .flex > div:nth-child(2) {
+    text-align: center;
+  }
+  /*public menu page*/
+  div#menuTabs nav ul li {
+    display: inline;
+    margin-left: 100px;
+  }
+  div#menuTabs nav ul li a {
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 3px #8ABA6E solid;
+    color: #8ABA6E;
+  }
+
+  div#menuTabs nav ul li a.selected {
+    /*color: #374b37;
+    border-bottom: 3px #374b37 solid;*/
+    background-color: white;
+
+  }
+}
+/* medium desktop/tablet */
+@media screen and (max-width: 1199px) {
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+  }
+  .flex > div {
+    width: 50%;
+  }
+  /*public home page flexbox */
+  .flex > div > img {
+    float: right;
+    width: 100%;
+  }
+  .flex > #textHome {
+    margin-left: 15px;
+  }
+  /* public contact page */
+  .flex > div:nth-child(2) {
+    text-align: center;
+  }
+  .flex > #mapBlock {
+    width: 80%;
+  }
+  .flex > div > #map {
+    max-width: 550px;
+    height: 370px;
+    margin: auto;
+  }
+
+  /*public menu page*/
+  div#menuTabs nav ul li {
+    display: inline;
+    margin-left: 70px;
+  }
+}
+
+/* small tablet/mobile */
+@media screen and (max-width: 800px) {
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  .flex > div {
+    width: 73%;
+    margin: auto;
+  }
+  /* public contact page */
+  .flex > div:nth-child(2) {
+    text-align: center;
+  }
+  .flex > #mapBlock {
+    width: 100%;
+  }
+  .flex > div > #map {
+    width: 90%;
+    height: 370px;
+    margin: auto;
+  }
+  /*public menu page*/
+  div#menuTabs nav ul li {
+    display: inline;
+    margin-left: 40px;
+  }
+}
+/* extra small mobile*/
+@media screen and (max-width: 400px) {
+  .flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  .flex > div {
+    width: 95%;
+    margin: auto;
+  }
+  /* public contact page */
+  .flex > div:nth-child(2) {
+    text-align: center;
+  }
+  .flex > #mapBlock {
+    width: 100%;
+  }
+  .flex > div > #map {
+    width: 95%;
+    height: 370px;
+    margin: auto;
+  }
+
+  /*public menu page*/
+  div#menuTabs nav ul li {
+    display: block;
+    line-height: 30px;
+  }
+}
+
+/*
 div.navbar-collapse.collapse {
+  input for search in menu -----
   display: block;
   overflow: hidden;
   max-height: 0px;
@@ -11,6 +232,7 @@ div.navbar-collapse.collapse {
   -o-transition: max-height .3s ease;
   transition: max-height .3s ease;
 }
+
 div.navbar-collapse.collapse.in {
   max-height: 2000px;
 }
@@ -37,7 +259,7 @@ header .navbar-fixed-top .collapse ul li a {
 /*#map {
   height: 500px;
   width:550px;
-}*/
+}*
 #contactId .col-md-8 #map{
   width: 80%;
   margin: auto;
@@ -45,36 +267,8 @@ header .navbar-fixed-top .collapse ul li a {
   width: 550px;
 }
 
-.headClass {
-  background-color: #ACE1AF;
-  height: 130px;
-}
-.brand {
-  color: white;
-  font-size: 40px;
-  text-decoration: none;
-  margin: 30%;
-}
-.brand:hover .brand:active {
-  color: white;
-  text-decoration: none;
-}
-.brand:visited {
-  color: white;
-  text-decoration: none;
-}
-.brand:active {
-  color: white;
-  text-decoration: none;
-}
-footer {
-  height: 18px;
-  background-color: #374b37;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-}
+
+
 #imgHome {
   background-image: url("../img/vegExampleHome.jpg");
   width: 454px;
@@ -113,8 +307,6 @@ div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li {
   list-style: none;
 }
 div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li input[type="checkbox"]  {
-  /*background-image: url('../img/table_four.png');
-  height: 30px;*/
   display: none;
 }
 div div#tableArea div#restaurantMapId div#restaurantMapSize ul#listTables li .four + label  {

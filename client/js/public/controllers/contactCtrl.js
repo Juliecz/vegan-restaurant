@@ -1,11 +1,12 @@
 /**
  * Created by yuliya on 11.11.15.
  */
-routeApp.controller('contactCtrl', function($scope) {
+angular.module('veganapp.public')
+    .controller('contactCtrl', function($scope) {
     initH1();
 
 });
-
+//todo rewrite this
 function initialize() {
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();

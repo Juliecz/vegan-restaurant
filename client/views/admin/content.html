@@ -1,12 +1,12 @@
-<div ng-app="admin">
-    <header ng-controller="headCtrl">
+<div>
+    <header>
         <nav class="navbar navbar-default navbar-fixed-left" role="navigation">
             <div class="navbar-header">
                 <a ui-sref="public.home" class="navbar-brand">Veganska Restaurace</a>
             </div>
             <ul class="nav navbar-nav">
                 <li>
-                    <a ui-sref="admin.home">
+                    <a ui-sref="admin.user">
                         <div class="spanClass">
                             <span class="glyphicon glyphicon-user"></span>
                         </div>
@@ -14,11 +14,11 @@
                     </a>
                 </li>
                 <li>
-                    <a ui-sref="admin.home">
+                    <a ui-sref="admin.home" ng-click="logout()">
                         <div class="spanClass">
                             <span class="glyphicon glyphicon-log-out"></span>
                         </div>
-                        <div class="nameClass">Logout </div>
+                        <div class="nameClass">Logout</div>
                     </a>
                 </li>
             </ul>
@@ -66,7 +66,7 @@
             </ul>
         </nav>
     </header>
-    <section ui-view="admin">
+    <section ui-view="admin" class="contentAdmin">
 
     </section>
 </div>

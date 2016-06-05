@@ -1,7 +1,5 @@
-/**
- * Created by yuliya on 15.4.16.
- */
-routeAppAdmin.controller('editCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'dailyMenuAdmin', function ($scope, $state, $stateParams, getMenu, dailyMenuAdmin) {
+angular.module('veganapp.admin')
+    .controller('editCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'dailyMenuAdmin', function ($scope, $state, $stateParams, getMenu, dailyMenuAdmin) {
 
     $scope.typMenu = ['Staly jídelní lístek', 'Polední menu'];
     $scope.stateTypMenu = $stateParams.menuType;

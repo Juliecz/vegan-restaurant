@@ -44,13 +44,6 @@ exports.enumSort = function (req, res, next) {
 };
 
 exports.deleteFood = function (req, res, next) {
-    /*Menu.remove({
-        _id: req.body.id
-    }, function (err, data) {
-        if(err) { res.send(err); }
-        findAllFunc(res);
-        console.log(req.body.id);
-    });*/
     Menu.findByIdAndRemove(req.params.id, function (err) {
         if(err) { console.log(err); res.send(err); }
         else { console.log('Data remove: ', req.params.id); findAllFunc(res); }

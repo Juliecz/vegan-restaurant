@@ -1,7 +1,0 @@
-<div ng-init="changeScreen()" ng-controller="photosCtrl">
-    {{styleImgW}}
-    <div class="imgGallery .col-lg-12 .col-md-12 .col-sm-12 .col-xs-12" ng-repeat="x in obraz">
-        <img ng-src="{{x.source}}" alt="image1" id="img{{x.id}}" ng-click="imgEvent();"
-             ng-style="{'width': '{{styleImgW}}%', 'height': '{{styleImgH}}%'}" >
-    </div>
-</div>

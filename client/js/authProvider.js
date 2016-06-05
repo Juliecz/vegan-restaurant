@@ -2,16 +2,36 @@
  * Created by yuliya on 21.5.16.
  */
 //TODO move to sevices
-angular.module('admin')
-    .factory('authProvider', function () {
-        var user;
-        return {
-            setUser: function (thisUser) {
-                user = thisUser;
+angular.module('veganapp.admin')
+    .factory('authProvider', ['$q', '$timeout', '$http', '$location', function ($q, $timeout, $http, $location) {
+        var user = null;
+        return ({
+            login: function (username, password) {
+                return $http.post('/api/login', { username: username, password: password})
+                    .success(function (data, status) {
+                        return data;
+                    })
+                    .error(function () {
+                        return 0;
+                    });
             },
-            isLogged: function () {
-                return(user) ? user : false;
+            isLoggedIn: function () {
+                return $http.get('/api/logged')
+                    .success(function (data, status) {
+                        return data;
+                    })
+                    .error(function () {
+                        return 0;
+                    });
+            },
+            logout: function () {
+                return $http.get('/api/logout')
+                    .success(function (data, status) {
+                        return data;
+                    })
+                    .error(function () {
+                        return 0;
+                    });
             }
-        };
-        }
-    );
+        });
+    }]);

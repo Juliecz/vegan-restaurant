@@ -25,13 +25,18 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client')));
 app.use(express.static(path.join(__dirname, 'server/config/database')));
 
-app.use(session({secret: 'secret'}));
+//for using passport middleware by express
+app.use(session({
+  //TODO check sets save or not and set time
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // routes
 require('./server/config/routes')(app, passport);
-//TODO passport changed
 require('./server/config/passport')(passport);
 
 

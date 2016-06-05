@@ -1,7 +1,7 @@
-<div ng-app="public">
-    <header ng-controller="headCtrl">
+<div>
+    <header ng-controller="headCtrlP">
         <div class="headClass">
-            <a ui-sref="/home" class="brand">Veganska restaurace _obrazek_</a>
+            <a ui-sref="public.home" class="navbar-brand">Veganska restaurace _obrazek_</a>
         </div>
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
@@ -29,21 +29,19 @@
                         <a ui-sref="public.reservation">Rezervace stolu</a>
                     </li>
                     <li>
-                        <!--a href="/#/admin/home">Admin</a-->
-                        <a ui-sref="admin.home">Admin</a>
-
+                        <a href="/#/login">Admin</a>
                     </li>
-                    <li style="display: none">
+                    <!--li style="display: none">
                         <form class="navbar-form" role="search">
                             <div class="form-group"></div>
                             <input type="text" class="form-control" placeholder="Search">
                         </form>
-                    </li>
+                    </li-->
                 </ul>
             </div>
         </nav>
     </header>
-    <section ui-view="public">
+    <section ui-view="public" class="contentPublic">
 
     </section>
     <footer>

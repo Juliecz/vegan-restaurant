@@ -1,5 +1,6 @@
 
-routeAppAdmin.factory('getMenu', function ($http) {
+angular.module('veganapp.admin')
+    .factory('getMenu', function ($http) {
     return {
         getFood: function () {
             return $http.get('/api/menu')

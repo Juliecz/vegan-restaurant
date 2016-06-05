@@ -1,4 +1,5 @@
-routeAppAdmin.controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', function($scope, $state, $stateParams, getMenu){
+angular.module('veganapp.admin')
+    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', function($scope, $state, $stateParams, getMenu){
     //send action to edit
     $scope.actions = {
         new: 'Pridat nove jidlo',

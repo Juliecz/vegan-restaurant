@@ -1,4 +1,5 @@
-routeAppAdmin.factory('dailyMenuAdmin', function ($http) {
+angular.module('veganapp.admin')
+    .factory('dailyMenuAdmin', function ($http) {
     return {
         getDailyMenu: function () {
             return $http.get('/api/dailymenu')

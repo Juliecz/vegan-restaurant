@@ -1,6 +1,8 @@
 /**
  * Created by yuliya on 16.3.16.
  */
-routeAppAdmin.controller('headCtrl', function($scope) {
+//TODO remove this controller
+angular.module('veganapp.admin')
+    .controller('headCtrl', function($scope) {
 
 });
