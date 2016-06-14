@@ -4,7 +4,7 @@
 angular.module('veganapp.public')
     .controller('menuCtrlP', ['$scope', '$http', 'menuPublic', function($scope, $http, menuPublic) {
         $scope.today = new Date().getDay();
-        console.log('Today is: ', $scope.today);
+        //console.log('Today is: ', $scope.today);
         if ($scope.today === 0 || $scope.today === 6) {
             $scope.vikend = true;
         }
@@ -47,26 +47,24 @@ angular.module('veganapp.public')
             }];
         menuPublic.getMenu().success(function (data, status) {
             $scope.data = data;
-            console.log('data: ', status);
-            console.log($scope.data);
+            //console.log('data: ', status);
         });
         menuPublic.getDailyMenu().success(function (data, status) {
 
             for (var i=0; i<data.length; i++) {
                 if (data[i].day === $scope.todayStr) {
-                    console.log('Cislo: ', i, ' object: ', data[i]);
+                    //console.log('Cislo: ', i, ' object: ', data[i]);
                     $scope.poledni.push(data[i]);
                 }
             }
         });
         menuPublic.getSort().success(function (data, status) {
             $scope.trida = data;
-            console.log(status);
-            console.log($scope.trida);
+            //console.log($scope.trida);
             $scope.amount = $scope.trida.length;
             if ($scope.trida) {
                 for (var i = 0; i < $scope.trida.length; i++) {
-                    console.log(i);
+                    //console.log(i);
                     if ($scope.trida[i] == 'predkrm') {
                         $scope.tridaVar.push({
                             name: 'predkrm',

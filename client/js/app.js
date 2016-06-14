@@ -22,8 +22,8 @@ myApp
          }])
         
     .controller('contentCtrl', function($scope, $location, $state) {
-        console.log($location.absUrl());
-        console.log($state.current);
+        //console.log($location.absUrl());
+        //console.log($state.current);
         //TODO delete function setContent
         $scope.setContent = function () {
             /*var currentUrl = $location.absUrl();

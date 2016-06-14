@@ -1,6 +1,6 @@
 <div ng-controller="tablesCtrl">
-    <div id="tableArea">
-        <div id="calendar" class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+    <div id="tableArea" class="flex">
+        <!--div id="calendar1" class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
             <pre>Selected date is: {{data | date:'fullDate' }}</pre>
             <div style="display:inline-block; min-width:200px;">
                 <uib-datepicker ng-model="data" class="well well-xs" datepicker-options="inlineOptions"></uib-datepicker>
@@ -17,9 +17,71 @@
         </div>
         <div id="restaurantMapId" class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
             <div id="restaurantMapSize">
-                <!--img id="restaurantMapImg" src="/public/img/restaurantMap.png" alt="mapa restaurace"-->
+                <!--img id="restaurantMapImg" src="/public/img/restaurantMap.png" alt="mapa restaurace"->
                 <ul id="listTables">
                     <li  ng-repeat="stul in dataTable" >
+                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
+                        <label for="{{stul._id}}">{{stul.name}}</label>
+                    </li>
+                </ul>
+            </div>
+        </div-->
+        <div id="calendar">
+            <div>
+                <table ng-show="!showSecondTable">
+                    <thead>
+                        <tr class="mesic">
+                            <th colspan="2" ng-click="prevMonth(today.getMonth())"><a href=""><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a></th>
+                            <th colspan="3">
+                                {{month[today.getMonth()]}}, {{today.getFullYear()}}
+                            </th>
+                            <th colspan="2" ng-click="nextMonth(today.getMonth())"><a href=""><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></th>
+                        </tr>
+                        <tr class="tydne">
+                            <th ng-repeat="x in [0, 1, 2, 3, 4, 5, 6]"> {{weeks[x]}} </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="den in mdays">
+                            <td ng-repeat="x in [0, 1, 2, 3, 4, 5, 6]" ng-class="{ 'active': selected == den[x], 'today': dnes(den[x], today.getMonth(), today.getFullYear()) == den[x] }" ng-click="onclickDate(den[x], today.getMonth(), today.getFullYear())">
+                                <a href="" ng-if="filterDay(den[x])" > {{ den[x]}}</a>
+                                <a href="" ng-if="!filterDay(den[x])"> </a>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+                <table ng-show="showSecondTable">
+                    <thead>
+                        <tr class="mesic">
+                            <th colspan="2" ng-click="showMonth()"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></th>
+                            <th colspan="4"> {{month[today.getMonth()]}}, {{ firstDayInWeek.getDate() }} - {{ lastDayInWeek.getDate() }}, {{today.getFullYear()}} </th>
+                        </tr>
+                        <tr>
+                            <th class="tydne"></th>
+                            <th ng-repeat="cas in [0,1,2,3,4]"> {{ cas+17 }}:00 - {{cas+18}}:00 </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="den in [0,1,2,3,4,5,6]">
+                            <td class="tydne"> {{weeks[den]}} </td>
+                            <td ng-repeat="cas in [0,1,2,3,4]"> Volno </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div>
+                    <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
+                    <input type="text">
+                    <h4> First day in week: {{ firstDayInWeek.getDay() }}</h4>
+                    <h4> Last day in week: {{ lastDayInWeek }} </h4>
+                </div>
+            </div>
+        </div>
+        <div id="tablesImg">
+            <div>
+                <img src="../../img/restaurantMap.png" alt="Mapa restauraci">
+                <ul id="listTables">
+                    <li  ng-repeat="stul in dataTable"  ng-class="stul.seatingNum">
                         <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
                         <label for="{{stul._id}}">{{stul.name}}</label>
                     </li>

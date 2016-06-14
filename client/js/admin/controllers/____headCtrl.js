@@ -3,6 +3,6 @@
  */
 //TODO remove this controller
 angular.module('veganapp.admin')
-    .controller('headCtrl', function($scope) {
-
-});
+    .controller('headCtrl', ['$scope', 'authProvider', function($scope, authProvider) {
+        
+}]);

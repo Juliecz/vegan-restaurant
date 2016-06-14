@@ -10,6 +10,7 @@ body {
   background-color: #ACE1AF;
   height: 130px;
 }
+
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
   color: white;
   font-size: 40px;
@@ -25,6 +26,8 @@ footer {
   bottom: 0;
   width: 100%;
   position: relative;
+  /* visible footer*/
+  visibility: hidden;
 }
 /*@media screen and (min-height: 633px)
 and (min-width: 801px) {
@@ -59,12 +62,205 @@ and (orientation: portrait) {
 */
 
 /*public menu page*/
-div#menuTabs {
+#menuMainBlock {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+}
+#menuTabs {
+  border: 1px solid;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+div#menuTabs nav div a:hover, div#menuTabs nav div a:active, div#menuTabs nav div a:visited, div#menuTabs nav div a:link {
+  text-decoration: none;
+  color: black;
+}
+.menuList ul, .menuList li ul {
+  list-style: none;
+}
+#menuTabs nav div {
+  /*background-color: #b9f6ca;*/
+  width: 100%;
+  padding: 10px;
+}
+#menuTabs nav div:hover {
+  background-color: #f5f5f5;
+}
+#menuTabs nav div.active {
+  background-color: rgba(76, 175, 80, 0.2);
+}
+#calendar div table {
+  margin: 0 auto;
+  margin-top: 25px;
+  font-weight: 600;
+  border: 1px solid #31443e;
+}
+#calendar div div:last-child {
+  margin: 0 auto;
   text-align: center;
 }
-div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs nav ul li a:visited, div#menuTabs nav ul li a:link {
-  text-decoration: none;
+#calendar div table {
+  background-color: #f7f7f7;
 }
+#calendar table thead tr.tydne {
+  background-color: white;
+}
+#calendar div table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #d3d0c1;
+}
+#calendar div table thead .mesic  {
+  text-align: center;
+  color: white;
+  border: 1px solid #31443e;
+  background-color: #31443e;
+
+  /*background-color: rgba(76, 175, 80, 0.61);
+  /*background: -webkit-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Safari 5.1 to 6.0 *
+  background: -o-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Opera 11.1 to 12.0 *
+  background: -moz-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Firefox 3.6 to 15 *
+  background: linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12));*/
+}
+#calendar div table thead tr th {
+  text-align: center;
+}
+#calendar div table tr td a:hover, #calendar table tr td a:visited, #calendar table tr td a:link, #calendar table tr td a {
+  text-decoration: none;
+  color: black;
+}
+#calendar div table tr th a:hover, #calendar table tr th a:visited, #calendar table tr th a:link, #calendar table tr th a {
+  text-decoration: none;
+  color: white;
+}
+#calendar div table tr td.active {
+  background-color: rgba(157, 236, 181, 1) !important;
+  border-radius: 15px;
+}
+#calendar div table tr td.today {
+  background-color: rgba(207, 211, 196, 0.9);
+  border-radius: 15px;
+}
+#calendar div table:first-child tr td:hover {
+  background-color: #e5e5e5;
+  border-radius: 15px;
+}
+
+#loginSelection #loginBlock form div h3 a:hover, #loginSelection #loginBlock form div h3 a:visited, #loginSelection #loginBlock form div h3 a:link, #loginSelection #loginBlock form div h3 a {
+  text-decoration: none;
+  color: black;
+}
+section {
+  width: 100%;
+  height: 100vh;
+}
+section #loginSelection {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+section #loginSelection > #loginBlock {
+  margin: auto;
+}
+/* TODO if map is image */
+#tablesImg {
+  width: 100%;
+}
+#tablesImg div {
+  position: relative;
+  width: 390px;
+  height: 600px;
+  margin: auto;
+}
+#tablesImg div > img {
+  position: absolute;
+  left: 0px;
+  width: 389px;
+  max-height: 100%;
+  z-index: -1;
+}
+#tablesImg div ul li input[type=checkbox] {
+  display: none;
+}
+#tablesImg div ul li {
+  list-style: none;
+  display: inline;
+  position: absolute;
+}
+#tablesImg div ul li.four input[type=checkbox] + label {
+  background-image: url("../img/table_four_xs2.png");
+  height: 43px;
+  width: 67px;
+}
+#tablesImg div ul li.two input[type=checkbox] + label {
+  background-image: url("../img/table_two_xs2.png");
+  height: 51px;
+  width: 43px;
+}
+#tablesImg div ul li.four input:checked + label  {
+  background-color: #f2e1ff;
+}
+#tablesImg div ul li.two input:checked + label  {
+  background-color: #fffec1;
+}
+#tablesImg div ul li:first-child {
+  top: 20px;
+  left: 80px;
+}
+#tablesImg div ul li:nth-child(2) {
+  top: 20px;
+  left: 160px;
+}
+#tablesImg div ul li:nth-child(3) {
+  top: 20px;
+  left: 240px;
+}
+#tablesImg div ul li:nth-child(4) {
+  top: 50px;
+  left: 340px;
+}
+#tablesImg div ul li:nth-child(5) {
+  top: 115px;
+  left: 340px;
+}
+#tablesImg div ul li:nth-child(12) {
+  top: 360px;
+  left: 340px;
+}
+#tablesImg div ul li:nth-child(13) {
+  top: 420px;
+  left: 340px;
+}
+#tablesImg div ul li:nth-child(14) {
+  top: 480px;
+  left: 340px;
+}
+#tablesImg div ul li:nth-child(6) {
+  top: 150px;
+  left: 140px;
+}
+#tablesImg div ul li:nth-child(7) {
+  top: 150px;
+  left: 220px;
+}
+#tablesImg div ul li:nth-child(8) {
+  top: 300px;
+  left: 80px;
+}
+#tablesImg div ul li:nth-child(9) {
+  top: 360px;
+  left: 160px;
+}
+#tablesImg div ul li:nth-child(10) {
+  top: 420px;
+  left: 160px;
+}
+#tablesImg div ul li:nth-child(11) {
+  top: 480px;
+  left: 160px;
+}
+/* TODO konec ________*/
+
 
 /* large desktop */
 @media screen and (min-width: 1200px) {
@@ -84,9 +280,6 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
   .flex > div > img {
     float: right;
   }
-  .flex > #textHome {
-    margin-left: 23px;
-  }
   /* public contact page */
   .flex > div > #map {
     max-width: 600px;
@@ -97,22 +290,46 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
     text-align: center;
   }
   /*public menu page*/
-  div#menuTabs nav ul li {
-    display: inline;
-    margin-left: 100px;
+  #menuTabs {
+    width: 75%;
+    display: inline-flex;
+    text-align: center;
   }
-  div#menuTabs nav ul li a {
-    font-size: 18px;
-    font-weight: 600;
-    border-bottom: 3px #8ABA6E solid;
-    color: #8ABA6E;
+  #menuTabs nav {
+    border-right: 1px solid;
   }
-
-  div#menuTabs nav ul li a.selected {
-    /*color: #374b37;
-    border-bottom: 3px #374b37 solid;*/
+  #menuTabs nav div {
+    padding: 15px;
+  }
+  /* public reservation page*/
+  #calendar div table {
+    width: 320px;
+    height: 320px;
+  }
+  #tables #imgMap {
+    background: url("../img/restaurantMap.png") no-repeat center center;
+    width: 490px;
+    height: 780px;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+  #calendar div table tbody tr td{
+    text-align: center;
+    padding: 10px;
+  }
+  #calendar div table thead .mesic th {
+    padding: 15px;
+  }
+  /* login page*/
+  #loginBlock {
     background-color: white;
-
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 2px solid #a6a6a6;
   }
 }
 /* medium desktop/tablet */
@@ -149,11 +366,53 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
     height: 370px;
     margin: auto;
   }
-
   /*public menu page*/
-  div#menuTabs nav ul li {
-    display: inline;
-    margin-left: 70px;
+  #menuTabs {
+    width: 83%;
+    display: inline-flex;
+  }
+  .menuList ul {
+    padding: 0;
+    text-align: center;
+  }
+  #menuTabs {
+    text-align: center;
+  }
+  #menuTabs nav {
+    border-right: 1px solid;
+  }
+  #menuTabs nav div {
+    padding: 15px;
+  }
+  /* public reservation page*/
+  #calendar div table {
+    width: 320px;
+    height: 320px;
+  }
+  #tables #imgMap {
+    background: url("../img/restaurantMap.png") no-repeat center center;
+    width: 390px;
+    height: 650px;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+  }
+  #calendar div table tbody tr td{
+    text-align: center;
+    padding: 10px;
+  }
+  #calendar div table thead .mesic th {
+    padding: 15px;
+  }
+  /* login page*/
+  #loginBlock {
+    background-color: white;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 2px solid #a6a6a6;
   }
 }
 
@@ -168,6 +427,9 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
   }
   .flex > div {
     width: 73%;
+    text-align: center;
+  }
+  .flex #imgHome, .flex #textHome {
     margin: auto;
   }
   /* public contact page */
@@ -183,9 +445,51 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
     margin: auto;
   }
   /*public menu page*/
-  div#menuTabs nav ul li {
-    display: inline;
-    margin-left: 40px;
+  #menuTabs {
+    width: 80%;
+    display: block;
+    text-align: center;
+  }
+  #menuTabs nav {
+    border-bottom: 1px solid;
+  }
+  #menuTabs nav div {
+    padding: 10px;
+  }
+  /* public reservation page*/
+  #calendar, #tables {
+    width: 100%;
+  }
+  #calendar div table {
+    width: 320px;
+    height: 320px;
+    margin: auto;
+  }
+  #tables #imgMap {
+    background: url("../img/restaurantMap.png") no-repeat center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    height: 696px;
+    width: 100%;
+    margin: auto;
+  }
+  #calendar div table tbody tr td{
+     text-align: center;
+     padding: 10px;
+   }
+  #calendar div table thead .mesic th {
+    padding: 15px;
+  }
+  /* login page*/
+  #loginBlock {
+    background-color: white;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border: 2px solid #a6a6a6;
   }
 }
 /* extra small mobile*/
@@ -215,78 +519,134 @@ div#menuTabs nav ul li a:hover, div#menuTabs nav ul li a:active, div#menuTabs na
   }
 
   /*public menu page*/
-  div#menuTabs nav ul li {
+  #menuTabs {
+    width: 96%;
     display: block;
-    line-height: 30px;
+    text-align: center;
+  }
+  #menuTabs nav {
+    border-bottom: 1px solid;
+  }
+  #menuTabs nav div {
+    padding: 10px;
+  }
+  /* public reservation page*/
+  #calendar, #tables {
+    width: 100%;
+  }
+  #calendar div table, #calendar div table:nth-child(2) {
+    width: 300px;
+    height: 320px;
+    padding: 0px;
+    margin: auto;
+  }
+  #calendar div table tbody tr td{
+    text-align: center;
+    font-size: 10px;
+    padding: 10px;
+  }
+  #calendar div table thead .mesic th {
+    padding: 10px;
+  }
+  #tablesImg {
+    width: 100%;
+  }
+  #tablesImg div {
+    position: relative;
+    width: 319px;
+    height: 550px;
+    margin: auto;
+  }
+  #tablesImg div > img {
+    position: absolute;
+    left: 0px;
+    width: 318px;
+    max-height: 100%;
+    z-index: -1;
+  }
+  #tablesImg div ul li.four input[type=checkbox] + label {
+    background-image: url("../img/table_four_xs2.png");
+    height: 23px;
+    width: 47px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  #tablesImg div ul li.two input[type=checkbox] + label {
+    background-image: url("../img/table_two_xs2.png");
+    height: 31px;
+    width: 23px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  #tablesImg div ul li:first-child {
+    top: 20px;
+    left: 60px;
+  }
+  #tablesImg div ul li:nth-child(2) {
+    top: 20px;
+    left: 130px;
+  }
+  #tablesImg div ul li:nth-child(3) {
+    top: 20px;
+    left: 200px;
+  }
+  #tablesImg div ul li:nth-child(4) {
+    top: 40px;
+    left: 270px;
+  }
+  #tablesImg div ul li:nth-child(5) {
+    top: 95px;
+    left: 270px;
+  }
+  #tablesImg div ul li:nth-child(12) {
+    top: 320px;
+    left: 270px;
+  }
+  #tablesImg div ul li:nth-child(13) {
+    top: 370px;
+    left: 270px;
+  }
+  #tablesImg div ul li:nth-child(14) {
+    top: 420px;
+    left: 270px;
+  }
+  #tablesImg div ul li:nth-child(6) {
+    top: 130px;
+    left: 100px;
+  }
+  #tablesImg div ul li:nth-child(7) {
+    top: 130px;
+    left: 160px;
+  }
+  #tablesImg div ul li:nth-child(8) {
+    top: 250px;
+    left: 50px;
+  }
+  #tablesImg div ul li:nth-child(9) {
+    top: 320px;
+    left: 130px;
+  }
+  #tablesImg div ul li:nth-child(10) {
+    top: 370px;
+    left: 130px;
+  }
+  #tablesImg div ul li:nth-child(11) {
+    top: 420px;
+    left: 130px;
+  }
+  /* login page*/
+  #loginBlock {
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+    border: 2px solid #a6a6a6;
   }
 }
 
 /*
-div.navbar-collapse.collapse {
-  input for search in menu -----
-  display: block;
-  overflow: hidden;
-  max-height: 0px;
-  -webkit-transition: max-height .3s ease;
-  -moz-transition: max-height .3s ease;
-  -o-transition: max-height .3s ease;
-  transition: max-height .3s ease;
-}
 
-div.navbar-collapse.collapse.in {
-  max-height: 2000px;
-}
-
-div.navbar-header {
-  text-align: center;
-}
-header .navbar {
-  background-color: white;
-}
-header .navbar-fixed-top {
-  background-color: #ACE1AF;
-  background: rgba(172, 225, 175, 0.9);
-
-}
-header .navbar .collapse ul li a {
-  color: #567456;
-}
-header .navbar-fixed-top .collapse ul li a {
-  color: white;
-  font-weight: 600;
-}
-
-/*#map {
-  height: 500px;
-  width:550px;
-}*
-#contactId .col-md-8 #map{
-  width: 80%;
-  margin: auto;
-  height: 500px;
-  width: 550px;
-}
-
-
-
-#imgHome {
-  background-image: url("../img/vegExampleHome.jpg");
-  width: 454px;
-  height: 680px;
-  float: left;
-}
-#textHome {
-  width: 900px;
-}
-
-div.col-sm-12 .col-xs-12 {
-  width: 100%;
-}
-div div#menuId div#menuStyle {
-  text-align: center;
-  font-style: italic;
-  font-size: 150%;
-}
 div div#tableArea {
   margin: auto;
 }

@@ -1,6 +1,6 @@
-<div ng-app="admin">
-    <section ui-view="login">
-        <div ng-controller="loginCtrl">
+<section  ng-app="admin" ui-view="login" >
+    <div id="loginSelection">
+        <div id="loginBlock" ng-controller="loginCtrl">
             <form ng-submit="login()"> <!-- TODO change action action="/api/user" method="post" ___ -->
                 <div class="form-group">
                     <h3><a ui-sref="public.home">Veganska Restaurace</a></h3>
@@ -23,5 +23,5 @@
                 </div>
             </form>
         </div>
-    </section>
-</div>
+    </div>
+</section>

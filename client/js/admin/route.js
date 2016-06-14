@@ -142,31 +142,21 @@ angular.module('veganapp.admin')
             });
     }])
     .run(['$state', '$rootScope', '$location', 'authProvider', function ($state, $rootScope, $location, authProvider) {
-    /*if (!authProvider.isLogged()) {
-        console.log('User is not authenticated');
-    } */
-    //$state.go('admin.home');
-        /*$rootScope.$on('$routeChangeStart', function () {
-            /*var b = authProvider.isLoggedIn();
-            if (b === false) {
-                $location.url('/login');
-            }*
-            authProvider.isLoggedIn()
-                .then(function () {
-                    $location.url('/admin/home');
-                })
-                .catch(function () {
-                    $location.url('/login');
-                });
-        });*/
     }])
-    .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', 'authProvider', function ($scope, $state, $stateParams, $location, authProvider) {
+    .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', 'authProvider', 'userFactory', function ($scope, $state, $stateParams, $location, authProvider, userFactory) {
         
         $scope.logout = function () {
             authProvider.logout()
                 .then(function () {
-                    //todo nutne!!!
                     $location.url('/home');
                 });
         };
+        authProvider.isLoggedIn()
+            .then(function (data) {
+                userFactory.getUserById(data.data)
+                    .success(function (data) {
+                        console.log('Data from server: ', data);
+                        $scope.uzivatel = data;
+                    });
+            });
     }]);

@@ -24,12 +24,12 @@ module.exports = function(app, passport) {
     app.get('/api/dailymenu/day', dailyMenu.enumDay);
     app.get('/api/dailymenu/type', dailyMenu.enumType);
     app.get('/api/dailymenu/sort', dailyMenu.enumSort);
-    app.get('/api/user', auth.checkAuthenticate, users.findAll);
+    app.get('/api/user', auth.checkAuthenticate, users.findAll); //all users
     app.get('/api/table', tables.findAll);
     
     // TODO routes user
-    /*app.get('/api/user/:id', );
-    app.post('/api/user', ); //create user
+    app.get('/api/user/:id', users.findUserById);
+    /*app.post('/api/user', ); //create user
     app.get('/api/user/:id', ); //details of an user
     app.put('/api/user/:id', ); //update
     app.delete('/api/user/:id', ); //delete
