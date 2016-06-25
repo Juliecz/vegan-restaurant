@@ -1,96 +1,134 @@
 angular.module('veganapp.admin')
-    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', function($scope, $state, $stateParams, getMenu){
-    //send action to edit
-    $scope.actions = {
-        new: 'Pridat nove jidlo',
-        edit: 'Upravit jidlo'
-    };
-    //_______________________
-
-
-    //database
-    $scope.dataMenu = {};
-    $scope.typ = {};
-    $scope.trida = {};
-    getMenu.getFood().success(function (data, status) {
-            $scope.dataMenu = data;
-            console.log(status);
-            console.log($scope.dataMenu);
-        });
-    getMenu.getTyp().success(function (data, status) {
-            $scope.typ = data;
-            console.log($scope.typ);
-        });
-    getMenu.getSort().success(function (data, status) {
-            $scope.trida = data;
-            console.log($scope.trida);
-        });
-    //________________________
-
-    $scope.setAction = function (action, id) {
-        $stateParams.action = action;
-        $stateParams.id = id;
-        var res={};
-        if($stateParams.action == 'new') {
-            res = {
-                action: $stateParams.action,
-                actionName: $scope.actions.new,
-                id: $stateParams.id,
-                object: {},
-                menuType: 'menu'
-            };
-            $stateParams.actionName = $scope.actions.new;
-            $state.go('admin.edit', res);
-        }
-        else if($stateParams.action == 'edit') {
-            for (var i = 0; i < $scope.dataMenu.length; i++) {
-                if ($scope.dataMenu[i]._id == $stateParams.id) {
-                    $scope.editFoodObj = $scope.dataMenu[i];
-                    break;
-                }
+    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'drinkMenu', function($scope, $state, $stateParams, getMenu, drinkMenu){
+        $scope.activeTab = 'jidelni';
+        $scope.setTab = function (tab) {
+            $scope.activeTab = tab;
+            if ($scope.activeTab == 'jidelni') {
+                $scope.actions = {
+                    new: 'Přidat nové jídlo',
+                    edit: 'Upravit jídlo'
+                };
             }
-            res = {
-                action: $stateParams.action,
-                actionName: $scope.actions.edit,
-                id: $stateParams.id,
-                object: $scope.editFoodObj,
-                menuType: 'menu'
-            };
-            $state.go('admin.edit/:id', res);
-        }
-        else if($stateParams.action == 'delete') {
-            res = {
-                action: $stateParams.action,
-                actionName: 'delete',
-                id: $stateParams.id
-            };
-            getMenu.removeFood(res.id);
-            getMenu.getFood().success(function (data, status) {
-                $scope.dataMenu = data;
-                console.log(status);
-                console.log($scope.dataMenu);
-            });
-        }
-        console.log(res);
-    };
-    /*$scope.editFood = function (id) {
-
-        var res = {
-            action: 'edit',
-            actionName: 'Upravit jidlo',
-            id: id
+            else {
+                $scope.actions = {
+                    new: 'Přidat nový nápoj',
+                    edit: 'Upravit nápoj'
+                };
+            }
         };
-        console.log(res);
-        if(!res.delete) {
-            $state.go('admin.edit/:id', res);
+
+        //send action to edit
+        if ($scope.activeTab == 'jidelni') {
+            $scope.actions = {
+                new: 'Přidat nové jídlo',
+                edit: 'Upravit jídlo'
+            };
         }
         else {
-            getMenu.removeFood(res.id);
-            getMenu.getFood().success(function (data, status) {
-                $scope.dataMenu = data;
-                console.log(status);
-                console.log($scope.dataMenu);
-            });
+            $scope.actions = {
+                new: 'Přidat nový nápoj',
+                edit: 'Upravit nápoj'
+            };
         }
-    }*/
-}]);
+        //_______________________
+    
+    
+        //database
+        $scope.dataMenu = {};
+        $scope.typ = {};
+        $scope.trida = {};
+        $scope.tridaVar = [];
+        getMenu.getFood().success(function (data, status) {
+                $scope.dataMenu = data;
+            });
+        getMenu.getTyp().success(function (data, status) {
+                $scope.typ = data;
+                //console.log($scope.typ);
+            });
+        getMenu.getSort().success(function (data, status) {
+                $scope.trida = data;
+                //console.log($scope.trida);
+                if ($scope.trida) {
+                    for (var i = 0; i < $scope.trida.length; i++) {
+                        //console.log(i);
+                        if ($scope.trida[i] == 'predkrm') {
+                            $scope.tridaVar.push({
+                                name: 'predkrm',
+                                text: 'Předkrmy'
+                            });
+                        }
+                        else if ($scope.trida[i] == 'hlavni') {
+                            $scope.tridaVar.push({
+                                name: 'hlavni',
+                                text: 'Hlavní chody'
+                            });
+                        }
+                        else if ($scope.trida[i] == 'salat') {
+                            $scope.tridaVar.push({
+                                name: 'salat',
+                                text: 'Saláty'
+                            });
+    
+                        }
+                        else if ($scope.trida[i] == 'dezert') {
+                            $scope.tridaVar.push({
+                                name: 'dezert',
+                                text: 'Dezerty'
+                            });
+                        }
+                    }
+                }
+            });
+        drinkMenu.getDrinks().success(function (data) {
+            $scope.drinks = data;
+        });
+        //________________________
+        
+
+        $scope.setAction = function (action, id, menutype) {
+            $stateParams.action = action;
+            $stateParams.id = id;
+            var res={};
+            if($stateParams.action == 'new') {
+                res = {
+                    action: $stateParams.action,
+                    actionName: $scope.actions.new,
+                    id: $stateParams.id,
+                    object: {},
+                    menuType: menutype
+                };
+                $stateParams.actionName = $scope.actions.new;
+                $state.go('admin.edit', res);
+            }
+            else if($stateParams.action == 'edit') {
+                for (var i = 0; i < $scope.dataMenu.length; i++) {
+                    if ($scope.dataMenu[i]._id == $stateParams.id) {
+                        $scope.editFoodObj = $scope.dataMenu[i];
+                        break;
+                    }
+                }
+                res = {
+                    action: $stateParams.action,
+                    actionName: $scope.actions.edit,
+                    id: $stateParams.id,
+                    object: $scope.editFoodObj,
+                    menuType: menutype
+                };
+                $state.go('admin.edit/:id', res);
+            }
+            else if($stateParams.action == 'delete') {
+                res = {
+                    action: $stateParams.action,
+                    actionName: 'delete',
+                    id: $stateParams.id
+                };
+                getMenu.removeFood(res.id);
+                getMenu.getFood().success(function (data, status) {
+                    $scope.dataMenu = data;
+                    //console.log(status);
+                    //console.log($scope.dataMenu);
+                });
+            }
+            //console.log(res);
+        };
+    }]);

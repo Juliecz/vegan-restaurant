@@ -1,6 +1,6 @@
 <div ng-controller="editCtrl" id="homeAdmin">
-    <div id="divForm" style="{{divForm}}">
-        <form  ng-submit="sendPost()" method="post" style="{{formWidth}}" id="formEdit">
+    <div id="divForm">
+        <form  ng-submit="sendPost()" method="post" id="formEdit">
             <fieldset>
                 <h3>{{action}}</h3>
             </fieldset>
@@ -13,32 +13,48 @@
                 <textarea ng-model="formData.popis" type="text" class="form-control" id="popis" name="popis" placeholder="Food description"></textarea>
             </fieldset>
             <fieldset class="form-group">
-                <label class="sr-only" for="cena">Food name </label>
+                <label class="sr-only" for="cena">Price </label>
                 <input ng-model="formData.cena" type="number" class="form-control" id="cena" name="cena" placeholder="Price">
             </fieldset>
             <fieldset class="form-group">
                 <select class="form-control" ng-model="formData.typMenu" id="typMenu" name="typMenu">
                     <option disabled selected value></option>
-                    <option>{{typMenu[0]}}</option>
-                    <option>{{typMenu[1]}}</option>
+                    <option ng-repeat="x in [0,1,2]">{{typMenu[x]}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group" ng-show="stateTypMenu=='daily'" style="display: none">
+
+
+            <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
                 <select class="form-control" ng-model="formData.den" id="den" name="den">
                     <option disabled selected value></option>
                     <option ng-repeat="d in den">{{d}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group" ng-hide="stateTypMenu=='drink'">
                 <select class="form-control" id="typ" name="typ" ng-model="formData.typ" >
                     <option disabled selected value></option>
                     <option ng-repeat="x in typ" value="{{x}}">{{x}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group" ng-show="stateTypMenu=='menu'">
                 <select class="form-control" id="trida" name="trida" ng-model="formData.trida">
                     <option disabled selected value></option>
                     <option ng-repeat="x in trida" value="{{x}}"> {{x}}</option>
+                </select>
+            </fieldset>
+            <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
+                <select class="form-control" name="tr" id="tr" ng-model="formData.trida">
+                    <option disabled selected value></option>
+                    <option value="Polevka">Polevka</option>
+                    <option value="Hlavni chod">Hlavni chod</option>
+                </select>
+            </fieldset>
+            <fieldset class="form-group" ng-show="stateTypMenu=='drink'">
+                <select class="form-control" name="trid" id="trid" ng-model="formData.trida">
+                    <option disabled selected value></option>
+                    <option>Caj</option>
+                    <option>Kava</option>
+                    <option>Fresh</option>
                 </select>
             </fieldset>
             <fieldset>

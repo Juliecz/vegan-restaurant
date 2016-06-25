@@ -30,8 +30,6 @@ exports.createFood = function (req, res, next) {
             findAllFunc(res);
         }
         });
-    console.log("Req body: " + typeof req.body.foodDescription);
-    //res.send({status: 'success'});
 };
 
 exports.enumType = function (req, res, next) {

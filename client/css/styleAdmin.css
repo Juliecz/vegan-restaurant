@@ -1,9 +1,8 @@
-body {
-    /*background-image: url("../../public/img/background.jpg");*/
-}
-header nav ul li a div.spanClass {
+
+/*header nav ul li a div.spanClass {
     display: block;
 }
+
 #homeAdmin {
     padding-top: 50px;
     margin-left: 16%;
@@ -19,9 +18,9 @@ header nav ul li a div.spanClass {
     border-radius: 0;
     height: 100%;
 }
-.navbar-fixed-left ul li {
+/*.navbar-fixed-left ul li {
     float: none;
-    /*width: 139px;*/
+    /*width: 139px;*
     margin: 0 auto;
     color: white;
     text-align: center;
@@ -43,7 +42,7 @@ table.table.table-hover {
     margin: 0 auto;
     /*margin-left: 50px;*
 
-    /*margin-top: 100px;*/
+    /*margin-top: 100px;*
 }
 div#homeAdmin form#formEdit {
     background-color: white;

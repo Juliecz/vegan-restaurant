@@ -92,7 +92,6 @@ angular.module('veganapp.public')
                     }
                 }
             }
-
         });
         $scope.tabs = [{
             title: 'Polední menu',
@@ -114,4 +113,4 @@ angular.module('veganapp.public')
         $scope.activeTab = function(tabTmp) {
             return tabTmp == $scope.currentTab;
         };
-}]);
+    }]);

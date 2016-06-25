@@ -96,7 +96,8 @@ angular.module('veganapp.admin')
                     'actionName': null,
                     'id': null,
                     'object': {},
-                    'menuType': null
+                    'menuType': null,
+                    'day': null
                 }
             })
             .state('admin.edit/:id', {
@@ -143,7 +144,7 @@ angular.module('veganapp.admin')
     }])
     .run(['$state', '$rootScope', '$location', 'authProvider', function ($state, $rootScope, $location, authProvider) {
     }])
-    .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', 'authProvider', 'userFactory', function ($scope, $state, $stateParams, $location, authProvider, userFactory) {
+    .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', '$window','$document', 'authProvider', 'userFactory', function ($scope, $state, $stateParams, $location, $window, $document, authProvider, userFactory) {
         
         $scope.logout = function () {
             authProvider.logout()
@@ -159,4 +160,45 @@ angular.module('veganapp.admin')
                         $scope.uzivatel = data;
                     });
             });
+        $scope.winSize = $window.innerWidth;
+        $scope.resizeWin = function () {
+            if ($window.innerWidth < 768) {
+                $scope.showLeftMenu = false;
+                $scope.classSmallScreen = 'smallScreen';
+            }
+            else {
+                $scope.showLeftMenu = true;
+                $scope.classSmallScreen = '';
+            }
+        };
+        $scope.resizeWin();
+        $(window).resize(function () {
+            $scope.$apply(function () {
+                $scope.resizeWin();
+                $scope.winSize = $window.innerWidth;
+            });
+        });
+        $scope.showHideLeftMenu = function () {
+            if ($window.innerWidth <768) {
+                if ($scope.showLeftMenu) {
+                    $scope.showLeftMenu = false;
+                }
+                else {
+                    $scope.showLeftMenu = true;
+                }
+
+                if ($scope.classSmallScreen === 'smallScreen') {
+                    $scope.classSmallScreen = '';
+                }
+                else {
+                    $scope.classSmallScreen = 'smallScreen';
+                }
+            }
+        };
+        $scope.clickSection = function () {
+            if ($window.innerWidth < 768) {
+                $scope.showLeftMenu = false;
+                $scope.classSmallScreen = 'smallScreen';
+            }
+        }
     }]);

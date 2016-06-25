@@ -1,8 +1,8 @@
 <div ng-controller="menuCtrl" id="homeAdmin">
     <form class="form-inline">
-        <uib-tabset type="pills">
+        <!--uib-tabset type="pills" class="pills">
             <uib-tab heading="Jidelni listek">
-                <div class="tableMenu">
+                <div class="bigTableBlock"  ng-hide="winSize<768">
                     <table class="table table-hover">
                         <thead class="thead-inverse">
                             <tr>
@@ -35,10 +35,33 @@
                                 <td colspan="2">
                                     <div class="btn-group btn-group-md" role="group">
                                         <button class="btn btn-success" type="submit" ng-click="setAction('new', null);"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                                        <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
                                     </div>
                                 </td>
                             </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="smallTableBlock" ng-show="winSize<768">
+                    <div class="btn-group btn-group-md" role="group">
+                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null);"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                    </div>
+                    <table class="smallTable" ng-repeat="filtrovat in tridaVar">
+                        <tbody>
+                        <tr ng-repeat="x in dataMenu | filter:filtrovat.name">
+                            <td>
+                                <h5> Název</h5>
+                                <div>{{x.foodName}}</div>
+                                <h5>Složení</h5>
+                                <div>{{ x.foodDescription}}</div>
+                                <h5>Cena: {{ x.price}}</h5>
+                                <div>{{x.foodType}} </div>
+                                <div>{{x.foodSort}}</div>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id);"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id);"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                                </div>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -46,6 +69,144 @@
             <uib-tab heading="Napojovy listek">
 
             </uib-tab>
-        </uib-tabset>
+        </uib-tabset-->
+        <div class="tabset">
+            <ul class="tabs">
+                <li ng-click="setTab('jidelni')" ng-class="{active: activeTab=='jidelni'}"><a href="">Jídelní lístek</a></li>
+                <li ng-click="setTab('napojovy')" ng-class="{active: activeTab=='napojovy'}"><a href="">Nápojový lístek</a></li>
+            </ul>
+
+            <div class="tabContent" ng-show="activeTab == 'jidelni'">
+                <div class="bigTableBlock"  ng-hide="winSize<768">
+                    <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
+                            <th class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Složení</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Typ</th>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
+                            <th class="col-lg-2 col-md-1 col-sm-1 col-xs-1">Akce</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in dataMenu" id="{{x._id}}">
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{x.foodName}}</td>
+                            <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4">{{x.foodDescription}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}</td>
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodType}}</td>
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodSort}}</td>
+                            <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"></span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+
+                            </td>
+                            <td colspan="2">
+                                <div class="btn-group btn-group-md" role="group">
+                                    <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                    <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="smallTableBlock" ng-show="winSize<768">
+                    <div class="btn-group btn-group-md" role="group">
+                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                    </div>
+                    <table class="smallTable" ng-repeat="filtrovat in tridaVar">
+                        <tbody>
+                        <tr ng-repeat="x in dataMenu | filter:filtrovat.name">
+                            <td>
+                                <h5> Název</h5>
+                                <div>{{x.foodName}}</div>
+                                <h5>Složení</h5>
+                                <div>{{ x.foodDescription}}</div>
+                                <h5>Cena: {{ x.price}}</h5>
+                                <div>{{x.foodType}} </div>
+                                <div>{{x.foodSort}}</div>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tabContent" ng-show="activeTab == 'napojovy'">
+                <div class="bigTableBlock"  ng-hide="winSize<768">
+                    <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
+                            <th class="col-lg-3 col-md-4 col-sm-4 col-xs-4">Složení</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Typ</th>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
+                            <th class="col-lg-2 col-md-1 col-sm-1 col-xs-1">Akce</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="x in drinks" class="{{x._id}}">
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{x.drinkName}}</td>
+                            <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4">{{x.drinkDescription}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}</td>
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.drinkType}}</td>
+                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.drinkSort}}</td>
+                            <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'drink');"><span class="glyphicon glyphicon-edit"></span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'drink');"><span class="glyphicon glyphicon-trash"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                            </td>
+                            <td colspan="2">
+                                <div class="btn-group btn-group-md" role="group">
+                                    <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                    <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="smallTableBlock" ng-show="winSize<768">
+                    <div class="btn-group btn-group-md" role="group">
+                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                    </div>
+                    <table class="smallTable">
+                        <tbody>
+                        <tr ng-repeat="x in drinks">
+                            <td>
+                                <h5> Název</h5>
+                                <div>{{x.drinkName}}</div>
+                                <h5>Složení</h5>
+                                <div>{{ x.drinkDescription}}</div>
+                                <h5>Cena: {{ x.price}}</h5>
+                                <div>{{x.drinkType}} </div>
+                                <div>{{x.drinkSort}}</div>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'drink');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'drink');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </form>
 </div>

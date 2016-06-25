@@ -2,21 +2,21 @@ var mongoose = require('mongoose'),
     connection = require('../config/database');
 
 var drinkMenuSchema = new mongoose.Schema({
-    foodName: {
+    drinkName: {
         type: String,
         unique: true,
         required: true
     },
-    foodDescription: {
+    drinkDescription: {
         type: String,
         required: true
     },
-    foodType: { //vegan or raw
+    drinkType: { //vegan or raw
         type: String,
         required: true,
-        enum: ["teple", "studene"]
+        enum: ["teply", "studeny"]
     },
-    foodSort: { //predkrm, hladni chod, napoje, dezerty atd.
+    drinkSort: { 
         type: String,
         required: true,
         enum: ["caj", "kava", "fresh"]

@@ -5,6 +5,7 @@ var index = require('../controllers/index'),
     users = require('../controllers/user'),
     tables = require('../controllers/table'),
     dailyMenu = require('../controllers/dailyMenu'),
+    drinks = require('../controllers/drinkMenu'),
     auth = require('../controllers/authenticate'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
@@ -14,12 +15,20 @@ module.exports = function(app, passport) {
     app.get('/', index.render);
     //TODO admin route
     app.get('/admin', admin.render);
+
     app.get('/api/menu', menu.findAll);
     app.post('/api/menu', menu.createFood);
     app.get('/api/menu/type', menu.enumType);
     app.get('/api/menu/sort', menu.enumSort);
     app.put('/api/menu/:id', menu.editFood);
     app.delete('/api/menu/:id', menu.deleteFood);
+
+    app.get('/api/drinkmenu', drinks.findAll);
+    app.put('api/drinkmenu/:id', drinks.editDrink);
+    app.post('api/drinkmenu', drinks.createDrink);
+    app.delete('api/drinkmenu/:id', drinks.deleteDrink);
+
+
     app.get('/api/dailymenu', dailyMenu.findAll);
     app.get('/api/dailymenu/day', dailyMenu.enumDay);
     app.get('/api/dailymenu/type', dailyMenu.enumType);
