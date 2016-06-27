@@ -24,15 +24,22 @@ module.exports = function(app, passport) {
     app.delete('/api/menu/:id', menu.deleteFood);
 
     app.get('/api/drinkmenu', drinks.findAll);
-    app.put('api/drinkmenu/:id', drinks.editDrink);
-    app.post('api/drinkmenu', drinks.createDrink);
-    app.delete('api/drinkmenu/:id', drinks.deleteDrink);
+    app.get('/api/drinkmenu/sort', drinks.enumSort);
+    app.get('/api/drinkmenu/id/:id', drinks.getById);
+    app.put('/api/drinkmenu/:id', drinks.editDrink);
+    app.post('/api/drinkmenu', drinks.createDrink);
+    app.delete('/api/drinkmenu/:id', drinks.deleteDrink);
 
 
     app.get('/api/dailymenu', dailyMenu.findAll);
+    app.get('/api/dailymenu/id/:id', dailyMenu.findById);
     app.get('/api/dailymenu/day', dailyMenu.enumDay);
     app.get('/api/dailymenu/type', dailyMenu.enumType);
     app.get('/api/dailymenu/sort', dailyMenu.enumSort);
+    app.put('/api/dailymenu/:id', dailyMenu.editFood);
+    app.delete('/api/dailymenu/:id', dailyMenu.deleteFood);
+    app.post('/api/dailymenu', dailyMenu.createFood);
+
     app.get('/api/user', auth.checkAuthenticate, users.findAll); //all users
     app.get('/api/table', tables.findAll);
     

@@ -658,6 +658,10 @@ html {
 body {
   overflow-x: hidden;
 }
+.contentAdmin {
+  display: flex;
+  margin-bottom: -80px;
+}
 .contentAdmin table {
   background-color: white;
   margin-bottom: 30px;
@@ -681,10 +685,8 @@ body {
   position: fixed;
   top: 0px;
   border-radius: 0;
-  height: 100%;
-  min-height: 640px;
-  background-color: #999/*ACE1AF*/;
-
+  background-color: #ACE1AF;
+  height: 100vh;
 }
 .navbar-fixed-left ul.nav.navbar-nav {
   margin-top: 30px;
@@ -814,6 +816,84 @@ div.tabset ul.tabs {
   text-align: center;
   margin-bottom: 10px;
 }
+
+/*_________reservations__________*/
+.contentAdmin div {
+  width: 100%;
+}
+#reservationBlock {
+  width: 100%;
+  text-align: center;
+  vertical-align: middle;
+}
+#reservationBlock table {
+  border: 1px solid black;
+}
+#reservationBlock table thead tr.mesic {
+  border-bottom: 1px solid black;
+}
+#reservationBlock table tr.tydne th {
+  text-align: center;
+}
+#reservationBlock table, #reservationBlock div table:nth-child(2) {
+  width: 300px;
+  height: 320px;
+  padding: 0px;
+  margin: auto;
+}
+#reservationBlock table tbody tr td{
+  text-align: center;
+  font-size: 13px;
+  padding: 10px;
+}
+#reservationBlock table thead .mesic th {
+  padding: 10px;
+  text-align: center;
+}
+/*#reservationBlock table {
+  margin: auto;
+}
+#reservationBlock table tr td:first-child {
+  border-right: 1px solid black;
+}
+#reservationBlock table thead tr td:last-child {
+  display: table;
+  width: 100%;
+}
+#reservationBlock table thead tr td div {
+  display: table-cell;
+  width: calc(100%/9);
+}
+#reservationBlock table tr td div.active {
+  background-color: yellow;
+}
+#reservationBlock table thead tr td div:hover {
+  background-color: #bababa;
+}
+#reservationBlock table tr td {
+  vertical-align: middle;
+  text-align: center;
+}
+#monthReservation {
+  background-color: #555;
+  color: white;
+  height: 40px;
+  vertical-align: middle;
+}
+#reservationBlock table tr td div {
+  display: table-cell;
+  height: 100%;
+}*/
+/* _________responsitive_________ */
+
+.seatingChart {
+  width: 300px !important;
+  margin: auto;
+  height: 450px;
+  border: 1px solid #999;
+  background-color: #eee;
+}
+
 @media screen and (min-width: 1200px) {
   .navbar-fixed-top {
     -webkit-flex-direction: row;
@@ -829,6 +909,21 @@ div.tabset ul.tabs {
     margin-left: 260px;
     margin-top: 35px;
     width: calc(100vw - 275px);
+  }
+  #reservationBlock div {
+    width: 50%;
+  }
+  #reservationBlock div:first-child table {
+    float: right;
+    margin-right: 40px;
+  }
+  #reservationBlock div:last-child {
+    float: left;
+  }
+  #reservationBlock table {
+    width: 285px;
+    margin: auto;
+    margin-bottom: 13px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -846,6 +941,41 @@ div.tabset ul.tabs {
     margin-left: 210px;
     margin-top: 35px;
     width: calc(100vw - 225px);
+  }
+  #reservationBlock div {
+    width: 50%;
+  }
+  #reservationBlock div:first-child table {
+    float: right;
+    margin-right: 40px;
+  }
+  #reservationBlock div:last-child {
+    float: left;
+  }
+  #reservationBlock table {
+    width: 285px;
+    margin: auto;
+    margin-bottom: 13px;
+  }
+  .seatingChart {
+    width: 300px !important;
+    margin: auto;
+    height: 450px;
+  }
+}
+@media screen and (max-width: 875px) {
+  #reservationBlock div {
+    width: 100%;
+  }
+  #reservationBlock table, #reservationBlock div div {
+    float: none !important;
+    margin: auto !important;
+  }
+  #reservationBlock table {
+    width: 285px;
+  }
+  #reservationBlock div:first-child {
+    margin-bottom: 15px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -878,11 +1008,22 @@ div.tabset ul.tabs {
   .smallTable {
     width: 76%;
   }
+  .contentAdmin div form {
+    width: 100vw;
+  }
   div.tabset ul.tabs {
     width: 100%;
     margin: auto;
     text-align: center;
     margin-bottom: 10px;
+  }
+  #reservationBlock div {
+    width: 100%;
+  }
+  #reservationBlock table {
+    width: 285px;
+    margin: auto;
+    margin-bottom: 13px;
   }
 }
 @media screen and (max-width: 400px) {
@@ -896,7 +1037,6 @@ div.tabset ul.tabs {
   }
   .navbar-fixed-left {
     width: 200px !important;
-    height: 100vh;
   }
   .navbar-fixed-left ul li, .navbar-fixed-left ul li a {
     width: 200px !important;
@@ -919,5 +1059,13 @@ div.tabset ul.tabs {
     margin: auto;
     padding: 7px;
     text-align: center;
+  }
+  #reservationBlock {
+    width: 100%;
+  }
+  #reservationBlock table {
+    width: 285px;
+    margin: auto;
+    margin-bottom: 13px;
   }
 }

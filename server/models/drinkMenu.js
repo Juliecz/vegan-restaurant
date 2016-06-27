@@ -11,15 +11,15 @@ var drinkMenuSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    drinkType: { //vegan or raw
+    /*drinkType: { //vegan or raw
         type: String,
         required: true,
         enum: ["teply", "studeny"]
-    },
+    },*/
     drinkSort: { 
         type: String,
         required: true,
-        enum: ["caj", "kava", "fresh"]
+        enum: ["caj", "kava", "fresh", "limonada"]
     },
     price: {
         type: Number,

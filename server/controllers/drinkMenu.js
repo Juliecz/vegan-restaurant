@@ -11,6 +11,12 @@ function FindAll(res) {
 exports.findAll = function (req, res, next) {
     FindAll(res);
 };
+exports.getById = function (req, res) {
+    Drink.findById(req.params.id, function (err, data) {
+        if(err) { res.send(err); }
+        else { res.json(data); }
+    });
+};
 exports.createDrink = function (req, res) {
     var drink = Drink({
         drinkName: req.body.drinkName,
@@ -20,8 +26,8 @@ exports.createDrink = function (req, res) {
         price: req.body.price
     });
     drink.save(function (err, menu) {
-        if(err) res.send(err);
-        else FindAll(res);
+        if(err) { res.send(err); }
+        else { FindAll(res); }
     });
 };
 exports.deleteDrink = function (req, res) {
@@ -35,4 +41,9 @@ exports.editDrink = function (req, res) {
         if (err) res.send(err);
         else FindAll(res);
     });
+};
+exports.enumSort = function (req, res, next) {
+    var arr = Drink.schema.path('drinkSort').enumValues;
+    res.send(JSON.stringify(arr));
+    //res.sendStatus(404);
 };

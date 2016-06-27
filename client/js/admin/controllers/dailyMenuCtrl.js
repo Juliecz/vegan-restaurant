@@ -31,7 +31,6 @@ angular.module('veganapp.admin')
                 name: 'Pátek'
             }
         ];
-        $scope.winSize = $window.innerWidth;
         //_______________________
         dailyMenuAdmin.getDay().success(function (data, status) {
             $scope.datum = data;
@@ -39,8 +38,6 @@ angular.module('veganapp.admin')
         });
         dailyMenuAdmin.getDailyMenu().success(function (data, status) {
             $scope.data = data;
-            console.log(data);
-            console.log(status);
             if($scope.data) {
                 if($scope.datum) {
                     for (var i=0; i<$scope.day.length; i++) {
@@ -66,29 +63,32 @@ angular.module('veganapp.admin')
                 res = {
                     action: $stateParams.action,
                     actionName: $scope.actions.new,
-                    id: $stateParams.id,
+                    id: id,
                     object: {},
-                    menuType: 'daily'
+                    menuType: 'daily',
+                    day: $scope.activeTab
                 };
                 $stateParams.actionName = $scope.actions.new;
                 $state.go('admin.edit', res);
             }
             else if($stateParams.action == 'edit') {
-                for (var i = 0; i < $scope.data.length; i++) {
+                /*for (var i = 0; i < $scope.data.length; i++) {
                     if ($scope.data[i]._id == $stateParams.id) {
                         $scope.editFoodObj = $scope.dataMenu[i];
                         break;
                     }
-                }
-                res = {
-                    action: $stateParams.action,
-                    actionName: $scope.actions.edit,
-                    id: $stateParams.id,
-                    object: $scope.editFoodObj,
-                    menuType: 'daily'
-                };
-                console.log(res);
-                //$state.go('admin.edit/:id', res);
+                }*/
+                dailyMenuAdmin.getById(id)
+                    .success(function (data, status) {
+                        res = {
+                            action: $stateParams.action,
+                            actionName: $scope.actions.edit,
+                            id: id,
+                            object: data,
+                            menuType: 'daily'
+                        };
+                        $state.go('admin.edit/:id', res);
+                    });
             }
             else if($stateParams.action == 'delete') {
                 /*res = {

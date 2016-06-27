@@ -5,7 +5,6 @@ var connection = require('../config/database'),
 function findAllFunc(res) {
     Menu.find(function(err, data) {
         if (err) res.send(err);
-        console.log(data);
         res.json(data);
     });
 }
@@ -44,9 +43,9 @@ exports.enumSort = function (req, res, next) {
 exports.deleteFood = function (req, res, next) {
     Menu.findByIdAndRemove(req.params.id, function (err) {
         if(err) { console.log(err); res.send(err); }
-        else { console.log('Data remove: ', req.params.id); findAllFunc(res); }
+        else {  findAllFunc(res); }
     });
-    console.log('Data req body: ', req.params.id);
+    //console.log('Data req body: ', req.params.id);
 };
 exports.editFood = function (req, res) {
     Menu.findByIdAndUpdate(req.body.id, {$set: req.body}, function (err, result) {
@@ -55,5 +54,5 @@ exports.editFood = function (req, res) {
             findAllFunc(res);
         }
     });
-    console.log('Edit food params ', req.params, 'Req body: ', req.body);
+    //console.log('Edit food params ', req.params, 'Req body: ', req.body);
 };

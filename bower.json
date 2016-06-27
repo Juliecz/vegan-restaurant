@@ -1,5 +1,6 @@
-//todo remove this file
 
+
+/*
 {
   "name": "veganRestaurant",
   "directory": "client/bower_components",
@@ -8,7 +9,7 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
+    "** /.*",
     "node_modules",
     "bower_components",
     "lib",
@@ -22,3 +23,4 @@
     "angular": "^1.5.5"
   }
 }
+*/

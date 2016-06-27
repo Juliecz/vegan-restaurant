@@ -1,8 +1,11 @@
-<div ng-controller="editCtrl" id="homeAdmin">
+<div ng-controller="editCtrl">
     <div id="divForm">
         <form  ng-submit="sendPost()" method="post" id="formEdit">
             <fieldset>
-                <h3>{{action}}</h3>
+                <h3>{{ action }}</h3>
+                <h5>
+                    {{formData}}
+                </h5>
             </fieldset>
             <fieldset class="form-group">
                 <label class="sr-only" for="jmeno">Food name </label>
@@ -17,9 +20,9 @@
                 <input ng-model="formData.cena" type="number" class="form-control" id="cena" name="cena" placeholder="Price">
             </fieldset>
             <fieldset class="form-group">
-                <select class="form-control" ng-model="formData.typMenu" id="typMenu" name="typMenu">
+                <select class="form-control" ng-model="formData.typMenu" id="typM" name="typM">
                     <option disabled selected value></option>
-                    <option ng-repeat="x in [0,1,2]">{{typMenu[x]}}</option>
+                    <option ng-repeat="x in [0,1,2]" >{{typMenu[x]}}</option>
                 </select>
             </fieldset>
 
@@ -27,7 +30,7 @@
             <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
                 <select class="form-control" ng-model="formData.den" id="den" name="den">
                     <option disabled selected value></option>
-                    <option ng-repeat="d in den">{{d}}</option>
+                    <option ng-repeat="d in den" value="{{d}}">{{d}}</option>
                 </select>
             </fieldset>
             <fieldset class="form-group" ng-hide="stateTypMenu=='drink'">
@@ -45,16 +48,14 @@
             <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
                 <select class="form-control" name="tr" id="tr" ng-model="formData.trida">
                     <option disabled selected value></option>
-                    <option value="Polevka">Polevka</option>
-                    <option value="Hlavni chod">Hlavni chod</option>
+                    <option value="polevka">polevka</option>
+                    <option value="hlavni">hlavni chod</option>
                 </select>
             </fieldset>
             <fieldset class="form-group" ng-show="stateTypMenu=='drink'">
                 <select class="form-control" name="trid" id="trid" ng-model="formData.trida">
                     <option disabled selected value></option>
-                    <option>Caj</option>
-                    <option>Kava</option>
-                    <option>Fresh</option>
+                    <option ng-repeat="tridaN in sortDrink" value="{{tridaN}}">{{tridaN}}</option>
                 </select>
             </fieldset>
             <fieldset>

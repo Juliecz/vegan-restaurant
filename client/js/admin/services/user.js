@@ -7,7 +7,8 @@ angular.module('veganapp.admin')
                         this.jsonData = data;
                     });
             }
-            /*getFood: function () {
+            /*todo delete 
+            getFood: function () {
                 return $http.get('/api/menu')
                     .success(function (data) {
                         this.jsonData = data;
