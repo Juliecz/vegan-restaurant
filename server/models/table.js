@@ -9,11 +9,7 @@ var tableSchema = new mongoose.Schema({
     seatingNum: {
         type: String,
         required: true,
-        enum: ["two", "four"]
-    },
-    smoking: {
-        type: Boolean,
-        requred: true
+        enum: ["two", "four", "six"]
     }
 });
 /*

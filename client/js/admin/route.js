@@ -42,7 +42,7 @@ angular.module('veganapp.admin')
                 url: '/user',
                 views: {
                     'admin' : {
-                        templateUrl: '/views/admin/user.html',
+                        templateUrl: '/views/admin/me.html',
                         controller: 'userCtrl'
                     }
                 }

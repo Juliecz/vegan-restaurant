@@ -25,11 +25,19 @@ var userSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true
+        required: false
+    },
+    phoneEmail: {
+        type: Boolean,
+        required: false
     },
     phone: {
-        type: Number,
-        required: true
+        type: String,
+        required: false
+    },
+    phoneMessage: {
+        type: Boolean,
+        required: false
     },
     created: {
         type: Date,

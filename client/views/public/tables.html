@@ -77,8 +77,8 @@
                 </div>
             </div>
         </div>
-        <div id="tablesImg">
-            <div>
+        <!--div id="tablesImg">
+            <!--div>
                 <img src="../../img/restaurantMap.png" alt="Mapa restauraci">
                 <ul id="listTables">
                     <li  ng-repeat="stul in dataTable"  ng-class="stul.seatingNum">
@@ -87,6 +87,18 @@
                     </li>
                 </ul>
             </div>
+
+        </div-->
+        <div class="seatingChart">
+            <ul>
+                <li  ng-repeat="stul in tables"  ng-class="stul.seatingNum">
+                    <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
+                    <label for="{{stul._id}}">{{stul.name}}</label>
+                </li>
+                <li class="bar"> <input type="checkbox"  id="bar"/>
+                    <label for="bar"></label>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

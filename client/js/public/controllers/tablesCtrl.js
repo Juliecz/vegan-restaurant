@@ -80,7 +80,8 @@ angular.module('veganapp.public')
             return '';
         }*/
         getTable.getTables().success(function (data, status) {
-            $scope.dataTable = data;
+            //$scope.dataTable = data;
+            $scope.tables = data;
         });
     
         $scope.myNumber = 5;

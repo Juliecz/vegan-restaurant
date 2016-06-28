@@ -29,7 +29,7 @@
             </tbody>
         </table-->
         <div>
-            <table>
+            <table class="calendar">
                 <thead>
                 <tr class="mesic">
                     <th colspan="2" ng-click="prevMonth(today.getMonth())"><a href=""><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a></th>
@@ -55,7 +55,15 @@
         </div>
         <div>
             <div class="seatingChart">
-                kjjhk
+                <ul>
+                    <li  ng-repeat="stul in tables"  ng-class="stul.seatingNum">
+                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
+                        <label for="{{stul._id}}">{{stul.name}}</label>
+                    </li>
+                    <li class="bar"> <input type="checkbox"  id="bar"/>
+                        <label for="bar"></label>
+                    </li>
+                </ul>
             </div>
         </div>
 

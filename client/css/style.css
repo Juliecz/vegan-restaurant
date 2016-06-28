@@ -164,7 +164,7 @@ section #loginSelection > #loginBlock {
   margin: auto;
 }
 /* TODO if map is image */
-#tablesImg {
+/*#tablesImg {
   width: 100%;
 }
 #tablesImg div {
@@ -662,9 +662,12 @@ body {
   display: flex;
   margin-bottom: -80px;
 }
-.contentAdmin table {
+.contentAdmin table:not(.calendar) {
   background-color: white;
   margin-bottom: 30px;
+}
+.contentAdmin table.calendar tr:not(.tydne) {
+  background-color: white;
 }
 .navbar-fixed-top {
   min-height: 30px;
@@ -826,11 +829,8 @@ div.tabset ul.tabs {
   text-align: center;
   vertical-align: middle;
 }
-#reservationBlock table {
+#reservationBlock table  {
   border: 1px solid black;
-}
-#reservationBlock table thead tr.mesic {
-  border-bottom: 1px solid black;
 }
 #reservationBlock table tr.tydne th {
   text-align: center;
@@ -884,7 +884,6 @@ div.tabset ul.tabs {
   display: table-cell;
   height: 100%;
 }*/
-/* _________responsitive_________ */
 
 .seatingChart {
   width: 300px !important;
@@ -892,7 +891,88 @@ div.tabset ul.tabs {
   height: 450px;
   border: 1px solid #999;
   background-color: #eee;
+  position: relative;
 }
+.seatingChart ul li {
+  list-style: none;
+  padding: 0px;
+  margin-left: -30px;
+}
+.seatingChart ul li input[type=checkbox] {
+  display: none;
+}
+.seatingChart ul li.bar input[type=checkbox] + label {
+  background-image: url("../img/seatingChart/bar.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 163px;
+  top: -40px;
+  margin: auto;
+  position: relative;
+}
+.seatingChart ul li.two input[type=checkbox] + label {
+  background-image: url("../img/seatingChart/two.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+.seatingChart ul li.four input[type=checkbox] + label {
+  background-image: url("../img/seatingChart/four.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 100px;
+  position: relative;
+}
+.seatingChart ul li.six input[type=checkbox] + label {
+  background-image: url("../img/seatingChart/six.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 80px;
+  width: 80px;
+  position: absolute;
+}
+.seatingChart ul li:nth-child(8) input[type=checkbox] + label {
+  top: -20px;
+  left: 120px;
+}
+.seatingChart ul li:nth-child(5) input[type=checkbox] + label {
+  top: 145px;
+  left: -125px;
+}
+.seatingChart ul li:nth-child(7) input[type=checkbox] + label {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  left: 115px;
+  top: -73px;
+}
+.seatingChart ul li:nth-child(6) input[type=checkbox] + label {
+  top: 30px;
+}
+.seatingChart ul li:nth-child(4) input[type=checkbox] + label {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  transform: rotate(90deg);
+  left: -125px;
+  top: 93px;
+}
+.seatingChart ul li:nth-child(3) input[type=checkbox] + label {
+  top: 40px;
+  left: 120px;
+}
+.seatingChart ul li:nth-child(2) input[type=checkbox] + label {
+  top: 5px;
+  left: 70px;
+}
+.seatingChart ul li:nth-child(1) input[type=checkbox] + label {
+  top: 85px;
+  left: 100px;
+}
+/* _________responsitive_________ */
 
 @media screen and (min-width: 1200px) {
   .navbar-fixed-top {
@@ -1067,5 +1147,8 @@ div.tabset ul.tabs {
     width: 285px;
     margin: auto;
     margin-bottom: 13px;
+  }
+  .seatingChart {
+    width: 296px!important;
   }
 }
