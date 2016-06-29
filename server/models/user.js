@@ -27,12 +27,12 @@ var userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    phoneEmail: {
+    emailMessage: {
         type: Boolean,
-        required: false
+        required: true
     },
     phone: {
-        type: String,
+        type: Number,
         required: false
     },
     phoneMessage: {

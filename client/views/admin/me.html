@@ -1,5 +1,27 @@
-<div ng-controller="userCtrl">
-    <h1>
-        {{ id}}
-    </h1>
+<div>
+    <div id="personalBlock">
+        <h3> {{ me.name }} {{me.surname}} </h3>
+        <h5>
+            {{ me.phone }}
+            <button class="btn btn-default btn-xs"> Change phone number </button>
+        </h5>
+        <h5>
+            {{ me.email }}
+            <button class="btn btn-default btn-xs"> Change email </button>
+        </h5>
+        <h5>
+            <div class="checkbox">
+                <label> <input type="checkbox">phone message </label>
+            </div>
+            <div class="checkbox">
+                <select name="" id="" ng-model-options="ch">
+                    <option ng-repeat="x in ch" value="{{x}}">{{x}}</option>
+                </select>
+            </div>
+        </h5>
+        <h1 ng-show="a=='one'"> one </h1>
+        <h1 ng-show="a=='two'"> two </h1>
+        <h1 ng-show="a=='three'"> three </h1>
+
+    </div>
 </div>

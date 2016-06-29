@@ -972,6 +972,15 @@ div.tabset ul.tabs {
   top: 85px;
   left: 100px;
 }
+
+.bigTableBlock table tr.me {
+  background-color: #dcfad3;
+}
+#personalBlock {
+  background-color: white;
+  border: 1px solid #555555;
+  text-align: center;
+}
 /* _________responsitive_________ */
 
 @media screen and (min-width: 1200px) {

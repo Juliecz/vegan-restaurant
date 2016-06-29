@@ -35,7 +35,7 @@ exports.editFood = function (req, res) {
                 res.json(data);
             });*/
         }
-    })
+    });
 };
 exports.deleteFood = function (req, res) {
     DailyMenu.findByIdAndRemove(req.params.id, function (err, result) {
@@ -46,7 +46,7 @@ exports.deleteFood = function (req, res) {
                 res.json(data);
             });
         }
-    })
+    });
 };
 exports.createFood = function (req, res) {
     var price = Number(req.body.price);

@@ -86,6 +86,7 @@ angular.module('veganapp.admin')
         
 
         $scope.setAction = function (action, id, menutype) {
+            //TODO STATE PARAMS ????
             $stateParams.action = action;
             $stateParams.id = id;
             var res={};
@@ -125,8 +126,6 @@ angular.module('veganapp.admin')
                 getMenu.removeFood(res.id);
                 getMenu.getFood().success(function (data, status) {
                     $scope.dataMenu = data;
-                    //console.log(status);
-                    //console.log($scope.dataMenu);
                 });
             }
             //console.log(res);

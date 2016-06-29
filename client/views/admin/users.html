@@ -1,68 +1,67 @@
 <div ng-controller="usersCtrl">
-    <div class="tabContent" ng-show="activeTab == 'jidelni'">
-        <div class="bigTableBlock"  ng-hide="winSize<768">
-            <table class="table table-hover">
-                <thead class="thead-inverse">
-                <tr>
-                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
-                    <th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Složení</th>
-                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
-                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Typ</th>
-                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
-                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr id="">
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" ></td>
-                    <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4"></td>
-                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></td>
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></td>
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></td>
-                    <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"></span></button>
-                            <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"></span></button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
+    <div class="bigTableBlock" ng-hide="winSize<768">
+        <table class="table table-hover">
+            <thead class="thead-inverse">
+            <tr>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Username</th>
+                <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Jméno</th>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Příjmení</th>
+                <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Role</th>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Tel.číslo</th>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Email</th>
+                <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr id="" ng-repeat="uzivatel in users" ng-class="{me: uzivatel._id == me._id}">
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{uzivatel.username}}</td>
+                <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{uzivatel.name}}</td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{uzivatel.surname}}</td>
+                <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{uzivatel.role}}</td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{uzivatel.phone}}</td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{uzivatel.email}}</td>
+                <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <div class="btn-group btn-group-sm" role="group" ng-hide="uzivatel._id == me._id">
+                        <button class="btn btn-default" ng-click="setAction('edit', uzivatel._id, 'user');"><span class="glyphicon glyphicon-edit"></span></button>
+                        <button class="btn btn-default" ng-click="setAction('delete', uzivatel._id, 'user');"><span class="glyphicon glyphicon-trash"></span></button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
 
-                    </td>
-                    <td colspan="2">
-                        <div class="btn-group btn-group-md" role="group">
-                            <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                            <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+                </td>
+                <td colspan="2">
+                    <div class="btn-group btn-group-md" role="group">
+                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'user');"><span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="smallTableBlock" ng-show="winSize<768">
+        <div class="btn-group btn-group-md" role="group">
+            <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span></button>
         </div>
-        <div class="smallTableBlock" ng-show="winSize<768">
-            <div class="btn-group btn-group-md" role="group">
-                <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-            </div>
-            <table class="smallTable" ng-repeat="filtrovat in tridaVar">
-                <tbody>
-                <tr ng-repeat="x in dataMenu | filter:filtrovat.name">
-                    <td>
-                        <h5> Název</h5>
-                        <div>{{x.foodName}}</div>
-                        <h5>Složení</h5>
-                        <div>{{ x.foodDescription}}</div>
-                        <h5>Cena: {{ x.price}}</h5>
-                        <div>{{x.foodType}} </div>
-                        <div>{{x.foodSort}}</div>
-                        <div class="btn-group btn-group-sm" role="group">
-                            <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
-                            <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
-                        </div>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="smallTable" >
+            <tbody>
+            <tr>
+                <td>
+                    <h5> Název</h5>
+                    <div></div>
+                    <h5>Složení</h5>
+                    <div></div>
+                    <h5>Cena: </h5>
+                    <div> </div>
+                    <div></div>
+                    <div class="btn-group btn-group-sm" role="group">
+                        <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
+                        <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>

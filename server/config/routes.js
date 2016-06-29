@@ -41,15 +41,13 @@ module.exports = function(app, passport) {
     app.post('/api/dailymenu', dailyMenu.createFood);
 
     app.get('/api/user', auth.checkAuthenticate, users.findAll); //all users
+    app.get('/api/user/:id', users.findUserById);
+    app.post('/api/user', users.createUser);
+    app.put('/api/user/:id', users.editUser);
+    app.delete('/api/user/:id', users.deleteUser);
+
     app.get('/api/table', tables.findAll);
     
-    // TODO routes user
-    app.get('/api/user/:id', users.findUserById);
-    /*app.post('/api/user', ); //create user
-    app.get('/api/user/:id', ); //details of an user
-    app.put('/api/user/:id', ); //update
-    app.delete('/api/user/:id', ); //delete
-    */
     app.post('/api/login', passport.authenticate('local'), auth.login);
     app.get('/api/logged', auth.logged);
     app.get('/api/logout', auth.logout);

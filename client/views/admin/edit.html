@@ -1,6 +1,6 @@
 <div ng-controller="editCtrl">
     <div id="divForm">
-        <form  ng-submit="sendPost()" method="post" id="formEdit">
+        <form ng-submit="sendPost()" method="post" id="formEdit" ng-show="formData.typMenu != 'user'">
             <fieldset>
                 <h3>{{ action }}</h3>
                 <h5>
@@ -22,44 +22,82 @@
             <fieldset class="form-group">
                 <select class="form-control" ng-model="formData.typMenu" id="typM" name="typM">
                     <option disabled selected value></option>
-                    <option ng-repeat="x in [0,1,2]" >{{typMenu[x]}}</option>
+                    <option ng-repeat="x in [0,1,2]" value="{{typMenuId[x]}}">{{typMenu[x]}}</option>
                 </select>
             </fieldset>
 
 
-            <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
+            <fieldset class="form-group" ng-show="formData.typMenu=='daily'">
                 <select class="form-control" ng-model="formData.den" id="den" name="den">
                     <option disabled selected value></option>
                     <option ng-repeat="d in den" value="{{d}}">{{d}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group" ng-hide="stateTypMenu=='drink'">
+            <fieldset class="form-group" ng-hide="formData.typMenu=='drink'">
                 <select class="form-control" id="typ" name="typ" ng-model="formData.typ" >
                     <option disabled selected value></option>
                     <option ng-repeat="x in typ" value="{{x}}">{{x}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group" ng-show="stateTypMenu=='menu'">
+            <fieldset class="form-group" ng-show="formData.typMenu=='menu'">
                 <select class="form-control" id="trida" name="trida" ng-model="formData.trida">
                     <option disabled selected value></option>
                     <option ng-repeat="x in trida" value="{{x}}"> {{x}}</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group" ng-show="stateTypMenu=='daily'">
+            <fieldset class="form-group" ng-show="formData.typMenu=='daily'">
                 <select class="form-control" name="tr" id="tr" ng-model="formData.trida">
                     <option disabled selected value></option>
                     <option value="polevka">polevka</option>
                     <option value="hlavni">hlavni chod</option>
                 </select>
             </fieldset>
-            <fieldset class="form-group" ng-show="stateTypMenu=='drink'">
+            <fieldset class="form-group" ng-show="formData.typMenu=='drink'">
                 <select class="form-control" name="trid" id="trid" ng-model="formData.trida">
                     <option disabled selected value></option>
                     <option ng-repeat="tridaN in sortDrink" value="{{tridaN}}">{{tridaN}}</option>
                 </select>
             </fieldset>
             <fieldset>
-                <button class="btn btn-success center-block" type="submit"><span class="glyphicon glyphicon-ok"> &nbsp;Ulozit</span></button>
+                <button class="btn btn-success center-block" type="submit"><span class="glyphicon glyphicon-ok"> &nbsp;Uložit</span></button>
+            </fieldset>
+        </form>
+        <form ng-show="formData.typMenu == 'user'" ng-submit="sendPost()">
+            <fieldset>
+                <h3>{{ action }}</h3>
+                <h5>
+                    {{formData}}
+                </h5>
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="sr-only" for="uzivJm"> Username </label>
+                <input ng-model="formData.uzivJm" type="text" class="form-control" id="uzivJm" name="uzivJm" placeholder="Username">
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="sr-only" for="jm"> Jméno </label>
+                <input ng-model="formData.jm" type="text" class="form-control" id="jm" name="jm" placeholder="Name">
+            </fieldset>
+            <fieldset class="form-group">
+                <label class="sr-only" for="prijm"> Příjmení </label>
+                <input ng-model="formData.prijm" type="text" class="form-control" id="prijm" name="prijm" placeholder="Surname">
+            </fieldset>
+            <fieldset  class="form-group">
+                <label for="phone" class="sr-only"> Tel. číslo </label>
+                <input type="text" ng-model="formData.phone" class="form-control" id="phone" name="phone" placeholder="Phone">
+            </fieldset>
+            <fieldset  class="form-group">
+                <label for="email" class="sr-only"> Email </label>
+                <input type="text" ng-model="formData.email" class="form-control" id="email" name="email" placeholder="Email" required>
+            </fieldset>
+            <fieldset class="form-group">
+                <select class="form-control" name="role" id="role" ng-model="formData.role">
+                    <option disabled selected value> </option>
+                    <option value="admin">admin</option>
+                    <option value="employee">employee</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <button class="btn btn-success center-block" type="submit"><span class="glyphicon glyphicon-ok"> &nbsp;Uložit</span></button>
             </fieldset>
         </form>
     </div>
