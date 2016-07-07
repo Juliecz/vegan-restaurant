@@ -24,11 +24,8 @@ exports.createFood = function (req, res, next) {
     });
     menu.save(function (err, menu) {
         if(err) { res.send(err); }
-        else {
-            console.log(menu);
-            findAllFunc(res);
-        }
-        });
+        findAllFunc(res);
+    });
 };
 
 exports.enumType = function (req, res, next) {
@@ -42,17 +39,11 @@ exports.enumSort = function (req, res, next) {
 
 exports.deleteFood = function (req, res, next) {
     Menu.findByIdAndRemove(req.params.id, function (err) {
-        if(err) { console.log(err); res.send(err); }
-        else {  findAllFunc(res); }
+        if(err) { res.send(err); }
     });
-    //console.log('Data req body: ', req.params.id);
 };
 exports.editFood = function (req, res) {
     Menu.findByIdAndUpdate(req.body.id, {$set: req.body}, function (err, result) {
-        if(err) { console.log(err); res.send(err);}
-        else {
-            findAllFunc(res);
-        }
+        if(err) { res.send(err);}
     });
-    //console.log('Edit food params ', req.params, 'Req body: ', req.body);
 };

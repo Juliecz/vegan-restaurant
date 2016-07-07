@@ -1,5 +1,5 @@
-<div ng-controller="menuCtrlP" id="menuMainBlock">
-    <div id="menuTabs">
+<div ng-controller="menuCtrlP" id="menuMainBlock" class="flex">
+    <!--div id="menuTabs">
         <nav>
             <div ng-repeat="tab in tabs" ng-class="{active:activeTab(tab.template)}"
                  ng-click="onclickTab(tab)">
@@ -13,7 +13,7 @@
         </div>
     </div>
     <div id="menuPublicContent">
-        <script type="text/ng-template" id="poledni">
+        <div type="text/ng-template" id="poledni">
             <div ng-hide="!vikend" ng-show="vikend">{{todayStr}}</div>
             <div ng-show="!vikend" ng-hide="vikend" class="menuList">
                 <ul>
@@ -24,8 +24,8 @@
                     </li>
                 </ul>
             </div>
-        </script>
-        <script type="text/ng-template" id="jidelni">
+        </div>
+        <div type="text/ng-template" id="jidelni">
             <div id="menuId"  class="menuList">
                 <ul id="publicMenu">
                     <li ng-repeat="x in tridaVar" > <div class="menuTrida"><h3>{{x.text}}</h3></div>
@@ -35,11 +35,56 @@
                     </li>
                 </ul>
             </div>
-        </script>
-        <script type="text/ng-template" id="napojovy">
+        </div>
+        <div type="text/ng-template" id="napojovy">
             <div  class="menuList">
                 <h1> Napojovy  tmp</h1>
             </div>
-        </script>
+        </div>
+    </div-->
+
+    <div id="dailyMenuBlock">
+        <div>
+            <h4>{{ tabs[0].title }}</h4>
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="p in poledni">
+                    <td>{{p.foodType}}</td>
+                    <td>{{p.foodName}}</td>
+                    <td>{{p.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+    <div id="menuBlock">
+        <div class="tabset">
+            <ul class="tabs">
+                <li ng-click="setTab(tabs[1].template)" ng-class="{active: activeTab=='jidelni'}"><a href="">Jídelní lístek</a></li>
+                <li ng-click="setTab(tabs[2].template)" ng-class="{active: activeTab=='napojovy'}"><a href="">Nápojový lístek</a></li>
+            </ul>
+        </div>
+        <div class="tabContent" ng-show="activeTab == 'jidelni'">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="f in data">
+                    <td>{{f.foodType}}</td>
+                    <td>{{f.foodName}}</td>
+                    <td>{{f.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="tabContent" ng-show="activeTab == 'napojovy'">
+            <table class="table">
+                <tbody>
+                <tr ng-repeat="n in napojovy">
+                    <td>{{n.drinkName}}</td>
+                    <td>{{n.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>

@@ -1,31 +1,5 @@
 <div ng-controller="tablesCtrl">
     <div id="tableArea" class="flex">
-        <!--div id="calendar1" class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
-            <pre>Selected date is: {{data | date:'fullDate' }}</pre>
-            <div style="display:inline-block; min-width:200px;">
-                <uib-datepicker ng-model="data" class="well well-xs" datepicker-options="inlineOptions"></uib-datepicker>
-            </div>
-
-            <div>
-                <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
-                <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
-            </div>
-
-            <div style="width: 306px">
-                <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
-            </div>
-        </div>
-        <div id="restaurantMapId" class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
-            <div id="restaurantMapSize">
-                <!--img id="restaurantMapImg" src="/public/img/restaurantMap.png" alt="mapa restaurace"->
-                <ul id="listTables">
-                    <li  ng-repeat="stul in dataTable" >
-                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
-                        <label for="{{stul._id}}">{{stul.name}}</label>
-                    </li>
-                </ul>
-            </div>
-        </div-->
         <div id="calendar">
             <div>
                 <table ng-show="!showSecondTable">
@@ -69,36 +43,137 @@
                         </tr>
                     </tbody>
                 </table>
-                <div>
-                    <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
-                    <input type="text">
-                    <h4> First day in week: {{ firstDayInWeek.getDay() }}</h4>
-                    <h4> Last day in week: {{ lastDayInWeek }} </h4>
-                </div>
+
+
             </div>
         </div>
-        <!--div id="tablesImg">
-            <!--div>
-                <img src="../../img/restaurantMap.png" alt="Mapa restauraci">
-                <ul id="listTables">
-                    <li  ng-repeat="stul in dataTable"  ng-class="stul.seatingNum">
-                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
-                        <label for="{{stul._id}}">{{stul.name}}</label>
-                    </li>
-                </ul>
-            </div>
-
-        </div-->
         <div class="seatingChart">
             <ul>
-                <li  ng-repeat="stul in tables"  ng-class="stul.seatingNum">
-                    <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
-                    <label for="{{stul._id}}">{{stul.name}}</label>
+                <li  ng-repeat="stul in tableObj"  ng-class="stul.table.seatingNum" ng-click="reservation.table=stul.table._id">
+                    <input type="checkbox" id="{{stul.table._id}}" class="{{stul.table.seatingNum}}" ng-model="stul.checked" ng-click="updateTables($index, tableObj);"/>
+                    <label for="{{stul.table._id}}">{{stul.table.name}}</label>
                 </li>
                 <li class="bar"> <input type="checkbox"  id="bar"/>
                     <label for="bar"></label>
                 </li>
             </ul>
+        </div>
+        <div id="formularBlock"  ng-submit="sendReservation(reservation);">
+            <form>
+                <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
+                <h4> First day in week: {{ firstDayInWeek.getDay() }}</h4>
+                <h4> Last day in week: {{ lastDayInWeek }} </h4>
+                <h5>Date: {{reservation }}</h5>
+                <!--div class="row">
+                    <div class="col-xs-6">
+                        <label for="timeFrom" class="sr-only"></label>
+                        <select class="form-control" name="cas" id="timeFrom" ng-model="reservation.startTime" ng-change="changeTime();">
+                            <option disabled selected value></option>
+                            <option ng-repeat="x in [17,18,19,20,21]" value="{{x}}">{{x}}:00</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-6">
+                        <label for="timeTo" class="sr-only"></label>
+                        <select class="form-control" id="timeTo" name="cas" ng-model="reservation.endTime" ng-change="checkendTime();">
+                            <option disabled selected value></option>
+                            <option ng-repeat="x in [18,19,20,21,22]" value="{{x}}">{{x}}:00</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="sr-only" for="jmenoRez"></label>
+                        <input type="text" class="form-control" id="jmenoRez" placeholder="Name">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label class="sr-only" for="prijmeniRez"></label>
+                        <input type="text" class="form-control" id="prijmeniRez" placeholder="Surname">
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <button class="btn btn-success btn-md btn-block" ng-submit=""> Vytvořit rezervaci </button>
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="tel"> Telefonní číslo </label>
+                        <input type="tel" class="form-control" id="tel">
+                    </div>
+                    <div class="form-group col-xs-6">
+                        <label for="email" > Email </label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+                </div-->
+
+
+
+                <div class="row">
+                    <table id="formular">
+                        <tr class="form-group">
+                            <td colspan="2">
+                                <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td>Čas </td>
+                            <td>
+                                <div>
+                                    <div class="col-xs-6">
+                                        <div>
+                                            <b> od: </b>
+                                        </div>
+                                        <div>
+                                            <select class="form-control" name="cas" id="timeFrom" ng-model="reservation.startTime" ng-change="changeTime();">
+                                                <option disabled selected value></option>
+                                                <option ng-repeat="x in [17,18,19,20,21]" value="{{x}}">{{x}}:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div>
+                                            <b> do: </b>
+                                        </div>
+                                        <div>
+                                            <select class="form-control" id="timeTo" name="cas" ng-model="reservation.endTime" ng-change="checkendTime();">
+                                                <option disabled selected value></option>
+                                                <option ng-repeat="x in [18,19,20,21,22]" value="{{x}}">{{x}}:00</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td> Jméno: </td>
+                            <td>
+                                <label class="sr-only" for="jmenoRez"></label>
+                                <input type="text" class="form-control" id="jmenoRez" placeholder="Name" ng-model="reservation.jmeno">
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td> Příjmení </td>
+                            <td>
+                                <label class="sr-only" for="prijmeniRez"></label>
+                                <input type="text" class="form-control" id="prijmeniRez" placeholder="Surname" ng-model="reservation.prijmeni">
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td> Telefonní číslo </td>
+                            <td>
+                                <label class="sr-only" for="tel"></label>
+                                <input type="text" class="form-control" id="tel" placeholder="Phone number" ng-model="reservation.tel">
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td> Email </td>
+                            <td>
+                                <label class="sr-only" for="email"></label>
+                                <input type="text" class="form-control" id="email" placeholder="Email" ng-model="reservation.email">
+                            </td>
+                        </tr>
+                        <tr class="form-group">
+                            <td colspan="2">
+                                <button type="submit" class="btn btn-success btn-md btn-block"> Vytvořit rezervaci </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
         </div>
     </div>
 </div>

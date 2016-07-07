@@ -11,6 +11,7 @@ var passport = require('passport'),
 
 var app = express();
 var port = process.env.PORT || config.get('port');
+process.env.TZ = 'Europe/Prague';
 
 // view engine setup
 app.set('views', path.join(__dirname, 'server/views'));

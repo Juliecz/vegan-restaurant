@@ -200,5 +200,5 @@ angular.module('veganapp.admin')
                 $scope.showLeftMenu = false;
                 $scope.classSmallScreen = 'smallScreen';
             }
-        }
+        };
     }]);

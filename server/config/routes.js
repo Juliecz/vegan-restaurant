@@ -6,6 +6,7 @@ var index = require('../controllers/index'),
     tables = require('../controllers/table'),
     dailyMenu = require('../controllers/dailyMenu'),
     drinks = require('../controllers/drinkMenu'),
+    reservation = require('../controllers/reservation'),
     auth = require('../controllers/authenticate'),
     passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
@@ -47,7 +48,12 @@ module.exports = function(app, passport) {
     app.delete('/api/user/:id', users.deleteUser);
 
     app.get('/api/table', tables.findAll);
-    
+
+    app.get('/api/reservation', reservation.findAll);
+    app.post('/api/reservation', reservation.createReservation);
+    app.delete('/api/reservation/:id', reservation.deleteReservation);
+    app.put('/api/reservation/:id', reservation.editReservation);
+
     app.post('/api/login', passport.authenticate('local'), auth.login);
     app.get('/api/logged', auth.logged);
     app.get('/api/logout', auth.logout);

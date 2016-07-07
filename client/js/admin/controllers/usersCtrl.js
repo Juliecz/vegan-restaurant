@@ -16,6 +16,7 @@ angular.module('veganapp.admin')
                 //console.log(data);
             });
         $scope.setAction = function (action, id, typ) {
+            var res = {};
             if (typ === 'user') {
                 if (action === 'delete') {
                     userFactory.deleteUser(id);
@@ -25,7 +26,6 @@ angular.module('veganapp.admin')
                         });
                 }
                 else if (action === 'edit') {
-                    var res = {};
                     res = {
                         action: action,
                         id: id,
@@ -34,7 +34,6 @@ angular.module('veganapp.admin')
                     $state.go('admin.edit/:id', res);
                 }
                 else if (action === 'new') {
-                    var res = {};
                     res = {
                         action: action,
                         id: id,
@@ -43,5 +42,5 @@ angular.module('veganapp.admin')
                     $state.go('admin.edit', res);
                 }
             }
-        }
+        };
     }]);

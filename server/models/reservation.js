@@ -1,5 +1,7 @@
 var mongoose = require('mongoose'),
-    connection = require('../config/database');
+    connection = require('../config/database'),
+    Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 var reservationSchema = new mongoose.Schema({
     startDate: {
         type: Date,
@@ -13,15 +15,19 @@ var reservationSchema = new mongoose.Schema({
         type: ObjectId,
         required: true
     },
-    nameReserve: {
+    name: {
         type: String,
         required: true
     },
-    emailReserve: {
+    surname: {
         type: String,
         required: true
     },
-    phoneReserve: {
+    email: {
+        type: String,
+        required: false
+    },
+    phone: {
         type: Number,
         required: true
     }

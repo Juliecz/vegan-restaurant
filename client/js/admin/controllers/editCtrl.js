@@ -94,7 +94,7 @@ angular.module('veganapp.admin')
                         trida: data.drinkSort,
                         cena: data.price,
                         typMenu: $scope.typMenuId[2]
-                    }
+                    };
                 });
             }
             else if ($stateParams.menuType == 'user') {
@@ -108,8 +108,8 @@ angular.module('veganapp.admin')
                             phone: data.phone,
                             email: data.email,
                             typMenu: 'user'
-                        }
-                    })
+                        };
+                    });
             }
         }
         else if ($stateParams.action == 'new') {
@@ -130,7 +130,7 @@ angular.module('veganapp.admin')
             else if ($stateParams.menuType == 'drink' )
             { $scope.formData.typMenu = $scope.typMenuId[2];}
             else if($stateParams.menuType == 'user')
-            { $scope.formData.typMenu = 'user'}
+            { $scope.formData.typMenu = 'user'; }
         }
 
         $scope.sendPost = function () {

@@ -11,16 +11,16 @@ angular.module('veganapp.admin')
                 return $http.get('/api/user')
                     .success(function (data) {
                         this.jsonData = data;
-                    })
+                    });
             },
             createUser: function (formData) {
-                return $http.post('/api/user', {username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role});
+                return $http.post('/api/user', {username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role, email: formData.email, phone: formData.phone});
             },
             deleteUser: function (id) {
-                return $http.delete('/api/user/'+id, {id: id})
+                return $http.delete('/api/user/'+id, {id: id});
             }, 
             updateUser: function (id, formData) {
-                return $http.put('/api/user/'+id, {id: id, username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role, email: formData.email, phone: formData.phone});
+                return $http.put('/api/user/'+id, {id: id, username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role, email: formData.email, phone: formData.phone, emailMessage: formData.emailM, phoneMessage: formData.phoneM });
             }
         };
     });

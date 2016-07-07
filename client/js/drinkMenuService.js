@@ -26,7 +26,7 @@ angular.module('veganapp')
                 return $http.get('/api/drinkmenu/sort')
                     .success(function (data) {
                         this.jsonData = data;
-                    })
+                    });
             }
         });
     }]);
