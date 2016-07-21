@@ -13,11 +13,16 @@ angular.module('veganapp.admin')
                     }
                 },
                 resolve: {
-                    loggedInResolve: function (authProvider, $state) {
+                    loggedInResolve: function (authProvider, $state, $rootScope) {
                         authProvider.isLoggedIn()
                             .then(function (data) {
                                 if(data.data !== '' && data.data !== '0' ) {
-                                    $state.go('admin.home');
+                                    //when update go to admin.home
+                                    //$state.go('admin.home');
+                                    //when update go to current state
+                                    if ($rootScope.$state.current.name === 'admin') {
+                                        $state.go('admin.home');
+                                    }
                                 }
                                 else {
                                     $state.go('login');

@@ -48,7 +48,7 @@
             <h4>{{ tabs[0].title }}</h4>
             <table class="table">
                 <tbody>
-                <tr ng-repeat="p in poledni">
+                <tr ng-repeat="p in poledni | filter: p.name">
                     <td>{{p.foodType}}</td>
                     <td>{{p.foodName}}</td>
                     <td>{{p.price}}</td>

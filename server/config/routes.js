@@ -48,6 +48,7 @@ module.exports = function(app, passport) {
     app.delete('/api/user/:id', users.deleteUser);
 
     app.get('/api/table', tables.findAll);
+    app.get('/api/table/:id', tables.findById);
 
     app.get('/api/reservation', reservation.findAll);
     app.post('/api/reservation', reservation.createReservation);

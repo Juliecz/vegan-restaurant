@@ -4,19 +4,20 @@
         <h3> {{ me.jm }} {{me.prijm}} </h3>
         <h5>
             {{ me.phone }}
-            <button class="btn btn-default btn-xs"> Change phone number </button>
         </h5>
         <h5>
             {{ me.email }}
-            <button class="btn btn-default btn-xs"> Change email </button>
         </h5>
         <h5>
             <div class="checkbox">
-                <label> <input type="checkbox" ng-model="me.phoneM" ng-click="send(me.id, me);">phone message </label>
+                <label> <input type="checkbox" ng-model="me.phoneM" ng-click="send(me.id, me);" disabled="false">phone message </label>
             </div>
             <div class="checkbox">
-                <label> <input type="checkbox" ng-model="me.emailM" ng-click="send(me.id, me);">email message </label>
+                <label> <input type="checkbox" ng-model="me.emailM" ng-click="send(me.id, me);" disabled>email message </label>
             </div>
+        </h5>
+        <h5>
+            <button class="btn btn-default btn-xs"> Změna údajů </button>
         </h5>
     </div>
 </div>

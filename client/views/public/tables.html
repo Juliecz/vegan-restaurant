@@ -17,7 +17,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="den in mdays">
-                            <td ng-repeat="x in [0, 1, 2, 3, 4, 5, 6]" ng-class="{ 'active': selected == den[x], 'today': dnes(den[x], today.getMonth(), today.getFullYear()) == den[x] }" ng-click="onclickDate(den[x], today.getMonth(), today.getFullYear())">
+                            <td ng-repeat="x in [0, 1, 2, 3, 4, 5, 6]" ng-class="{ 'active': selected == den[x], 'today': dnes(den[x], today.getMonth(), today.getFullYear()) == den[x] }" ng-click="onclickDate(den[x], today.getMonth(), today.getFullYear()); reservationsForCurrentDay();">
                                 <a href="" ng-if="filterDay(den[x])" > {{ den[x]}}</a>
                                 <a href="" ng-if="!filterDay(den[x])"> </a>
                             </td>
@@ -60,7 +60,7 @@
         </div>
         <div id="formularBlock"  ng-submit="sendReservation(reservation);">
             <form>
-                <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
+                <h4><i> Vybrané datum: {{datum.getDate()}}.{{datum.getMonth()+1}}.{{datum.getFullYear()}} </i></h4>
                 <h4> First day in week: {{ firstDayInWeek.getDay() }}</h4>
                 <h4> Last day in week: {{ lastDayInWeek }} </h4>
                 <h5>Date: {{reservation }}</h5>
@@ -168,7 +168,7 @@
                         </tr>
                         <tr class="form-group">
                             <td colspan="2">
-                                <button type="submit" class="btn btn-success btn-md btn-block"> Vytvořit rezervaci </button>
+                                <button type="submit" class="btn btn-default btn-md btn-block"> Vytvořit rezervaci </button>
                             </td>
                         </tr>
                     </table>

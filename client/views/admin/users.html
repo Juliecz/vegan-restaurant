@@ -1,5 +1,5 @@
 <div ng-controller="usersCtrl">
-    <div class="bigTableBlock" ng-hide="winSize<768">
+    <div class="bigTableBlock" ng-show="winSize>875">
         <table class="table table-hover">
             <thead class="thead-inverse">
             <tr>
@@ -40,28 +40,38 @@
             </tbody>
         </table>
     </div>
-    <div class="smallTableBlock" ng-show="winSize<768">
-        <div class="btn-group btn-group-md" role="group">
-            <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span></button>
-        </div>
-        <table class="smallTable" >
-            <tbody>
+    <div ng-show="winSize<=875">
+        <table class="table table-hover">
+            <tbody ng-repeat="uzivatel in users">
             <tr>
-                <td>
-                    <h5> Název</h5>
-                    <div></div>
-                    <h5>Složení</h5>
-                    <div></div>
-                    <h5>Cena: </h5>
-                    <div> </div>
-                    <div></div>
+                <th>Username</th>
+                <td>{{uzivatel.username}}</td>
+            </tr>
+            <tr>
+                <th>Jméno</th>
+                <td>{{uzivatel.name}}</td>
+            </tr>
+            <tr>
+                <th>Příjmení</th>
+                <td>{{uzivatel.surname}}</td>
+            </tr>
+            <tr>
+                <th>Tel.číslo</th>
+                <td>{{uzivatel.phone}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{uzivatel.email}}</td>
+            </tr>
+            <tr>
+                <th>Akce</th>
+                <td class="wrapper text-center">
                     <div class="btn-group btn-group-sm" role="group">
-                        <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
-                        <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                        <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit"></span></button>
+                        <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"></span></button>
                     </div>
                 </td>
             </tr>
-            </tbody>
         </table>
     </div>
 </div>

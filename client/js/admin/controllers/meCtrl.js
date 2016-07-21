@@ -1,5 +1,6 @@
 angular.module('veganapp.admin')
     .controller('meCtrl', ['$scope', '$state', 'authProvider', 'userFactory', function ($scope, $state, authProvider, userFactory) {
+        $scope.disabled = true;
         $scope.myInfo = function () {
             authProvider.isLoggedIn()
                 .then(function (data) {
@@ -26,4 +27,4 @@ angular.module('veganapp.admin')
                 $scope.myInfo();
             });
         };
-    }]);
+    }]);0

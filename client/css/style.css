@@ -159,6 +159,7 @@ and (orientation: portrait) {
   width: -moz-calc(100% - 25px);
   width: -webkit-calc(100% - 25px);
   width: calc(100% - 25px);
+  /*TODO ??????*/
   background-color: yellow;
 }
 #loginSelection #loginBlock form div h3 a:hover, #loginSelection #loginBlock form div h3 a:visited, #loginSelection #loginBlock form div h3 a:link, #loginSelection #loginBlock form div h3 a {
@@ -177,104 +178,6 @@ section #loginSelection {
 section #loginSelection > #loginBlock {
   margin: auto;
 }
-/* TODO if map is image */
-/*#tablesImg {
-  width: 100%;
-}
-#tablesImg div {
-  position: relative;
-  width: 390px;
-  height: 600px;
-  margin: auto;
-}
-#tablesImg div > img {
-  position: absolute;
-  left: 0px;
-  width: 389px;
-  max-height: 100%;
-  z-index: -1;
-}
-#tablesImg div ul li input[type=checkbox] {
-  display: none;
-}
-#tablesImg div ul li {
-  list-style: none;
-  display: inline;
-  position: absolute;
-}
-#tablesImg div ul li.four input[type=checkbox] + label {
-  background-image: url("../img/table_four_xs2.png");
-  height: 43px;
-  width: 67px;
-}
-#tablesImg div ul li.two input[type=checkbox] + label {
-  background-image: url("../img/table_two_xs2.png");
-  height: 51px;
-  width: 43px;
-}
-#tablesImg div ul li.four input:checked + label  {
-  background-color: #f2e1ff;
-}
-#tablesImg div ul li.two input:checked + label  {
-  background-color: #fffec1;
-}
-#tablesImg div ul li:first-child {
-  top: 20px;
-  left: 80px;
-}
-#tablesImg div ul li:nth-child(2) {
-  top: 20px;
-  left: 160px;
-}
-#tablesImg div ul li:nth-child(3) {
-  top: 20px;
-  left: 240px;
-}
-#tablesImg div ul li:nth-child(4) {
-  top: 50px;
-  left: 340px;
-}
-#tablesImg div ul li:nth-child(5) {
-  top: 115px;
-  left: 340px;
-}
-#tablesImg div ul li:nth-child(12) {
-  top: 360px;
-  left: 340px;
-}
-#tablesImg div ul li:nth-child(13) {
-  top: 420px;
-  left: 340px;
-}
-#tablesImg div ul li:nth-child(14) {
-  top: 480px;
-  left: 340px;
-}
-#tablesImg div ul li:nth-child(6) {
-  top: 150px;
-  left: 140px;
-}
-#tablesImg div ul li:nth-child(7) {
-  top: 150px;
-  left: 220px;
-}
-#tablesImg div ul li:nth-child(8) {
-  top: 300px;
-  left: 80px;
-}
-#tablesImg div ul li:nth-child(9) {
-  top: 360px;
-  left: 160px;
-}
-#tablesImg div ul li:nth-child(10) {
-  top: 420px;
-  left: 160px;
-}
-#tablesImg div ul li:nth-child(11) {
-  top: 480px;
-  left: 160px;
-}
-/* TODO konec ________*/
 
 /* large desktop */
 @media screen and (min-width: 1200px) {
@@ -360,26 +263,17 @@ section #loginSelection > #loginBlock {
   }
   .flex > div {
     width: 50%;
+
   }
   /*public home page flexbox */
-  .flex > div > img {
-    float: right;
-    width: 100%;
-  }
-  .flex > #textHome {
-    margin-left: 15px;
-  }
+
   /* public contact page */
   .flex > div:nth-child(2) {
     text-align: center;
   }
-  .flex > #mapBlock {
-    width: 80%;
-  }
   .flex > div > #map {
-    max-width: 550px;
+    max-width: 500px;
     height: 370px;
-    margin: auto;
   }
   /*public menu page*/
   #dailyMenuBlock {
@@ -422,7 +316,7 @@ section #loginSelection > #loginBlock {
 }
 
 /* small tablet/mobile */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 875px) {
   .flex {
     display: -webkit-flex;
     display: flex;
@@ -451,7 +345,7 @@ section #loginSelection > #loginBlock {
   }
   /*public menu page*/
   #dailyMenuBlock {
-    width: 85%;
+    width: 65%;
   }
   #menuBlock {
     width: 85%;
@@ -526,12 +420,12 @@ section #loginSelection > #loginBlock {
 
   /*public menu page*/
   #dailyMenuBlock {
-    width: 100%;
+    width: 90%;
   }
   #menuBlock {
     width: 100%;
   }
-  #menuBlock table, #dailyMenuBlock table {
+  #menuBlock table {
     width: 100%;
   }
   /* public reservation page*/
@@ -568,79 +462,6 @@ section #loginSelection > #loginBlock {
     max-height: 100%;
     z-index: -1;
   }
-  /* TODO CHECK
-  #tablesImg div ul li.four input[type=checkbox] + label {
-    background-image: url("../img/table_four_xs2.png");
-    height: 23px;
-    width: 47px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  #tablesImg div ul li.two input[type=checkbox] + label {
-    background-image: url("../img/table_two_xs2.png");
-    height: 31px;
-    width: 23px;
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
-  #tablesImg div ul li:first-child {
-    top: 20px;
-    left: 60px;
-  }
-  #tablesImg div ul li:nth-child(2) {
-    top: 20px;
-    left: 130px;
-  }
-  #tablesImg div ul li:nth-child(3) {
-    top: 20px;
-    left: 200px;
-  }
-  #tablesImg div ul li:nth-child(4) {
-    top: 40px;
-    left: 270px;
-  }
-  #tablesImg div ul li:nth-child(5) {
-    top: 95px;
-    left: 270px;
-  }
-  #tablesImg div ul li:nth-child(12) {
-    top: 320px;
-    left: 270px;
-  }
-  #tablesImg div ul li:nth-child(13) {
-    top: 370px;
-    left: 270px;
-  }
-  #tablesImg div ul li:nth-child(14) {
-    top: 420px;
-    left: 270px;
-  }
-  #tablesImg div ul li:nth-child(6) {
-    top: 130px;
-    left: 100px;
-  }
-  #tablesImg div ul li:nth-child(7) {
-    top: 130px;
-    left: 160px;
-  }
-  #tablesImg div ul li:nth-child(8) {
-    top: 250px;
-    left: 50px;
-  }
-  #tablesImg div ul li:nth-child(9) {
-    top: 320px;
-    left: 130px;
-  }
-  #tablesImg div ul li:nth-child(10) {
-    top: 370px;
-    left: 130px;
-  }
-  #tablesImg div ul li:nth-child(11) {
-    top: 420px;
-    left: 130px;
-  }
-  */
-
 
   /* login page*/
   #loginBlock {
@@ -839,66 +660,6 @@ div.tabset ul.tabs {
 .contentAdmin div {
   width: 100%;
 }
-#reservationBlock {
-  width: 100%;
-  text-align: center;
-  vertical-align: middle;
-}
-#reservationBlock table  {
-  border: 1px solid black;
-}
-#reservationBlock table tr.tydne th {
-  text-align: center;
-}
-#reservationBlock table, #reservationBlock div table:nth-child(2) {
-  width: 300px;
-  height: 320px;
-  padding: 0px;
-  margin: auto;
-}
-#reservationBlock table tbody tr td{
-  text-align: center;
-  font-size: 13px;
-  padding: 10px;
-}
-#reservationBlock table thead .mesic th {
-  padding: 10px;
-  text-align: center;
-}
-/*#reservationBlock table {
-  margin: auto;
-}
-#reservationBlock table tr td:first-child {
-  border-right: 1px solid black;
-}
-#reservationBlock table thead tr td:last-child {
-  display: table;
-  width: 100%;
-}
-#reservationBlock table thead tr td div {
-  display: table-cell;
-  width: calc(100%/9);
-}
-#reservationBlock table tr td div.active {
-  background-color: yellow;
-}
-#reservationBlock table thead tr td div:hover {
-  background-color: #bababa;
-}
-#reservationBlock table tr td {
-  vertical-align: middle;
-  text-align: center;
-}
-#monthReservation {
-  background-color: #555;
-  color: white;
-  height: 40px;
-  vertical-align: middle;
-}
-#reservationBlock table tr td div {
-  display: table-cell;
-  height: 100%;
-}*/
 
 .seatingChart {
   width: 300px !important;
@@ -1011,8 +772,9 @@ div.tabset ul.tabs {
 }
 #personalBlock {
   background-color: white;
-  border: 1px solid #555555;
+  border: 1px solid #e4e4e4;
   text-align: center;
+  margin: auto;
 }
 #calendar form .row label, #calendar form .row input {
   display: block;
@@ -1038,20 +800,17 @@ div.tabset ul.tabs {
     margin-top: 35px;
     width: calc(100vw - 275px);
   }
-  #reservationBlock div {
-    width: 50%;
-  }
-  #reservationBlock div:first-child table {
-    float: right;
-    margin-right: 40px;
-  }
-  #reservationBlock div:last-child {
-    float: left;
-  }
-  #reservationBlock table {
-    width: 285px;
+
+  /*admin reservation page*/
+  .table.table-hover {
+    width: 85%;
     margin: auto;
-    margin-bottom: 13px;
+    border: 1px solid #e4e4e4;
+    background-color: white;
+  }
+  /*admin my personal page*/
+  #personalBlock {
+    width: 85%;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -1070,43 +829,25 @@ div.tabset ul.tabs {
     margin-top: 35px;
     width: calc(100vw - 225px);
   }
-  #reservationBlock div {
-    width: 50%;
-  }
-  #reservationBlock div:first-child table {
-    float: right;
-    margin-right: 40px;
-  }
-  #reservationBlock div:last-child {
-    float: left;
-  }
-  #reservationBlock table {
-    width: 285px;
-    margin: auto;
-    margin-bottom: 13px;
-  }
   .seatingChart {
     width: 300px !important;
     margin: auto;
     height: 450px;
   }
+  /*admin reservation page*/
+  .table.table-hover {
+    width: 90%;
+    margin: auto;
+    border: 1px solid #e4e4e4;
+    background-color: white;
+  }
+  /*admin my personal page*/
+  #personalBlock {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 875px) {
-  #reservationBlock div {
-    width: 100%;
-  }
-  #reservationBlock table, #reservationBlock div div {
-    float: none !important;
-    margin: auto !important;
-  }
-  #reservationBlock table {
-    width: 285px;
-  }
-  #reservationBlock div:first-child {
-    margin-bottom: 15px;
-  }
-}
-@media screen and (max-width: 768px) {
+
   .navbar-fixed-top {
     -webkit-flex-direction: column;
     flex-direction: column;
@@ -1133,11 +874,11 @@ div.tabset ul.tabs {
     margin-left: 5px !important;
     width: 100vw;
   }
-  .smallTable {
-    width: 76%;
-  }
   .contentAdmin div form {
-    width: 100vw;
+    width: calc(100vw - 225px);
+  }
+  .tabContent {
+    margin: auto;
   }
   div.tabset ul.tabs {
     width: 100%;
@@ -1145,13 +886,17 @@ div.tabset ul.tabs {
     text-align: center;
     margin-bottom: 10px;
   }
-  #reservationBlock div {
-    width: 100%;
-  }
-  #reservationBlock table {
-    width: 285px;
+  /* admin users page */
+  .table.table-hover {
+    width: 85%;
+    border: 2px solid #e4e4e4;
     margin: auto;
-    margin-bottom: 13px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contentAdmin div form {
+    width: 100vw;
   }
 }
 @media screen and (max-width: 400px) {
@@ -1178,9 +923,6 @@ div.tabset ul.tabs {
     margin-left: 5px !important;
     width: 100vw;
   }
-  .smallTable {
-    width: 90%;
-  }
   div.tabset ul.tabs li {
     display: block;
     width: 55%;
@@ -1188,15 +930,20 @@ div.tabset ul.tabs {
     padding: 7px;
     text-align: center;
   }
-  #reservationBlock {
-    width: 100%;
-  }
-  #reservationBlock table {
-    width: 285px;
-    margin: auto;
-    margin-bottom: 13px;
-  }
   .seatingChart {
     width: 296px!important;
+  }
+  /*admin reservation page*/
+
+  /* admin users page */
+  .table.table-hover {
+    width: 95%;
+    border: 2px solid #e4e4e4;
+    margin: auto;
+    text-align: center;
+  }
+  /*admin my personal page*/
+  #personalBlock {
+    width: 95%;
   }
 }

@@ -4,16 +4,21 @@
 angular.module('veganapp.public')
     .controller('tablesCtrl', ['$scope', 'getTable', 'reservationFactory', function($scope, getTable, reservationFactory) {
         $scope.tableObj = [];
+        $scope.availability = [];
         getTable.getTables().success(function (data, status) {
-            //$scope.dataTable = data;
+            //todo
+            // $scope.dataTable = data;
             //$scope.tables = data;
             for (var i=0; i<data.length; i++) {
                 $scope.tableObj.push({
                     table: data[i],
                     checked: false
                 });
+                $scope.availability.push({
+                    table: data[i]._id,
+                    free: true
+                });
             }
-            console.log($scope.tableObj);
         });
         $scope.updateTables = function (p, tables) {
             angular.forEach(tables, function (stul, index) {
@@ -31,8 +36,8 @@ angular.module('veganapp.public')
         $scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
         $scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
         $scope.today = new Date();
-        //$scope.todayChosen = new Date();
-        //$scope.selected = $scope.todayChosen.getDate();
+        $scope.datum = new Date();
+
         $scope.Calendar = new Calendar(1);
         $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
         $scope.filterDay = function (den) {
@@ -112,7 +117,6 @@ angular.module('veganapp.public')
         $scope.onclickDate = function (den, mesic, rok) {
             $scope.datum = new Date(rok, mesic, den);
             $scope.selected = den;
-            //$scope.showSecondTable = true;
             $scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
             //$scope.firstDayInWeek.setDate($scope.firstDayInWeek.getDate()+1);
             $scope.lastDayInWeek.setDate($scope.firstDayInWeek.getDate()+6);
@@ -133,12 +137,39 @@ angular.module('veganapp.public')
         $scope.showMonth = function () {
             $scope.showSecondTable = false;
         };
-        
+
+        $scope.reservationsForCurrentDay = function () {
+            $scope.resForCurrentDay = [];
+            reservationFactory.getReservations().success(function (data) {
+                for (var i=0; i<data.length; i++) {
+                    var datum = new Date(data[i].startDate);
+                    if ($scope.datum.getDate() == datum.getDate() && $scope.datum.getMonth() == datum.getMonth() && $scope.datum.getFullYear() == datum.getFullYear()) {
+                        $scope.resForCurrentDay.push(data[i]);
+                    }
+                }
+                if($scope.resForCurrentDay.length>0) {
+                    console.log('ano');
+                    $scope.checkReservation($scope.resForCurrentDay);
+                }
+                else { console.log('ne'); }
+            });
+
+        };
+        $scope.checkReservation = function (resForDay) {
+            for (var i=0; i<$scope.availability.length; i++) {
+                for (var j=0; j<resForDay.length; j++) {
+                    if ($scope.availability[i].table === resForDay[j].table) {
+                        console.log($scope.availability[i].table, '____', resForDay[j].table);
+                    }
+                }
+
+            }
+        };
+        $scope.checkReservation($scope.reservation);
         $scope.sendReservation = function (reservation) {
             var startDate = new Date(reservation.year, reservation.month, reservation.day, reservation.startTime),
                   endDate = new Date(reservation.year, reservation.month, reservation.day, reservation.endTime);
             reservationFactory.createReservation($scope.reservation, startDate, endDate);
-            console.log(startDate, '____', endDate);
         };
         
     }]);
