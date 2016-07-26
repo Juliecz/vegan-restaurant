@@ -55,7 +55,9 @@ exports.deleteUser = function (req, res) {
     });
 };
 exports.editUser = function (req, res) {
-    User.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err) {
-        if(err) { console.log(err); res.send(err);}
+    User.findByIdAndUpdate(req.params.id, {$set: req.body}, function (err, data) {
+        if(err) { res.send(err);}
+        res.json(data);
     });
+    console.log(req.body);
 };

@@ -1,5 +1,6 @@
 <div ng-controller="usersCtrl">
     <div class="bigTableBlock" ng-show="winSize>875">
+
         <table class="table table-hover">
             <thead class="thead-inverse">
             <tr>
@@ -33,16 +34,28 @@
                 </td>
                 <td colspan="2">
                     <div class="btn-group btn-group-md" role="group">
-                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'user');"><span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span></button>
+                        <button class="btn btn-warning" type="submit" ng-click=""><span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span></button>
                     </div>
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <div ng-show="winSize<=875">
+    <div class="smallTableBlock" ng-show="winSize<=875">
+
         <table class="table table-hover">
-            <tbody ng-repeat="uzivatel in users">
+            <thead>
+            <tr>
+                <td colspan="2">
+                    <div class="btn-group btn-group-md" role="group">
+                        <button class="btn btn-warning" type="submit" ng-click=""> <!--TODO ng-click change-->
+                            <span class="glyphicon glyphicon-plus"> &nbsp;Přidat uživatele</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </thead>
+            <tbody ng-repeat="uzivatel in users" ng-class="{me: uzivatel._id == me._id}">
             <tr>
                 <th>Username</th>
                 <td>{{uzivatel.username}}</td>
@@ -64,11 +77,15 @@
                 <td>{{uzivatel.email}}</td>
             </tr>
             <tr>
+                <th>Role</th>
+                <td>{{uzivatel.role}}</td>
+            </tr>
+            <tr ng-show="uzivatel._id != me._id">
                 <th>Akce</th>
                 <td class="wrapper text-center">
                     <div class="btn-group btn-group-sm" role="group">
-                        <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit"></span></button>
-                        <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"></span></button>
+                        <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit">&nbsp;Upravit</span></button>
+                        <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
                     </div>
                 </td>
             </tr>

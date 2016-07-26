@@ -5,5 +5,6 @@ angular.module('veganapp.system', [
     'ui.router',
     'ui.router.stateHelper',
     'ui.bootstrap',
-    'ngRoute'
+    'ngRoute',
+    'angularjs-datetime-picker'
 ]);

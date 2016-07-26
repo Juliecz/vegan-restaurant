@@ -1,47 +1,4 @@
 <div ng-controller="menuCtrlP" id="menuMainBlock" class="flex">
-    <!--div id="menuTabs">
-        <nav>
-            <div ng-repeat="tab in tabs" ng-class="{active:activeTab(tab.template)}"
-                 ng-click="onclickTab(tab)">
-                <a href="" >
-                    {{tab.title}}
-                </a>
-            </div>
-        </nav>
-        <div>
-            <div ng-include="currentTab"></div>
-        </div>
-    </div>
-    <div id="menuPublicContent">
-        <div type="text/ng-template" id="poledni">
-            <div ng-hide="!vikend" ng-show="vikend">{{todayStr}}</div>
-            <div ng-show="!vikend" ng-hide="vikend" class="menuList">
-                <ul>
-                    <li ng-repeat="x in tridaDaily" > <div class="menuTrida"><h3>{{x.text}}</h3></div>
-                        <ul>
-                            <li ng-repeat="d in poledni |filter:x.name " class="menuFood"> {{d.foodName}}...............{{d.price}} Kč</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div type="text/ng-template" id="jidelni">
-            <div id="menuId"  class="menuList">
-                <ul id="publicMenu">
-                    <li ng-repeat="x in tridaVar" > <div class="menuTrida"><h3>{{x.text}}</h3></div>
-                        <ul>
-                            <li ng-repeat="d in data |filter:x.name " class="menuFood"> {{d.foodName}}...............{{d.price}} Kč</li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div type="text/ng-template" id="napojovy">
-            <div  class="menuList">
-                <h1> Napojovy  tmp</h1>
-            </div>
-        </div>
-    </div-->
 
     <div id="dailyMenuBlock">
         <div>
@@ -55,6 +12,9 @@
                 </tr>
                 </tbody>
             </table>
+            <h5 ng-show="poledni.length < 1">
+                {{vikend}}
+            </h5>
         </div>
     </div>
     <div id="menuBlock">

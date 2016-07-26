@@ -27,18 +27,26 @@ angular.module('veganapp.public')
                 }
             });
         };
-        $scope.myNumber = 5;
-        $scope.getNumber = function(num) {
+        //$scope.myNumber = 5;
+        /*$scope.getNumber = function(num) {
             return new Array(num);
-        };
+        };*/
         //creating calendar
-        $scope.showSecondTable = false;
-        $scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+        //$scope.showSecondTable = false;
+        /*$scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
         $scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
+        */
         $scope.today = new Date();
         $scope.datum = new Date();
+        Date.prototype.ddmmyyyy = function () {
+            var dd = this.getDate();
+            var mm = parseInt(this.getMonth())+1;
+            var yyyy = this.getFullYear();
+            return [dd, '.', mm, '.', yyyy].join('');
+        };
+        $scope.date1 = (new Date()).ddmmyyyy();
 
-        $scope.Calendar = new Calendar(1);
+        /*$scope.Calendar = new Calendar(1);
         $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
         $scope.filterDay = function (den) {
             if(den === 0) { return false; }
@@ -46,7 +54,7 @@ angular.module('veganapp.public')
         };
         $scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
         $scope.lastDayInWeek = new Date($scope.firstDayInWeek.getFullYear(), $scope.firstDayInWeek.getMonth(), $scope.firstDayInWeek.getDate()+7);
-
+*/
         $scope.reservation = {
             day: $scope.today.getDate(),
             month: $scope.today.getMonth(),
@@ -66,7 +74,7 @@ angular.module('veganapp.public')
                 $scope.reservation.startTime = start.toString();
             }
         };
-        
+        /*
         $scope.nextMonth = function (month) {
             if (month < 11) {
                 if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month+1)) {
@@ -155,6 +163,7 @@ angular.module('veganapp.public')
             });
 
         };
+        */
         $scope.checkReservation = function (resForDay) {
             for (var i=0; i<$scope.availability.length; i++) {
                 for (var j=0; j<resForDay.length; j++) {

@@ -13,7 +13,7 @@ angular.module('veganapp.public')
         }
         $scope.tridaVar = [];
         $scope.poledni = [];
-        $scope.todayStr = 'Pro dnešní den není žádné polední menu.';
+        $scope.vikend = 'Pro dnešní den není žádné polední menu.';
         switch($scope.today) {
             case 1: {
                 $scope.todayStr = 'pondeli';
@@ -53,9 +53,12 @@ angular.module('veganapp.public')
 
             for (var i=0; i<data.length; i++) {
                 if (data[i].day === $scope.todayStr) {
-                    //console.log('Cislo: ', i, ' object: ', data[i]);
+                    console.log('Cislo: ', i, ' object: ', data[i]);
                     $scope.poledni.push(data[i]);
                 }
+            }
+            if ($scope.poledni.length < 1) {
+                console.log($scope.vikend);
             }
         });
         menuPublic.getSort().success(function (data, status) {

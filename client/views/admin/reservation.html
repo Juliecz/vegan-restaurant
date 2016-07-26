@@ -1,41 +1,74 @@
 <div ng-controller="reservationCtrl">
 
-    <div>
-        <div id="hledaniRezervace" class="controls form-inline">
-            <div class="controls col-xs-3">
-                <button type="button" class="btn btn-default" ng-click="filtrovat=''"> Všechny rezervace </button>
+    <div class="flex">
+        <!--div>
+            <div class="seatingChart">
+                <ul>
+                    <li  ng-repeat="stul in tables"  ng-class="stul.seatingNum">
+                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
+                        <label for="{{stul._id}}">{{stul.name}}</label>
+                    </li>
+                    <li class="bar"> <input type="checkbox"  id="bar"/>
+                        <label for="bar"></label>
+                    </li>
+                </ul>
             </div>
-            <div><input type="date" ng-model="filtrovat" class="control"></div>
-            <div class="controls col-xs-3">
-                <input type="text" class="form-control" ng-model="filtrovat">
-            </div>
+        </div-->
+        <div id="hledaniRezervace" class="row">
+
+
+
         </div>
-        <div ng-show="winSize>875">
+        <div ng-show="winSize>875" class="bigTableBlock">
             <table class="table table-hover" id="rezervace">
                 <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Jméno</th>
-                    <th>Příjmení</th>
-                    <th>Tel.</th>
-                    <th>Email</th>
-                    <th>Den</th>
-                    <th>Čas</th>
-                    <th>Stůl</th>
-                    <th>Akce</th>
+                <tr >
+                    <td colspan="3">
+                        <div>
+                            <button type="button" class="btn btn-warning" ng-click="filtrovat=''; date1='';"> Všechny rezervace </button>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        Najít rezervaci:
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <!--input type="date" class="form-control"-->
+                            <input class="form-control" ng-model="date1" datetime-picker date-only
+                                   date-format="dd.MM.yyyy" future-only ng-click="datepicker()"/>
+                        </div>
+                    </td>
+                    <td colspan="2">
+                        <div>
+                            <input type="text" class="form-control" ng-model="filtrovat">
+                        </div>
+                    </td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="rezervace in reservations | orderBy:'startDate' | filter:filtrovat">
-                    <td>{{}}</td>
-                    <td>{{rezervace.name}}</td>
-                    <td>{{rezervace.surname}}</td>
-                    <td>{{rezervace.phone}}</td>
-                    <td>{{rezervace.email}}</td>
-                    <td>{{ rezervace.startDate | date: 'dd.MM.yyyy' }}</td>
-                    <td>{{rezervace.startDate | date:'HH:mm'}} - {{rezervace.endDate | date:'HH:mm'}}</td>
-                    <td>{{rezervace.tableNum}}</td>
-                    <td>
+                <tr>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Id</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Jméno</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Příjmení</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Tel.</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Email</th>
+                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Den</th>
+                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Čas</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Stůl</th>
+                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
+                </tr>
+                </tbody>
+                <tbody>
+                <tr ng-repeat="rezervace in reservations | orderBy:'startDate' | filter:filtrovat | filter:date1">
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.name}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.surname}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.phone}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.email}}</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{ rezervace.startDate.ddmmyyyy() }}</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{rezervace.startDate | date:'HH:mm'}} - {{rezervace.endDate | date:'HH:mm'}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.tableNum}}</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         <div class="btn-group btn-group-sm" role="group">
                             <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit"></span></button>
                             <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"></span></button>
@@ -45,9 +78,34 @@
                 </tbody>
             </table>
         </div>
-        <div ng-show="winSize<=875">
+        <div ng-show="winSize<=875" class="smallTableBlock">
             <table class="table table-hover">
-                <tbody ng-repeat="rezervace in reservations | orderBy:'startDate' | filter:filtrovat | date:'dd.MM.yyyy':startDate">
+                <thead>
+                <tr>
+                    <td colspan="2">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-warning" ng-click="filtrovat=''"> Všechny rezervace </button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div>
+                            <!--input type="date" class="form-control"-->
+                            <input class="form-control" ng-model="date1" datetime-picker date-only
+                                   date-format="dd.MM.yyyy" future-only ng-click="datepicker()"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div>
+                            <input type="text" class="form-control" ng-model="filtrovat">
+                        </div>
+                    </td>
+                </tr>
+                </thead>
+                <tbody ng-repeat="rezervace in reservations | orderBy:'startDate' | filter:filtrovat">
                 <tr>
                     <th>Id</th>
                     <td>{{}}</td>
@@ -84,8 +142,8 @@
                     <th>Akce</th>
                     <td class="wrapper text-center">
                         <div class="btn-group btn-group-sm" role="group">
-                            <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit"></span></button>
-                            <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit">&nbsp;Upravit</span></button>
+                            <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash">&nbsp;Smazat</span></button>
                         </div>
                     </td>
                 </tr>

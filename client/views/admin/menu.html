@@ -5,7 +5,6 @@
                 <li ng-click="setTab('jidelni')" ng-class="{active: activeTab=='jidelni'}"><a href="">Jídelní lístek</a></li>
                 <li ng-click="setTab('napojovy')" ng-class="{active: activeTab=='napojovy'}"><a href="">Nápojový lístek</a></li>
             </ul>
-            {{trida}}
             <div class="tabContent" ng-show="activeTab == 'jidelni'">
                 <div class="bigTableBlock"  ng-show="winSize>875">
                     <table class="table table-hover">
@@ -39,7 +38,7 @@
                             </td>
                             <td colspan="2">
                                 <div class="btn-group btn-group-md" role="group">
-                                    <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                    <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
                                     <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
                                 </div>
                             </td>
@@ -48,10 +47,17 @@
                     </table>
                 </div>
                 <div class="smallTableBlock" ng-show="winSize<=875">
-                    <div class="btn-group btn-group-md" role="group">
-                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                    </div>
+
                     <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <td colspan="2">
+                                <div class="btn-group btn-group-md" role="group">
+                                    <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </thead>
                         <tbody ng-repeat="x in dataMenu ">
                         <tr>
                             <th>Název</th>
@@ -77,8 +83,8 @@
                             <th>Akce</th>
                             <td class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
-                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> &nbsp;Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
                                 </div>
                             </td>
                         </tr>
@@ -118,7 +124,7 @@
                             </td>
                             <td colspan="2">
                                 <div class="btn-group btn-group-md" role="group">
-                                    <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                    <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
                                     <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
                                 </div>
                             </td>
@@ -127,10 +133,17 @@
                     </table>
                 </div>
                 <div class="smallTableBlock" ng-show="winSize<=875">
-                    <div class="btn-group btn-group-md" role="group">
-                        <button class="btn btn-success" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                    </div>
+
                     <table class="table table-hover" ng-show="winSize<=875">
+                        <thead>
+                        <tr>
+                            <td colspan="2">
+                                <div class="btn-group btn-group-md" role="group">
+                                    <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                </div>
+                            </td>
+                        </tr>
+                        </thead>
                         <tbody ng-repeat="x in drinks">
                         <tr>
                             <th>Název</th>
@@ -156,8 +169,8 @@
                             <th>Akce</th>
                             <td class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <button class="btn btn-default" ng-click="setAction('edit', x._id);"><span class="glyphicon glyphicon-edit"> Upravit</span></button>
-                                    <button class="btn btn-default" ng-click="setAction('delete', x._id);"><span class="glyphicon glyphicon-trash"> Smazat</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id);"><span class="glyphicon glyphicon-edit"> &nbsp;Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id);"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
                                 </div>
                             </td>
                         </tr>

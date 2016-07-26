@@ -4,6 +4,12 @@ angular.module('veganapp.admin')
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;
         };
+        Date.prototype.ddmmyyyy = function () {
+            var dd = this.getDate();
+            var mm = parseInt(this.getMonth())+1;
+            var yyyy = this.getFullYear();
+            return [dd, '.', mm, '.', yyyy].join('');
+        };
         $scope.tableObj = [];
         $scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
         $scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
@@ -25,6 +31,7 @@ angular.module('veganapp.admin')
                 }
             });
         };
+        
         $scope.getTables();
         $scope.allReservations = function () {
             $scope.reservations = [];
@@ -60,6 +67,7 @@ angular.module('veganapp.admin')
                             }
                         }
                     }
+                    console.log($scope.reservations);
                 });
         };
         $scope.allReservations();

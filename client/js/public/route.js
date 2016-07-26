@@ -57,7 +57,7 @@ angular.module('veganapp.public')
     }]);
 //TODO remove the contorller
 angular.module('veganapp.public')   
-    .controller('headCtrlP', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+    .controller('headCtrlP', ['$scope', '$http', '$rootScope', '$window', function($scope, $http, $rootScope, $window) {
         /*$scope.$on('$locationChangeStart', function() {
             
         });*
@@ -89,5 +89,23 @@ angular.module('veganapp.public')
      $('li:last').hide();
      }
      });*/
+        $scope.winSize = $window.innerWidth;
+        $scope.resizeWin = function () {
+            if ($window.innerWidth < 768) {
+                $scope.showLeftMenu = false;
+                $scope.classSmallScreen = 'smallScreen';
+            }
+            else {
+                $scope.showLeftMenu = true;
+                $scope.classSmallScreen = '';
+            }
+        };
+        $scope.resizeWin();
+        $(window).resize(function () {
+            $scope.$apply(function () {
+                $scope.resizeWin();
+                $scope.winSize = $window.innerWidth;
+            });
+        });
 }]);
     

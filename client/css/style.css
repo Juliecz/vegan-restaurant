@@ -82,7 +82,7 @@ and (orientation: portrait) {
   margin: auto;
 }
 /* public reservation page*/
-#calendar div table:not(#formular) {
+/*#calendar div table:not(#formular) {
   margin: 0 auto;
   margin-top: 25px;
   font-weight: 600;
@@ -111,7 +111,7 @@ and (orientation: portrait) {
   /*background: -webkit-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Safari 5.1 to 6.0 *
   background: -o-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Opera 11.1 to 12.0 *
   background: -moz-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Firefox 3.6 to 15 *
-  background: linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12));*/
+  background: linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12));*
 }
 #calendar div table:not(#formular) thead tr th {
   text-align: center;
@@ -159,9 +159,9 @@ and (orientation: portrait) {
   width: -moz-calc(100% - 25px);
   width: -webkit-calc(100% - 25px);
   width: calc(100% - 25px);
-  /*TODO ??????*/
+  /*TODO ??????*
   background-color: yellow;
-}
+}*/
 #loginSelection #loginBlock form div h3 a:hover, #loginSelection #loginBlock form div h3 a:visited, #loginSelection #loginBlock form div h3 a:link, #loginSelection #loginBlock form div h3 a {
   text-decoration: none;
   color: black;
@@ -178,7 +178,10 @@ section #loginSelection {
 section #loginSelection > #loginBlock {
   margin: auto;
 }
-
+#formularBlock div.row .formular {
+  margin: auto;
+  text-align: center;
+}
 /* large desktop */
 @media screen and (min-width: 1200px) {
   .flex {
@@ -216,18 +219,9 @@ section #loginSelection > #loginBlock {
     width: 70%;
   }
   /* public reservation page*/
-  #calendar div table {
+  /*#calendar div table {
     width: 320px;
     height: 320px;
-  }
-  #tables #imgMap {
-    background: url("../img/restaurantMap.png") no-repeat center center;
-    width: 490px;
-    height: 780px;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
   }
   #calendar div table tbody tr td{
     text-align: center;
@@ -235,7 +229,7 @@ section #loginSelection > #loginBlock {
   }
   #calendar div table thead .mesic th {
     padding: 15px;
-  }
+  }*/
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -245,7 +239,8 @@ section #loginSelection > #loginBlock {
     padding-top: 7px;
     border: 2px solid #a6a6a6;
   }
-  #formularBlock {
+  #formularBlock div.row .formular {
+    width: 70%;
   }
 }
 /* medium desktop/tablet */
@@ -284,18 +279,9 @@ section #loginSelection > #loginBlock {
   }
 
   /* public reservation page*/
-  #calendar div table {
+  /*#calendar div table {
     width: 320px;
     height: 320px;
-  }
-  #tables #imgMap {
-    background: url("../img/restaurantMap.png") no-repeat center center;
-    width: 390px;
-    height: 650px;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
   }
   #calendar div table tbody tr td{
     text-align: center;
@@ -303,7 +289,7 @@ section #loginSelection > #loginBlock {
   }
   #calendar div table thead .mesic th {
     padding: 15px;
-  }
+  }*/
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -312,6 +298,9 @@ section #loginSelection > #loginBlock {
     padding-bottom: 7px;
     padding-top: 7px;
     border: 2px solid #a6a6a6;
+  }
+  #formularBlock div.row .formular {
+    width: 80%;
   }
 }
 
@@ -325,7 +314,7 @@ section #loginSelection > #loginBlock {
     width: 100%;
   }
   .flex > div {
-    width: 73%;
+    width: 100%;
     text-align: center;
   }
   .flex #imgHome, .flex #textHome {
@@ -351,22 +340,12 @@ section #loginSelection > #loginBlock {
     width: 85%;
   }
   /* public reservation page*/
-  #calendar, #tables {
+  /*#calendar, #tables {
     width: 100%;
   }
   #calendar div table {
     width: 320px;
     height: 320px;
-    margin: auto;
-  }
-  #tables #imgMap {
-    background: url("../img/restaurantMap.png") no-repeat center center;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
-    background-size: contain;
-    height: 696px;
-    width: 100%;
     margin: auto;
   }
   #calendar div table tbody tr td{
@@ -375,7 +354,7 @@ section #loginSelection > #loginBlock {
    }
   #calendar div table thead .mesic th {
     padding: 15px;
-  }
+  }*/
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -385,11 +364,21 @@ section #loginSelection > #loginBlock {
     padding-top: 7px;
     border: 2px solid #a6a6a6;
   }
+  /* TODO
   #formularBlock {
+    order: -1;
     margin: auto;
   }
+  /*#calendar {
+    order: -2;
+  }*/
   #formularBlock table {
     margin: auto;
+    width: 70%;
+    max-width: 380px;
+  }
+  #formularBlock {
+    order: 1;
   }
 }
 /* extra small mobile*/
@@ -429,10 +418,10 @@ section #loginSelection > #loginBlock {
     width: 100%;
   }
   /* public reservation page*/
-  #calendar, #tables {
+  /*#calendar, */#tables {
     width: 100%;
   }
-  #calendar div table, #calendar div table:nth-child(2) {
+  /*#calendar div table, #calendar div table:nth-child(2) {
     width: 300px;
     height: 320px;
     padding: 0px;
@@ -445,7 +434,7 @@ section #loginSelection > #loginBlock {
   }
   #calendar div table thead .mesic th {
     padding: 10px;
-  }
+  }*
   #tablesImg {
     width: 100%;
   }
@@ -461,7 +450,7 @@ section #loginSelection > #loginBlock {
     width: 318px;
     max-height: 100%;
     z-index: -1;
-  }
+  }*/
 
   /* login page*/
   #loginBlock {
@@ -494,13 +483,13 @@ body {
   display: flex;
   margin-bottom: -80px;
 }
-.contentAdmin table:not(.calendar) {
+/*.contentAdmin table:not(.calendar) {
   background-color: white;
   margin-bottom: 30px;
 }
 .contentAdmin table.calendar tr:not(.tydne) {
   background-color: white;
-}
+}*/
 .navbar-fixed-top {
   min-height: 30px;
   max-height: 70px;
@@ -566,18 +555,6 @@ body {
   margin-left: 20px;
   margin-top: -5px;
 }
-/*.nav.nav-pills li a {
-  color: #51695a;
-}
-.nav.nav-pills li.active a {
-  background-color: transparent;
-  color: #51695a;
-  font-weight: 600;
-}
-.nav.nav-pills li.active {
-  border-bottom: 2px solid #51695a;
-}*/
-
 .tabContent {
   -webkit-animation: fadeEffect 0.7s;
   animation: fadeEffect 0.7s;
@@ -617,26 +594,13 @@ div.tabset ul.tabs li a {
 .smallTableBlock{
   margin-top: 10px;
   width: 100%;
-}
-.smallTable {
-  border: 1px solid #999999;
-  border-bottom: transparent !important;
   text-align: center;
-  margin: auto;
 }
-.smallTable tr {
-  border-bottom: 1px solid #999;
-  margin-bottom: 100px;
+.bigTableBlock tr th, .bigTableBlock tr td {
+  text-align: center;
+  vertical-align: middle !important;
 }
-.smallTable tr td {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.smallTable:last-child {
-  border-bottom: 1px solid #999 !important;
-  margin-bottom: 15px;
-}
-.smallTableBlock div.btn-group {
+.smallTableBlock div.btn-group, .bigTableBlock div.btn-group {
   text-align: center;
   padding-bottom: 10px;
   margin: auto;
@@ -655,12 +619,20 @@ div.tabset ul.tabs {
   text-align: center;
   margin-bottom: 10px;
 }
-
+/*.smallTableBlock thead tr {
+  border-right:1px solid salmon;
+}*/
+.btn-block {
+  display: block;
+  min-width: 100%;
+}
 /*_________reservations__________*/
 .contentAdmin div {
   width: 100%;
 }
-
+#hledaniRezervace div {
+  width: calc(100%/3.5);
+}
 .seatingChart {
   width: 300px !important;
   margin: auto;
@@ -678,56 +650,65 @@ div.tabset ul.tabs {
   display: none;
 }
 .seatingChart ul li.bar input[type=checkbox] + label {
-  background-image: url("../img/seatingChart/bar.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 100px;
-  width: 163px;
-  top: -40px;
+  background:url("../img/seatingChart/icons_seating_chart.png") -234px -129px no-repeat;
+  height: 60px;
+  width: 143px;
+  top: 0px;
   margin: auto;
   position: relative;
 }
+.seatingChart ul li.door input[type=checkbox] + label {
+  background:url("../img/seatingChart/icons_seating_chart.png") -234px -50px no-repeat;
+  height: 80px;
+  width: 50px;
+  top: -392px;
+  left: -127px;
+  position: relative;
+}
+.seatingChart ul li.wc input[type=checkbox] + label {
+  background:url("../img/seatingChart/icons_seating_chart.png") -230px top no-repeat;
+  height: 40px;
+  width: 100px;
+  top: -540px;
+  left: -67px;
+  position: relative;
+}
 .seatingChart ul li.two input[type=checkbox] + label {
-  background-image: url("../img/seatingChart/two.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background:url("../img/seatingChart/icons_seating_chart.png") -181px -110px no-repeat;
   height: 50px;
   width: 50px;
   position: relative;
 }
 .seatingChart ul li.two input[type=checkbox] + label:hover {
-  background-image: url("../img/seatingChart/two_hover.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") -181px -55px no-repeat;
 }
 .seatingChart ul li.two input[type=checkbox]:checked + label {
-  background-image: url("../img/seatingChart/two_checked.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") -181px top no-repeat;
 }
 .seatingChart ul li.four input[type=checkbox] + label {
-  background-image: url("../img/seatingChart/four.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background:url("../img/seatingChart/icons_seating_chart.png") -105px -110px no-repeat;
   height: 50px;
-  width: 100px;
+  width: 80px;
   position: relative;
 }
 .seatingChart ul li.four input[type=checkbox] + label:hover {
-  background-image: url("../img/seatingChart/four_hover.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") -105px -55px no-repeat;
 }
 .seatingChart ul li.four input[type=checkbox]:checked + label {
-  background-image: url("../img/seatingChart/four_checked.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") -105px top no-repeat;
+
 }
 .seatingChart ul li.six input[type=checkbox] + label {
-  background-image: url("../img/seatingChart/six.png");
-  background-size: contain;
-  background-repeat: no-repeat;
+  background:url("../img/seatingChart/icons_seating_chart.png") left -197px no-repeat;
   height: 100px;
   width: 100px;
   position: absolute;
 }
 .seatingChart ul li.six input[type=checkbox] + label:hover {
-  background-image: url("../img/seatingChart/six_hover.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") left -100px no-repeat;
 }
 .seatingChart ul li.six input[type=checkbox]:checked + label {
-  background-image: url("../img/seatingChart/six_checked.png");
+  background:url("../img/seatingChart/icons_seating_chart.png") left top no-repeat;
 }
 .seatingChart ul li:nth-child(8) input[type=checkbox] + label {
   top: -20px;
@@ -767,8 +748,8 @@ div.tabset ul.tabs {
   left: 100px;
 }
 
-.bigTableBlock table tr.me {
-  background-color: #dcfad3;
+table .me {
+  background-color: rgba(220, 250, 211, 0.3);
 }
 #personalBlock {
   background-color: white;
@@ -776,12 +757,12 @@ div.tabset ul.tabs {
   text-align: center;
   margin: auto;
 }
-#calendar form .row label, #calendar form .row input {
+/*#calendar form .row label, #calendar form .row input {
   display: block;
 }
 #calendar form .row label {
   float: left;
-}
+}*/
 /* _________responsitive_________ */
 
 @media screen and (min-width: 1200px) {
@@ -892,6 +873,12 @@ div.tabset ul.tabs {
     border: 2px solid #e4e4e4;
     margin: auto;
     text-align: center;
+  }
+  .table.table-hover tr td div.btn-group {
+    margin: 0 auto;
+    text-align: center;
+    width: inherit;
+    display: inline-block;
   }
 }
 @media screen and (max-width: 768px) {
