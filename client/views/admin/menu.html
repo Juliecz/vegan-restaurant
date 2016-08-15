@@ -13,37 +13,37 @@
                             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
                             <th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Složení</th>
                             <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
-                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Typ</th>
-                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></th>
+                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Typ</th>
                             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr ng-repeat="x in dataMenu" id="{{x._id}}">
+                        <tbody ng-repeat="t in trida">
+                        <tr ng-repeat="x in dataMenu | filter:t" id="{{x._id}}">
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{x.foodName}}</td>
                             <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4">{{x.foodDescription}}</td>
                             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}</td>
-                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodType}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><div ng-class="x.foodType">{{x.foodType}}</div></td>
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodSort}}</td>
                             <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
-                                <div class="btn-group btn-group-sm" role="group">
+                                <div ng-hide="me.role=='employee'" class="btn-group btn-group-sm" role="group">
                                     <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"></span></button>
                                     <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"></span></button>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td colspan="4">
-
-                            </td>
-                            <td colspan="2">
-                                <div class="btn-group btn-group-md" role="group">
-                                    <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                                    <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="4"></td>
+                                <td colspan="2">
+                                    <div ng-hide="me.role=='employee'" class="btn-group btn-group-md" role="group">
+                                        <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
+                                        <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tfoot>
                     </table>
                 </div>
                 <div class="smallTableBlock" ng-show="winSize<=875">
@@ -52,7 +52,7 @@
                         <thead>
                         <tr>
                             <td colspan="2">
-                                <div class="btn-group btn-group-md" role="group">
+                                <div ng-hide="me.role=='employee'" class="btn-group btn-group-md" role="group">
                                     <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
                                 </div>
                             </td>
@@ -61,27 +61,24 @@
                         <tbody ng-repeat="x in dataMenu ">
                         <tr>
                             <th>Název</th>
-                            <td>{{x.foodName}}</td>
+                            <td>{{x.foodName}} </td>
+                            <td><div ng-class="x.foodType">{{x.foodType}}</div></td>
                         </tr>
                         <tr>
                             <th>Složení</th>
-                            <td>{{x.foodDescription}}</td>
+                            <td colspan="2">{{x.foodDescription}}</td>
                         </tr>
                         <tr>
                             <th>Cena</th>
-                            <td>{{x.price}}</td>
+                            <td colspan="2">{{x.price}}</td>
                         </tr>
                         <tr>
-                            <th>Typ.</th>
-                            <td>{{x.foodSort}}</td>
+                            <th>Typ</th>
+                            <td colspan="2">{{x.foodSort}}</td>
                         </tr>
-                        <tr>
-                            <th></th>
-                            <td>{{x.foodType}}</td>
-                        </tr>
-                        <tr>
+                        <tr ng-hide="me.role=='employee'">
                             <th>Akce</th>
-                            <td class="wrapper text-center">
+                            <td colspan="2" class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">
                                     <button class="btn btn-default" ng-click="setAction('edit', x._id, 'menu');"><span class="glyphicon glyphicon-edit"> &nbsp;Upravit</span></button>
                                     <button class="btn btn-default" ng-click="setAction('delete', x._id, 'menu');"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
@@ -100,8 +97,7 @@
                             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
                             <th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Složení</th>
                             <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
-                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Typ</th>
-                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Rozdělení</th>
+                            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Typ</th>
                             <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
                         </tr>
                         </thead>
@@ -110,26 +106,26 @@
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{y.drinkName}}</td>
                             <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{y.drinkDescription}}</td>
                             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.price}}</td>
-                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.drinkType}}</td>
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{y.drinkSort}}</td>
-                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                <div class="btn-group btn-group-sm" role="group">
+                            <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <div ng-hide="me.role=='employee'" class="btn-group btn-group-sm" role="group">
                                     <button class="btn btn-default" ng-click="setAction('edit', y._id, 'drink');"><span class="glyphicon glyphicon-edit"></span></button>
                                     <button class="btn btn-default" ng-click="setAction('delete', y._id, 'drink');"><span class="glyphicon glyphicon-trash"></span></button>
                                 </div>
                             </td>
                         </tr>
+                        </tbody>
+                        <tfoot>
                         <tr>
-                            <td colspan="4">
-                            </td>
+                            <td colspan="4"></td>
                             <td colspan="2">
-                                <div class="btn-group btn-group-md" role="group">
+                                <div ng-hide="me.role=='employee'" class="btn-group btn-group-md" role="group">
                                     <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
                                     <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
                                 </div>
                             </td>
                         </tr>
-                        </tbody>
+                        </tfoot>
                     </table>
                 </div>
                 <div class="smallTableBlock" ng-show="winSize<=875">
@@ -138,7 +134,7 @@
                         <thead>
                         <tr>
                             <td colspan="2">
-                                <div class="btn-group btn-group-md" role="group">
+                                <div ng-hide="me.role=='employee'" class="btn-group btn-group-md" role="group">
                                     <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'drink');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
                                 </div>
                             </td>
@@ -158,19 +154,15 @@
                             <td>{{x.price}}</td>
                         </tr>
                         <tr>
-                            <th>Typ.</th>
+                            <th>Typ</th>
                             <td>{{x.drinkSort}}</td>
                         </tr>
-                        <tr>
-                            <th></th>
-                            <td>{{d.drinkType}}</td>
-                        </tr>
-                        <tr>
+                        <tr ng-hide="me.role=='employee'">
                             <th>Akce</th>
                             <td class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">
-                                    <button class="btn btn-default" ng-click="setAction('edit', x._id);"><span class="glyphicon glyphicon-edit"> &nbsp;Upravit</span></button>
-                                    <button class="btn btn-default" ng-click="setAction('delete', x._id);"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('edit', x._id, 'drink');"><span class="glyphicon glyphicon-edit"> &nbsp;Upravit</span></button>
+                                    <button class="btn btn-default" ng-click="setAction('delete', x._id, 'drink');"><span class="glyphicon glyphicon-trash"> &nbsp;Smazat</span></button>
                                 </div>
                             </td>
                         </tr>

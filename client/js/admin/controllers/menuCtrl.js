@@ -1,5 +1,12 @@
 angular.module('veganapp.admin')
-    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'drinkMenu', function($scope, $state, $stateParams, getMenu, drinkMenu){
+    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'drinkMenu', 'userFactory', 'authProvider', function($scope, $state, $stateParams, getMenu, drinkMenu, userFactory, authProvider){
+        authProvider.isLoggedIn()
+            .then(function (data) {
+                userFactory.getUserById(data.data)
+                    .success(function (data) {
+                        $scope.me = data;
+                    });
+            });
         $scope.activeTab = 'jidelni';
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;

@@ -47,8 +47,9 @@
 
             </div>
         </div-->
-        <div id="formularBlock"  ng-submit="sendReservation(reservation);">
-            <form>
+        <div id="formularBlock" > <!--ng-submit="sendReservation(reservation);"-->
+            {{reservation}}
+            <form ng-submit="sendReservation(reservation);">
                 <!--div class="row">
                     <div class="col-xs-6">
                         <label for="timeFrom" class="sr-only"></label>
@@ -89,18 +90,18 @@
 
                 <div class="row">
                     <table class="table formular" ng-show="winSize>875">
-                        <tr class="form-group">
+                        <!--tr class="form-group">
                             <td colspan="2">
                                 <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
-                                <h4>Datetime picker {{date1}}</h4>
+                                {{reservation}}
                             </td>
-                        </tr>
+                        </tr-->
                         <tr class="form-group">
                             <td>
                                 Vyberte datum:
                             </td>
                             <td>
-                                <input class="form-control" ng-model="date1" datetime-picker date-only
+                                <input class="form-control" ng-model="reservation.datum" datetime-picker date-only
                                     date-format="dd.MM.yyyy" future-only ng-click="datepicker()"/>
                             </td>
                         </tr>
@@ -171,14 +172,14 @@
                         <tr class="form-group">
                             <td>
                                 <h4><i> Vybrané datum: {{today.getDate()}}.{{today.getMonth()+1}}.{{today.getFullYear()}} </i></h4>
-                                <h4>Datetime picker {{date1}}</h4>
+                                {{reservation}}
                             </td>
                         </tr>
                         <tr class="form-group">
                             <td> Vyberte datum: </td>
                         </tr>
                         <tr>
-                            <td> <input class="form-control" ng-model="date1" datetime-picker date-only
+                            <td> <input class="form-control" ng-model="reservation.datum" datetime-picker date-only
                                         date-format="dd.MM.yyyy" future-only ng-click="datepicker()"/> </td>
                         </tr>
                         <tr class="form-group">

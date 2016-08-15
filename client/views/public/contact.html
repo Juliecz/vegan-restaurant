@@ -7,16 +7,21 @@
         <div id="mapBlock">
             <div id="map"></div>
         </div>
-        <div>
-            <h1 id="h1Kontrola">
-
-            </h1>
-            <h3>
-                Oteviraci doba
-            </h3>
-            <h3>
-                Adresa
-            </h3>
+        <div class="kontakt">
+            <h3 class="veganNapis">Veganská restaurace</h3>
+            <h4> <b>Kontakt</b> </h4>
+            <div>
+                <h5>Roztylská 2321/19</h5>
+                <h5> 148 00 Praha 4 </h5>
+                <h5>Tel: +420 777 111 111</h5>
+                <h5>Email: vegan@restaurant.cz</h5>
+            </div>
+            <h4>
+                <b>Otevírací doba</b>
+                <h5 ng-repeat="w in week" ng-class="{openToday: today.getDay() == w.id}">
+                    {{w.day}}: &nbsp; {{w.from}} - {{w.to}}
+                </h5>
+            </h4>
         </div>
     </div>
 </div>

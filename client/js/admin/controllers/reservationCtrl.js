@@ -10,15 +10,29 @@ angular.module('veganapp.admin')
             var yyyy = this.getFullYear();
             return [dd, '.', mm, '.', yyyy].join('');
         };
+        Date.prototype.hhmm = function () {
+            var hh = this.getHours();
+            var mm = this.getMinutes();
+            if (mm < 10) {
+                return [hh, ':0', mm].join('');
+            }
+            else { return [hh, ':', mm].join(''); }
+        };
         $scope.tableObj = [];
-        $scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
-        $scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
+        $scope.Filter = {
+            ByDate: '',
+            validDate: '',
+            ByText: ''
+        };
+
+        //$scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
+        //$scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
         $scope.today = new Date();
         $scope.activeTab = $scope.today.getDate();
-        $scope.Calendar = new Calendar(1);
-        $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-        console.log($scope.mdays);
-        $scope.startDayWeek = $scope.Calendar.weekStartDate($scope.today);
+        //$scope.Calendar = new Calendar(1);
+        //$scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
+        //console.log($scope.mdays);
+        //$scope.startDayWeek = $scope.Calendar.weekStartDate($scope.today);
         $scope.getTables = function () {
             getTable.getTables()
             .success(function (data) {
@@ -31,7 +45,25 @@ angular.module('veganapp.admin')
                 }
             });
         };
-        
+        $scope.showReservations = function (rezervace) {
+            if ($scope.Filter.ByDate !== '') {
+                var arr = $scope.Filter.ByDate.split('.');
+                var dateFilter = new Date(arr[2], arr[1]-1, arr[0]);
+                var date = new Date(rezervace.startDate.getFullYear(), rezervace.startDate.getMonth(), rezervace.startDate.getDate());
+                return rezervace.startDate.getFullYear() === dateFilter.getFullYear()
+                    && rezervace.startDate.getMonth() == dateFilter.getMonth()
+                    && rezervace.startDate.getDate() === dateFilter.getDate();
+            }
+            if($scope.Filter.validDate === '') {
+                if ($scope.Filter.ByDate === '') {
+                    return rezervace.startDate >= (new Date());
+                }
+            }
+            else if ($scope.Filter.validDate === 'prev') {
+                return rezervace.startDate < (new Date());
+            }
+            //return $scope.Filter.ByDate === rezervace.startDate.ddmmyyyy();
+        };
         $scope.getTables();
         $scope.allReservations = function () {
             $scope.reservations = [];
@@ -78,17 +110,41 @@ angular.module('veganapp.admin')
                 }
             });
         };
+        $scope.changeTime = function (edit) {
+            if (!edit.endTime || parseInt(edit.endTime)<=parseInt(edit.startTime)) {
+                edit.endTime = (parseInt(edit.startTime) + 1).toString();
+            }
+        };
+        $scope.checkendTime = function (edit) {
+            var start = parseInt(edit.startTime),
+                end = parseInt(edit.endTime);
+            if (end<=start) {
+                start = end-1;
+                edit.startTime = start.toString();
+            }
+        };
+        $scope.editRes = function (id) {
+            for (var i=0; i<$scope.reservations.length; i++) {
+                if ($scope.reservations[i]._id == id) {
+                    $scope.upravit = $scope.reservations[i];
+                    $scope.upravit.datum = $scope.reservations[i].startDate.ddmmyyyy();
+
+                    break;
+                }
+                //console.log($scope.reservations[i].name);
+            }
+        };
         //$scope.arr = [0,1,2,3,4,5,6];
 
-        $scope.todayChosen = new Date();
+        //$scope.todayChosen = new Date();
         //$scope.selected = $scope.todayChosen.getDate();
-        $scope.filterDay = function (den) {
+        /*$scope.filterDay = function (den) {
             if (den === 0) {
                 return false;
             }
             return true;
         };
-        $scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
+        /*$scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
         $scope.lastDayInWeek = new Date($scope.firstDayInWeek.getFullYear(), $scope.firstDayInWeek.getMonth(), $scope.firstDayInWeek.getDate() + 7);
         $scope.nextMonth = function (month) {
             if (month < 11) {
@@ -136,7 +192,7 @@ angular.module('veganapp.admin')
                     }
                 }
             }
-        };
+        };*/
         $scope.onclickDate = function (den, mesic, rok) {
             $scope.today = new Date(rok, mesic, den);
             $scope.selected = den;

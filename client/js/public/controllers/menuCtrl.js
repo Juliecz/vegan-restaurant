@@ -50,7 +50,7 @@ angular.module('veganapp.public')
             //console.log('data: ', status);
         });
         menuPublic.getDailyMenu().success(function (data, status) {
-
+            $scope.celePoledni = data;
             for (var i=0; i<data.length; i++) {
                 if (data[i].day === $scope.todayStr) {
                     console.log('Cislo: ', i, ' object: ', data[i]);

@@ -11,12 +11,12 @@ var menuSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    foodType: { //vegan or raw
+    foodType: {
         type: String,
         required: true,
         enum: ["vegan", "raw"]
     },
-    foodSort: { //predkrm, hladni chod, napoje, dezerty atd.
+    foodSort: {
         type: String,
         required: true,
         enum: ["predkrm", "hlavni", "salat", "dezert"]
@@ -27,3 +27,7 @@ var menuSchema = new mongoose.Schema({
     }
 });
 module.exports = menuSchema;
+
+
+
+

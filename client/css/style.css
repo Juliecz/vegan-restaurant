@@ -11,7 +11,28 @@ body {
   /*ACE1AF*/
   height: 130px;
 }
-
+.openToday {
+  color: #000000;
+  font-weight: 600;
+}
+.veganNapis {
+  color: #5B8B77;
+  font-weight: 600;
+}
+.vegan {
+  background-color: #6ab978;
+  color: white;
+  font-weight: 600;
+  max-width: 40px;
+  text-align: center;
+}
+.raw {
+  background-color: orange;
+  color: white;
+  font-weight: 600;
+  max-width: 40px;
+  text-align: center;
+}
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
   /* TODO color: white;*/
   color: black;
@@ -76,92 +97,14 @@ and (orientation: portrait) {
 #dailyMenuBlock > div {
   border: 1px solid #e5e5e5;
   background-color: #f8f8f8;
-  height: 400px;
+  min-height: 350px;
 }
 #dailyMenuBlock > div > h4+table {
   margin: auto;
 }
 /* public reservation page*/
-/*#calendar div table:not(#formular) {
-  margin: 0 auto;
-  margin-top: 25px;
-  font-weight: 600;
-  border: 1px solid #31443e;
-}
-#calendar div div:last-child {
-  margin: 0 auto;
-  text-align: center;
-}
-#calendar div table:not(#formular) {
-  background-color: #f7f7f7;
-}
-#calendar table:not(#formular) thead tr.tydne {
-  background-color: white;
-}
-#calendar div table:not(#formular) tbody tr:not(:last-child) td {
-  border-bottom: 1px solid #d3d0c1;
-}
-#calendar div table:not(#formular) thead .mesic  {
-  text-align: center;
-  color: white;
-  border: 1px solid #31443e;
-  background-color: #31443e;
 
-  /*background-color: rgba(76, 175, 80, 0.61);
-  /*background: -webkit-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Safari 5.1 to 6.0 *
-  background: -o-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Opera 11.1 to 12.0 *
-  background: -moz-linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12)); /* For Firefox 3.6 to 15 *
-  background: linear-gradient(rgba(76, 175, 80, 0.59), rgba(107, 255, 111, 0.12));*
-}
-#calendar div table:not(#formular) thead tr th {
-  text-align: center;
-}
-#calendar div table:not(#formular) tr td a:hover, #calendar table tr td a:visited, #calendar table tr td a:link, #calendar table tr td a {
-  text-decoration: none;
-  color: black;
-}
-#calendar div table:not(#formular) tr th a:hover, #calendar table tr th a:visited, #calendar table tr th a:link, #calendar table tr th a {
-  text-decoration: none;
-  color: white;
-}
-#calendar div table:not(#formular) tr td.active {
-  background-color: rgba(157, 236, 181, 1) !important;
-  border-radius: 15px;
-}
-#calendar div table:not(#formular) tr td.today {
-  background-color: rgba(207, 211, 196, 0.9);
-  border-radius: 15px;
-}
-#calendar div table:first-child:not(#formular) tr td:hover {
-  background-color: #e5e5e5;
-  border-radius: 15px;
-}
-#calendar table#formular {
-  width: 80%;
-  margin: auto;
-}
-#calendar table#formular tr td div.col-xs-6 {
- width: 100%;
- display: inline-block;
-}
-#calendar table#formular tr td div.col-xs-6:nth-child(n) {
-  width: 50%;
-}
-#calendar table#formular tr td div.col-xs-6 div:first-child {
-  float: left;
-  display: inline-block;
-  width: 25px;
-  height: auto;
-}
-#calendar table#formular tr td div.col-xs-6 div:nth-child(2) {
-  float: left;
-  display: inline-block;
-  width: -moz-calc(100% - 25px);
-  width: -webkit-calc(100% - 25px);
-  width: calc(100% - 25px);
-  /*TODO ??????*
-  background-color: yellow;
-}*/
+
 #loginSelection #loginBlock form div h3 a:hover, #loginSelection #loginBlock form div h3 a:visited, #loginSelection #loginBlock form div h3 a:link, #loginSelection #loginBlock form div h3 a {
   text-decoration: none;
   color: black;
@@ -211,25 +154,23 @@ section #loginSelection > #loginBlock {
   .flex > div:nth-child(2) {
     text-align: center;
   }
+  .kontakt {
+    text-align: left !important;
+  }
   /*public menu page*/
+  #menuMainBlock {
+    width: 90%;
+  }
   #dailyMenuBlock {
-    width: 30%;
+    width: 40%;
+    max-width: 390px;
   }
   #menuBlock {
-    width: 70%;
+    width: 60%;
   }
   /* public reservation page*/
-  /*#calendar div table {
-    width: 320px;
-    height: 320px;
-  }
-  #calendar div table tbody tr td{
-    text-align: center;
-    padding: 10px;
-  }
-  #calendar div table thead .mesic th {
-    padding: 15px;
-  }*/
+
+
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -242,6 +183,7 @@ section #loginSelection > #loginBlock {
   #formularBlock div.row .formular {
     width: 70%;
   }
+
 }
 /* medium desktop/tablet */
 @media screen and (max-width: 1199px) {
@@ -258,7 +200,7 @@ section #loginSelection > #loginBlock {
   }
   .flex > div {
     width: 50%;
-
+    margin: auto;
   }
   /*public home page flexbox */
 
@@ -270,26 +212,21 @@ section #loginSelection > #loginBlock {
     max-width: 500px;
     height: 370px;
   }
+  .kontakt {
+    text-align: left !important;
+  }
   /*public menu page*/
   #dailyMenuBlock {
-    width: 40%;
+    width: 35%;
+    max-width: 370px;
   }
   #menuBlock {
-    width: 60%;
+    width: 65%;
   }
 
   /* public reservation page*/
-  /*#calendar div table {
-    width: 320px;
-    height: 320px;
-  }
-  #calendar div table tbody tr td{
-    text-align: center;
-    padding: 10px;
-  }
-  #calendar div table thead .mesic th {
-    padding: 15px;
-  }*/
+
+
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -332,29 +269,18 @@ section #loginSelection > #loginBlock {
     height: 370px;
     margin: auto;
   }
+  .kontakt {
+    text-align: center !important;
+  }
   /*public menu page*/
   #dailyMenuBlock {
-    width: 65%;
+    width: 365px;
   }
   #menuBlock {
     width: 85%;
   }
   /* public reservation page*/
-  /*#calendar, #tables {
-    width: 100%;
-  }
-  #calendar div table {
-    width: 320px;
-    height: 320px;
-    margin: auto;
-  }
-  #calendar div table tbody tr td{
-     text-align: center;
-     padding: 10px;
-   }
-  #calendar div table thead .mesic th {
-    padding: 15px;
-  }*/
+
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -364,14 +290,6 @@ section #loginSelection > #loginBlock {
     padding-top: 7px;
     border: 2px solid #a6a6a6;
   }
-  /* TODO
-  #formularBlock {
-    order: -1;
-    margin: auto;
-  }
-  /*#calendar {
-    order: -2;
-  }*/
   #formularBlock table {
     margin: auto;
     width: 70%;
@@ -406,7 +324,9 @@ section #loginSelection > #loginBlock {
     height: 370px;
     margin: auto;
   }
-
+  .kontakt {
+    text-align: center !important;
+  }
   /*public menu page*/
   #dailyMenuBlock {
     width: 90%;
@@ -421,36 +341,6 @@ section #loginSelection > #loginBlock {
   /*#calendar, */#tables {
     width: 100%;
   }
-  /*#calendar div table, #calendar div table:nth-child(2) {
-    width: 300px;
-    height: 320px;
-    padding: 0px;
-    margin: auto;
-  }
-  #calendar div table tbody tr td{
-    text-align: center;
-    font-size: 10px;
-    padding: 10px;
-  }
-  #calendar div table thead .mesic th {
-    padding: 10px;
-  }*
-  #tablesImg {
-    width: 100%;
-  }
-  #tablesImg div {
-    position: relative;
-    width: 319px;
-    height: 550px;
-    margin: auto;
-  }
-  #tablesImg div > img {
-    position: absolute;
-    left: 0px;
-    width: 318px;
-    max-height: 100%;
-    z-index: -1;
-  }*/
 
   /* login page*/
   #loginBlock {
@@ -466,10 +356,6 @@ section #loginSelection > #loginBlock {
     margin: auto;
   }
 }
-
-
-
-
 
 /*__________ADMIN_________________*/
 
@@ -625,6 +511,18 @@ div.tabset ul.tabs {
 .btn-block {
   display: block;
   min-width: 100%;
+}
+#divForm {
+  width: 70%;
+  background-color: white;
+  border: 1px solid #cbcbcb;
+  margin: auto;
+}
+#divForm form {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 /*_________reservations__________*/
 .contentAdmin div {
@@ -815,6 +713,12 @@ table .me {
     margin: auto;
     height: 450px;
   }
+  #divForm {
+    width: 75%;
+  }
+  #divForm form {
+    width: 80%;
+  }
   /*admin reservation page*/
   .table.table-hover {
     width: 90%;
@@ -880,6 +784,12 @@ table .me {
     width: inherit;
     display: inline-block;
   }
+  #divForm {
+    width: 85%;
+  }
+  #divForm form {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 768px) {
   .contentAdmin div form {
@@ -920,6 +830,12 @@ table .me {
   .seatingChart {
     width: 296px!important;
   }
+  #divForm {
+    width: 95%;
+  }
+  #divForm form {
+    width: 95%;
+  }
   /*admin reservation page*/
 
   /* admin users page */
@@ -933,4 +849,5 @@ table .me {
   #personalBlock {
     width: 95%;
   }
+
 }

@@ -91,17 +91,26 @@ angular.module('veganapp.admin')
                     });
             }
             else if($stateParams.action == 'delete') {
-                /*res = {
+                res = {
                     action: $stateParams.action,
                     actionName: 'delete',
                     id: $stateParams.id
                 };
-                getMenu.removeFood(res.id);
-                getMenu.getFood().success(function (data, status) {
-                    $scope.dataMenu = data;
-                    console.log(status);
-                    console.log($scope.dataMenu);
-                });*/
+                dailyMenuAdmin.removeFood(res.id);
+                dailyMenuAdmin.getDailyMenu().success(function (data, status) {
+                    $scope.data = data;
+                    if($scope.data) {
+                        if($scope.datum) {
+                            for (var i=0; i<$scope.day.length; i++) {
+                                $scope.dayObj.push({
+                                    name: $scope.datum[i],
+                                    text: $scope.day[i]
+                                });
+                            }
+                            console.log('Day arr object', $scope.dayObj);
+                        }
+                    }
+                });
             }
             console.log(res);
         };

@@ -36,6 +36,9 @@ angular.module('veganapp.admin')
         },
         editFood: function (formData, id) {
             return $http.put('/api/dailymenu/'+id, {foodName: formData.jmeno, foodDescription: formData.popis, foodType:formData.typ, foodSort:formData.trida, price: formData.cena, day: formData.den});
+        },
+        removeFood: function (id) {
+            return $http.delete('/api/dailymenu/'+id, {id: id});
         }
     };
 });

@@ -35,7 +35,7 @@ angular.module('veganapp.public')
             .state('public.contact', {
                 url: '/contact',
                 views: {
-                    'public' : { 
+                    'public' : {
                         templateUrl: '/views/public/contact.html',
                         controller: 'contactCtrl'
                     }

@@ -5,6 +5,7 @@ var myApp = angular.module('veganapp', [
     'veganapp.public', 
     'veganapp.admin', 
     'veganapp.system']);
+
 myApp
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         //$urlRouterProvider.when('/public', '/public/home');

@@ -1,20 +1,45 @@
 <div ng-controller="menuCtrlP" id="menuMainBlock" class="flex">
-
     <div id="dailyMenuBlock">
-        <div>
+        <div ng-hide="allDaily==true">
             <h4>{{ tabs[0].title }}</h4>
             <table class="table">
-                <tbody>
-                <tr ng-repeat="p in poledni | filter: p.name">
-                    <td>{{p.foodType}}</td>
+                <tbody ng-repeat="k in ['pondeli','utery','streda','ctvrtek','patek']">
+                <tr ng-repeat="p in celePoledni | filter: k | filter:">
+                    <td><div ng-class="p.foodType">{{p.foodType}}</div></td>
                     <td>{{p.foodName}}</td>
                     <td>{{p.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table">
+                <tbody ng-repeat="t in ['polevka', 'hlavni']">
+                <tr ng-repeat="p in poledni |filter:t">
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="p.foodType">{{p.foodType}}</div></td>
+                    <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{p.foodName}}</td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{p.price}}, Kč</td>
                 </tr>
                 </tbody>
             </table>
             <h5 ng-show="poledni.length < 1">
                 {{vikend}}
             </h5>
+            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=true">Zobrazit polední nabídku na celý týden</button>
+        </div>
+        <div ng-show="allDaily==true">
+            <h4>{{ tabs[0].title }}</h4>
+            <table ng-repeat="k in ['pondeli','utery','streda','ctvrtek','patek']" class="table">
+                <thead>
+                <tr><th colspan="3">{{k}}</th></tr>
+                </thead>
+                <tbody ng-repeat="t in ['polevka', 'hlavni']">
+                <tr ng-repeat="cele in celePoledni |filter:k |filter:t">
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="cele.foodType">{{cele.foodType}}</div></td>
+                    <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{cele.foodName}}</td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{cele.price}}, Kč</td>
+                </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=false">Zobrazit polední nabídku dnešní den</button>
         </div>
     </div>
     <div id="menuBlock">
@@ -26,11 +51,16 @@
         </div>
         <div class="tabContent" ng-show="activeTab == 'jidelni'">
             <table class="table">
-                <tbody>
-                <tr ng-repeat="f in data">
-                    <td>{{f.foodType}}</td>
+                <tbody ng-repeat="t in tridaVar">
+                <tr>
+                    <th colspan="3">
+                        {{t.text}}
+                    </th>
+                </tr>
+                <tr ng-repeat="f in data | filter:t.name">
+                    <td><div ng-class="f.foodType">{{f.foodType}}</div></td>
                     <td>{{f.foodName}}</td>
-                    <td>{{f.price}}</td>
+                    <td>{{f.price}}, Kč</td>
                 </tr>
                 </tbody>
             </table>
@@ -46,5 +76,7 @@
             </table>
         </div>
     </div>
-
 </div>
+
+
+
