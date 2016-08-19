@@ -14,10 +14,14 @@ var drinkMenuSchema = new mongoose.Schema({
     drinkSort: { 
         type: String,
         required: true,
-        enum: ["caj", "kava", "fresh", "limonada"]
+        enum: ["caj", "kava", "fresh", "ostatni"]
     },
     price: {
         type: Number,
+        required: true
+    },
+    volume: {
+        type: String,
         required: true
     }
 });

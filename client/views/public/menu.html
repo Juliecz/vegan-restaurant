@@ -3,27 +3,19 @@
         <div ng-hide="allDaily==true">
             <h4>{{ tabs[0].title }}</h4>
             <table class="table">
-                <tbody ng-repeat="k in ['pondeli','utery','streda','ctvrtek','patek']">
-                <tr ng-repeat="p in celePoledni | filter: k | filter:">
-                    <td><div ng-class="p.foodType">{{p.foodType}}</div></td>
-                    <td>{{p.foodName}}</td>
-                    <td>{{p.price}}</td>
-                </tr>
-                </tbody>
-            </table>
-            <table class="table">
                 <tbody ng-repeat="t in ['polevka', 'hlavni']">
                 <tr ng-repeat="p in poledni |filter:t">
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="p.foodType">{{p.foodType}}</div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{p.foodName}}</td>
-                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{p.price}}, Kč</td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{p.price}}, -</td>
                 </tr>
                 </tbody>
             </table>
             <h5 ng-show="poledni.length < 1">
                 {{vikend}}
             </h5>
-            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=true">Zobrazit polední nabídku na celý týden</button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=true">
+                Zobrazit polední nabídku na celý týden</button>
         </div>
         <div ng-show="allDaily==true">
             <h4>{{ tabs[0].title }}</h4>
@@ -35,18 +27,21 @@
                 <tr ng-repeat="cele in celePoledni |filter:k |filter:t">
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="cele.foodType">{{cele.foodType}}</div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{cele.foodName}}</td>
-                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{cele.price}}, Kč</td>
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{cele.price}}, -</td>
                 </tr>
                 </tbody>
             </table>
-            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=false">Zobrazit polední nabídku dnešní den</button>
+            <button type="button" class="btn btn-default btn-xs" ng-click="allDaily=false">
+                Zobrazit polední nabídku na dnešní den</button>
         </div>
     </div>
     <div id="menuBlock">
         <div class="tabset">
             <ul class="tabs">
-                <li ng-click="setTab(tabs[1].template)" ng-class="{active: activeTab=='jidelni'}"><a href="">Jídelní lístek</a></li>
-                <li ng-click="setTab(tabs[2].template)" ng-class="{active: activeTab=='napojovy'}"><a href="">Nápojový lístek</a></li>
+                <li ng-click="setTab(tabs[1].template)" ng-class="{active: activeTab=='jidelni'}">
+                    <a href="">Jídelní lístek</a></li>
+                <li ng-click="setTab(tabs[2].template)" ng-class="{active: activeTab=='napojovy'}">
+                    <a href="">Nápojový lístek</a></li>
             </ul>
         </div>
         <div class="tabContent" ng-show="activeTab == 'jidelni'">
@@ -60,17 +55,19 @@
                 <tr ng-repeat="f in data | filter:t.name">
                     <td><div ng-class="f.foodType">{{f.foodType}}</div></td>
                     <td>{{f.foodName}}</td>
-                    <td>{{f.price}}, Kč</td>
+                    <td>{{f.price}}, -</td>
                 </tr>
                 </tbody>
             </table>
         </div>
         <div class="tabContent" ng-show="activeTab == 'napojovy'">
             <table class="table">
-                <tbody>
-                <tr ng-repeat="n in napojovy">
-                    <td>{{n.drinkName}}</td>
-                    <td>{{n.price}}</td>
+                <tbody ng-repeat="t in sortD">
+                <tr><th colspan="3">{{t}}</th></tr>
+                <tr ng-repeat="n in napojovy |filter:t">
+                    <td class="col-lg-9 col-md-9 col-sm-9 col-xs-9">{{n.drinkName}}</td>
+                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{n.volume}}</td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{n.price}}</td>
                 </tr>
                 </tbody>
             </table>

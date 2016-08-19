@@ -7,6 +7,9 @@ angular.module('veganapp')
                     this.jsonData = data;
                 });
         },
+        getForDay: function (date) {
+            return $http.get('/api/reservation/'+date);
+        },
         createReservation: function (res, startDate, endDate) {
             return $http.post('/api/reservation', {jmeno: res.jmeno, prijmeni: res.prijmeni, tableId: res.table, email: res.email, tel: res.tel, startDate: startDate, endDate: endDate});
         },

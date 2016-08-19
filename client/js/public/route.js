@@ -59,7 +59,7 @@ angular.module('veganapp.public')
 angular.module('veganapp.public')   
     .controller('headCtrlP', ['$scope', '$http', '$rootScope', '$window', function($scope, $http, $rootScope, $window) {
         /*$scope.$on('$locationChangeStart', function() {
-            
+
         });*
         $scope.setLink = function () {
             console.log('ahoj');

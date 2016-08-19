@@ -3,8 +3,13 @@ angular.module('veganapp.admin')
     .controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', '$window', 'dailyMenuAdmin', function($scope, $state, $stateParams, $window, dailyMenuAdmin) {
         $scope.day=['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek'];
         $scope.dayObj = [];
-        //send action to edit
-        $scope.activeTab = 'pondeli';
+
+        if ($stateParams.activeTab === null ) {
+            $scope.activeTab = 'pondeli';
+        }
+        else {
+            $scope.activeTab = $stateParams.activeTab;
+        }
         $scope.actions = {
             new: 'Pridat nove jidlo',
             edit: 'Upravit jidlo'
@@ -31,6 +36,7 @@ angular.module('veganapp.admin')
                 name: 'Pátek'
             }
         ];
+
         //_______________________
         dailyMenuAdmin.getDay().success(function (data, status) {
             $scope.datum = data;
@@ -114,7 +120,6 @@ angular.module('veganapp.admin')
             }
             console.log(res);
         };
-        $scope.activeTab = 'pondeli';
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;
         };

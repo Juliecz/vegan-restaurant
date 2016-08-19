@@ -68,6 +68,9 @@ angular.module('veganapp.admin')
                         templateUrl: '/views/admin/menu.html',
                         controller: 'menuCtrl'
                     }
+                },
+                params: {
+                    activeTab: null
                 }
             })
             .state('admin.dailyMenu', {
@@ -77,6 +80,9 @@ angular.module('veganapp.admin')
                         templateUrl: '/views/admin/dailyMenu.html',
                         controller: 'dailyMenuCtrl'
                     }
+                },
+                params: {
+                    activeTab: null
                 }
             })
             .state('admin.reservation', {

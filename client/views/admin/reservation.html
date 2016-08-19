@@ -1,26 +1,12 @@
 <div ng-controller="reservationCtrl">
 
     <div class="flex">
-        <!--div>
-            <div class="seatingChart">
-                <ul>
-                    <li  ng-repeat="stul in tables"  ng-class="stul.seatingNum">
-                        <input type="checkbox" id="{{stul._id}}" class="{{stul.seatingNum}}"/>
-                        <label for="{{stul._id}}">{{stul.name}}</label>
-                    </li>
-                    <li class="bar"> <input type="checkbox"  id="bar"/>
-                        <label for="bar"></label>
-                    </li>
-                </ul>
-            </div>
-        </div-->
         <div id="hledaniRezervace" class="row">
 
 
 
         </div>
         <div ng-show="winSize>875" class="bigTableBlock">
-            {{Filter}}
             {{upravit}}
             <table class="table table-hover" id="rezervace">
                 <thead>
@@ -139,7 +125,7 @@
                 <tr>
                     <td colspan="2">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-warning" ng-click="Filter.ByText=''; Filter.ByDate=''; Filter.validDate=''"> Všechny </button>
+                            <button type="button" class="btn btn-warning" ng-click="Filter.ByText=''; Filter.ByDate=''; Filter.validDate=''"> Budoucí </button>
                             <button type="button" class="btn btn-warning" ng-click="Filter.validDate='prev'; Filter.ByDate = ''; Filter.ByText = ''" > Dřívější </button>
                         </div>
                     </td>

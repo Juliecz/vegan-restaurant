@@ -21,9 +21,9 @@ exports.createDrink = function (req, res) {
     var drink = Drink({
         drinkName: req.body.drinkName,
         drinkDescription: req.body.drinkDescription,
-        drinkType: req.body.drinkType,
         drinkSort: req.body.drinkSort,
-        price: req.body.price
+        price: req.body.price,
+        volume: req.body.volume
     });
     drink.save(function (err, menu) {
         if(err) { res.send(err); }

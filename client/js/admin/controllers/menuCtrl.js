@@ -7,7 +7,12 @@ angular.module('veganapp.admin')
                         $scope.me = data;
                     });
             });
-        $scope.activeTab = 'jidelni';
+        if ($stateParams.activeTab === null) {
+            $scope.activeTab = 'jidelni';
+        }
+        else {
+            $scope.activeTab = $stateParams.activeTab;
+        }
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;
             if ($scope.activeTab == 'jidelni') {
@@ -89,6 +94,9 @@ angular.module('veganapp.admin')
         drinkMenu.getDrinks().success(function (data) {
             $scope.drinks = data;
         });
+        drinkMenu.getSort().success(function (data) {
+            $scope.sortD = data;
+        })
         //________________________
         
 
@@ -125,15 +133,23 @@ angular.module('veganapp.admin')
                 $state.go('admin.edit/:id', res);
             }
             else if($stateParams.action == 'delete') {
-                res = {
-                    action: $stateParams.action,
-                    actionName: 'delete',
-                    id: $stateParams.id
-                };
-                getMenu.removeFood(res.id);
-                getMenu.getFood().success(function (data, status) {
-                    $scope.dataMenu = data;
-                });
+                if (menutype === 'menu') {
+                    res = {
+                        action: $stateParams.action,
+                        actionName: 'delete',
+                        id: $stateParams.id
+                    };
+                    getMenu.removeFood(res.id);
+                    getMenu.getFood().success(function (data, status) {
+                        $scope.dataMenu = data;
+                    });
+                }
+                else if(menutype == 'drink') {
+                    drinkMenu.removeDrink(id);
+                    drinkMenu.getDrinks().success(function (data) {
+                        $scope.drinks = data;
+                    })
+                }
             }
             //console.log(res);
         };

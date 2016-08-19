@@ -99,6 +99,9 @@ angular.module('veganapp.public')
         drinkMenu.getDrinks().success(function (data) {
             $scope.napojovy = data;
         });
+        drinkMenu.getSort().success(function (data) {
+            $scope.sortD = data;
+        });
         $scope.tabs = [{
             title: 'Polední menu',
             template: 'poledni'

@@ -3,9 +3,6 @@
         <form ng-submit="sendPost()" method="post" id="formEdit" ng-show="formData.typMenu != 'user'">
             <div>
                 <h3>{{ action }}</h3>
-                <h5>
-                    {{formData}}
-                </h5>
             </div>
             <div class="form-group">
                 <label class="sr-only" for="jmeno">Food name </label>
@@ -25,7 +22,10 @@
                     <option ng-repeat="x in [0,1,2]" value="{{typMenuId[x]}}">{{typMenu[x]}}</option>
                 </select>
             </div>
-
+            <div class="form-group" ng-show="formData.typMenu == 'drink'">
+                <label class="sr-only" for="objem">Objem </label>
+                <input ng-model="formData.objem" type="text" class="form-control" id="objem" name="objem" placeholder="Objem">
+            </div>
 
             <div class="form-group" ng-show="formData.typMenu=='daily'">
                 <select class="form-control" ng-model="formData.den" id="den" name="den">
@@ -33,29 +33,10 @@
                     <option ng-repeat="d in den" value="{{d}}">{{d}}</option>
                 </select>
             </div>
-            <!--div class="form-group" ng-hide="formData.typMenu=='drink'">
-                <select class="form-control" id="typ" name="typ" ng-model="formData.typ" >
-                    <option disabled selected value></option>
-                    <option ng-repeat="x in typ" value="{{x}}">{{x}}</option>
-                </select>
-            </div-->
             <div class="btn-group form-group" role="group" ng-hide="formData.typMenu=='drink'">
                 <button type="button" class="btn btn-default" ng-class="{active: formData.typ=='vegan'}" ng-click="formData.typ='vegan'">vegan</button>
                 <button type="button" class="btn btn-default" ng-class="{active: formData.typ=='raw'}" ng-click="formData.typ='raw'">raw</button>
             </div>
-            <!--div class="form-group" ng-show="formData.typMenu=='menu'">
-                <select class="form-control" id="trida" name="trida" ng-model="formData.trida">
-                    <option disabled selected value></option>
-                    <option ng-repeat="x in trida" value="{{x}}"> {{x}}</option>
-                </select>
-            </div>
-            <div class="form-group" ng-show="formData.typMenu=='daily'">
-                <select class="form-control" name="tr" id="tr" ng-model="formData.trida">
-                    <option disabled selected value></option>
-                    <option value="polevka">polevka</option>
-                    <option value="hlavni">hlavni chod</option>
-                </select>
-            </div-->
             <div class="btn-group form-group" ng-show="formData.typMenu=='menu'">
                 <button type="button" ng-repeat="x in trida" class="btn btn-default" ng-click="formData.trida = x"
                         ng-class="{active: x == formData.trida}">{{ x }}</button>
@@ -66,12 +47,6 @@
                 <button type="button" class="btn btn-default" ng-click="formData.trida = 'hlavni'"
                         ng-class="{active: formData.trida == 'hlavni'}">hlavni</button>
             </div>
-            <!--div class="form-group" ng-show="formData.typMenu=='drink'">
-                <select class="form-control" name="trid" id="trid" ng-model="formData.trida">
-                    <option disabled selected value></option>
-                    <option ng-repeat="tridaN in sortDrink" value="{{tridaN}}">{{tridaN}}</option>
-                </select>
-            </div-->
             <div class="btn-group form-group" ng-show="formData.typMenu=='drink'">
                 <button type="button" ng-repeat="tridaN in sortDrink" class="btn btn-default" ng-click="formData.trida = tridaN"
                     ng-class="{active: tridaN == formData.trida}">{{ tridaN }}</button>
@@ -108,11 +83,6 @@
                 <input type="text" ng-model="formData.email" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
             <div class="btn-group form-group">
-                <!--select class="form-control" name="role" id="role" ng-model="formData.role">
-                    <option disabled selected value> </option>
-                    <option value="admin">admin</option>
-                    <option value="employee">employee</option>
-                </select-->
                 <button type="button" class="btn btn-default" ng-class="{active: formData.role == 'admin'}" ng-click="formData.role = 'admin'">admin</button>
                 <button type="button" class="btn btn-default" ng-class="{active: formData.role == 'employee'}" ng-click="formData.role = 'employee'">employee</button>
             </div>

@@ -8,13 +8,13 @@ angular.module('veganapp')
                     });
             },
             createDrink: function (formData) {
-                return $http.post('/api/drinkmenu', {drinkName: formData.jmeno, drinkDescription: formData.popis, drinkType: formData.typ, drinkSort: formData.trida, price: formData.cena});
+                return $http.post('/api/drinkmenu', {drinkName: formData.jmeno, drinkDescription: formData.popis, drinkType: formData.typ, drinkSort: formData.trida, price: formData.cena, volume: formData.objem});
             },
-            removeDrink: function () {
+            removeDrink: function (id) {
                 return $http.delete('/api/drinkmenu/'+id, {id: id});
             },
             updateDrink: function (formData, id) {
-                return $http.put('/api/drinkmenu/'+id, {id: id, drinkName: formData.jmeno, drinkDescription: formData.popis, drinkType: formData.typ, drinkSort: formData.trida, price: formData.cena});
+                return $http.put('/api/drinkmenu/'+id, {id: id, drinkName: formData.jmeno, drinkDescription: formData.popis, drinkSort: formData.trida, price: formData.cena, volume: formData.objem});
             },
             getById: function (id) {
                 return $http.get('/api/drinkmenu/id/'+id, {id: id})

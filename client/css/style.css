@@ -5,9 +5,12 @@ body {
   /*todo depends on footer size*/
   margin-bottom: 20px;
 }
+body header {
+  background-color: #ffffff;
+}
 /* header style for public page */
 .headClass {
-  background-color: rgba(78, 173, 101, 0.43);
+  background-color: rgba(141, 188, 102, 0.29);
   /*ACE1AF*/
   height: 130px;
 }
@@ -18,13 +21,18 @@ body {
 .veganNapis {
   color: #5B8B77;
   font-weight: 600;
+  text-shadow: 2px 2px white;
 }
 .vegan {
   background-color: #6ab978;
   color: white;
   font-weight: 600;
-  max-width: 40px;
+  max-width: 45px;
   text-align: center;
+  text-shadow: 1px 1px 2px #3b6f45;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #50965d inset;
+  margin: auto;
 }
 .raw {
   background-color: orange;
@@ -32,14 +40,21 @@ body {
   font-weight: 600;
   max-width: 40px;
   text-align: center;
+  text-shadow: 1px 1px 2px #a06800;
+  border-radius: 5px;
+  box-shadow: 0 0 1px 1px #ce8600 inset;
+  margin: auto;
 }
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
   /* TODO color: white;*/
-  color: black;
+  color: white;
   font-size: 40px;
   text-decoration: none;
-  width: 100%;
   text-align: center;
+  line-height: normal;
+  width: 100%;
+  margin: auto;
+  text-shadow: 2px 2px 6px black;
 }
 /* footer style for public page */
 footer {
@@ -607,6 +622,15 @@ div.tabset ul.tabs {
 }
 .seatingChart ul li.six input[type=checkbox]:checked + label {
   background:url("../img/seatingChart/icons_seating_chart.png") left top no-repeat;
+}
+.six.reserved input[type=checkbox]:checked + label, .six.reserved input[type=checkbox] + label, .six.reserved input[type=checkbox] + label:hover {
+  background:url("../img/seatingChart/icons_seating_chart.png") -120px -230px no-repeat !important;
+}
+.four.reserved input[type=checkbox]:checked + label, .four.reserved input[type=checkbox] + label, .four.reserved input[type=checkbox] + label:hover {
+  background:url("../img/seatingChart/icons_seating_chart.png") -105px -165px no-repeat !important;
+}
+.two.reserved input[type=checkbox]:checked + label, .two.reserved input[type=checkbox] + label, .two.reserved input[type=checkbox] + label:hover {
+  background:url("../img/seatingChart/icons_seating_chart.png") -181px -165px no-repeat !important;
 }
 .seatingChart ul li:nth-child(8) input[type=checkbox] + label {
   top: -20px;

@@ -6,60 +6,78 @@ angular.module('veganapp.public')
         $scope.tableObj = [];
         $scope.availability = [];
         getTable.getTables().success(function (data, status) {
-            //todo
-            // $scope.dataTable = data;
-            //$scope.tables = data;
             for (var i=0; i<data.length; i++) {
-                $scope.tableObj.push({
-                    table: data[i],
-                    checked: false
-                });
                 $scope.availability.push({
-                    table: data[i]._id,
-                    free: true
+                    table: data[i],
+                    free: true,
+                    checked: false
                 });
             }
         });
-        $scope.updateTables = function (p, tables) {
-            angular.forEach(tables, function (stul, index) {
-                if(p != index) {
-                    stul.checked = false;
-                }
-            });
-        };
-        //$scope.myNumber = 5;
-        /*$scope.getNumber = function(num) {
-            return new Array(num);
-        };*/
-        //creating calendar
-        //$scope.showSecondTable = false;
-        /*$scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
-        $scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
-        */
-        $scope.today = new Date();
-        $scope.datum = new Date();
+
         Date.prototype.ddmmyyyy = function () {
             var dd = this.getDate();
             var mm = parseInt(this.getMonth())+1;
             var yyyy = this.getFullYear();
+            if (mm<10) { return [dd, '.0', mm, '.', yyyy].join(''); }
             return [dd, '.', mm, '.', yyyy].join('');
         };
-
-        /*$scope.Calendar = new Calendar(1);
-        $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
-        $scope.filterDay = function (den) {
-            if(den === 0) { return false; }
-            return true;
-        };
-        $scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
-        $scope.lastDayInWeek = new Date($scope.firstDayInWeek.getFullYear(), $scope.firstDayInWeek.getMonth(), $scope.firstDayInWeek.getDate()+7);
-*/
+        $scope.today = new Date();
+        $scope.datum = new Date(); //todo ???
         $scope.reservation = {
             day: $scope.today.getDate(),
             month: $scope.today.getMonth(),
-            year: $scope.today.getFullYear()
+            year: $scope.today.getFullYear(),
+            datum: $scope.today.ddmmyyyy()
         };
-        $scope.reservation.datum = (new Date()).ddmmyyyy();
+
+        if ((new Date()).getHours()>=21 && (new Date()).getMinutes()>30) {
+            var date1 = new Date((new Date()).getFullYear(), (new Date()).getMonth(), (new Date()).getDate()+1);
+            $scope.reservation.datum = date1.ddmmyyyy();
+        }
+        reservationFactory.getForDay($scope.reservation.datum)
+            .success(function (data) {
+                $scope.reservations = data;
+            });
+
+        $scope.k = 0;
+        $scope.setTable = function (selected, newT, volnyStul) {
+            $scope.k++;
+            var b = false;
+            if($scope.k%2==0) { return true;}
+            if (volnyStul) {
+                console.log('volny');
+                if (selected != newT) {
+                    $scope.reservation.table = newT;
+                }
+                else if(selected === newT) {
+                    delete $scope.reservation.table;
+                }
+            }
+            else {
+                delete $scope.reservation.table;
+
+            }
+
+        };
+        $scope.reservedTable = function () {
+            angular.forEach($scope.availability, function (item) {
+                if ($scope.reservation.table === item.table._id && item.free) {
+                    b = true;
+                    console.log($scope.reservation.table, ' ~~~~ ', b);
+                    return 0;
+                }
+            });
+        };
+        $scope.updateTables = function (p, tables) {
+            angular.forEach(tables, function (stul, index) {
+                if(p != index) {
+                    stul.checked = false;
+                    $scope.reservation.tableNum = p;
+                }
+            });
+        };
+
         $scope.changeTime = function () {
             if (!$scope.reservation.endTime || parseInt($scope.reservation.endTime)<=parseInt($scope.reservation.startTime)) {
                 $scope.reservation.endTime = (parseInt($scope.reservation.startTime) + 1).toString();
@@ -73,132 +91,64 @@ angular.module('veganapp.public')
                 $scope.reservation.startTime = start.toString();
             }
         };
-        /*
-        $scope.nextMonth = function (month) {
-            if (month < 11) {
-                if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month+1)) {
-                    var posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month+1);
-                    $scope.today.setDate(posledni);
-                    $scope.selected = posledni;
-                }
-                $scope.today.setMonth(month + 1);
-                $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-            }
-            else if(month === 11) {
-                $scope.today.setMonth(0);
-                $scope.today.setFullYear($scope.today.getFullYear()+1);
-                $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-            }
-        };
-        $scope.prevMonth = function (month) {
-            var dnesni = new Date();
-            var posledni;
-            if ($scope.today.getFullYear() >= dnesni.getFullYear()) {
-                if(month > dnesni.getMonth() &&  $scope.today.getFullYear() === dnesni.getFullYear()) {
-                    if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month-1)) {
-                        posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month-1);
-                        $scope.today.setDate(posledni);
-                        $scope.selected = posledni;
-                    }
-                    $scope.today.setMonth(month-1);
-                    $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
-                }
-                else if($scope.today.getFullYear() > dnesni.getFullYear()) {
-                    if (month === 0 ){
-                        $scope.today.setMonth(11);
-                        $scope.today.setFullYear($scope.today.getFullYear()-1);
-                        $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
-                    }
-                    else {
-                        if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month-1)) {
-                            posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month-1);
-                            $scope.today.setDate(posledni);
-                            $scope.selected = posledni;
-                        }
-                        $scope.today.setMonth(month-1);
-                        $scope.mdays = $scope.Calendar.monthDays( $scope.today.getFullYear(), $scope.today.getMonth());
-                    }
-                }
-              }
-        };
-        $scope.onclickDate = function (den, mesic, rok) {
-            $scope.datum = new Date(rok, mesic, den);
-            $scope.selected = den;
-            $scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
-            //$scope.firstDayInWeek.setDate($scope.firstDayInWeek.getDate()+1);
-            $scope.lastDayInWeek.setDate($scope.firstDayInWeek.getDate()+6);
 
-            $scope.reservation = {
-                day: $scope.datum.getDate(),
-                month: $scope.datum.getMonth(),
-                year: $scope.datum.getFullYear()
-            };
-        };
-        $scope.dnes = function (den, mesic, rok) {
-            var d = new Date();
-            if( d.getDate() === den && d.getMonth()===mesic && d.getFullYear()===rok) {
-                return d.getDate();
-            }
-            return -1;
-        };
-        $scope.showMonth = function () {
-            $scope.showSecondTable = false;
-        };
-
-        $scope.reservationsForCurrentDay = function () {
-            $scope.resForCurrentDay = [];
-            reservationFactory.getReservations().success(function (data) {
-                for (var i=0; i<data.length; i++) {
-                    var datum = new Date(data[i].startDate);
-                    if ($scope.datum.getDate() == datum.getDate() && $scope.datum.getMonth() == datum.getMonth() && $scope.datum.getFullYear() == datum.getFullYear()) {
-                        $scope.resForCurrentDay.push(data[i]);
-                    }
-                }
-                if($scope.resForCurrentDay.length>0) {
-                    console.log('ano');
-                    $scope.checkReservation($scope.resForCurrentDay);
-                }
-                else { console.log('ne'); }
+        $scope.checkAvailability = function () {
+            angular.forEach($scope.availability, function (item) {
+                item.free = true;
             });
+            angular.forEach($scope.availability, function (item) {
+                angular.forEach($scope.reservations, function (rezervace) {
+                    if (item.table._id === rezervace.table) {
+                        console.log(rezervace, '\n', typeof $scope.reservation.startTime);
+                        var start = new Date(rezervace.startDate),
+                            end = new Date(rezervace.endDate);
 
-        };
-        */
-        $scope.checkReservation = function (/*resForDay*/ day) {
-            var today = new Date();
-            today.setHours(0);
-            today.setMinutes(0);
-            today.setSeconds(0);
-            var arr = day.split('.');
-            var date1 = new Date(arr[2], arr[1]-1, arr[0]);
-            if(date1 > today || date1.toDateString() == today.toDateString()) {
-                console.log('valid');
-                console.log('today: ', today, '\ndate: ', date1);
-            }
-            else if(date1<today) {
-                $scope.message = 'Vyberte správný datum';
-            }
-            /*for (var i=0; i<$scope.availability.length; i++) {
-                for (var j=0; j<resForDay.length; j++) {
-                    if ($scope.availability[i].table === resForDay[j].table) {
-                        console.log($scope.availability[i].table, '____', resForDay[j].table);
+                        if (($scope.reservation.startTime>=start.getHours() && $scope.reservation.startTime < end.getHours())
+                        || ($scope.reservation.endTime > start.getHours() && $scope.reservation.endTime<= end.getHours())
+                        || ($scope.reservation.startTime <= start.getHours() && $scope.reservation.endTime >= end.getHours())) {
+                            item.free = false;
+                        }
                     }
-                }
-
-            }*/
-            return true;
+                });
+            });
         };
-        console.log($scope.reservation.datum.split('.'));
-
-        //$scope.checkReservation($scope.reservation);
+        //check if date was changed
+        $scope.$watch('reservation.datum', function () {
+            reservationFactory.getForDay($scope.reservation.datum)
+                .success(function (data) {
+                    $scope.reservations = data;
+                    if ($scope.reservation.startTime != '') {
+                        $scope.checkAvailability();
+                    }
+                });
+            angular.forEach($scope.availability, function (item) {
+                item.checked = false;
+            });
+        }, true);
+        //check if start time was changed
+        $scope.$watch('reservation.startTime', function () {
+            $scope.checkAvailability();
+        });
+        //check if end time was changed
+        $scope.$watch('reservation.endTime', function () {
+            $scope.checkAvailability();
+        });
         $scope.sendReservation = function (reservation) {
-            var arr = reservation.datum.split('.');
-            var startDate = new Date(arr[2], arr[1]-1, arr[0], reservation.startTime),
-                endDate = new Date(arr[2], arr[1]-1, arr[0], reservation.endTime);
-            //var startDate = new Date(reservation.year, reservation.month, reservation.day, reservation.startTime),
-            //      endDate = new Date(reservation.year, reservation.month, reservation.day, reservation.endTime);
-            // todo if ($scope.checkReservation()) {
-            reservationFactory.createReservation(reservation, startDate, endDate);
-
+            //if (reservation.table) {
+                var arr = reservation.datum.split('.');
+                var startDate = new Date(arr[2], arr[1]-1, arr[0], reservation.startTime),
+                    endDate = new Date(arr[2], arr[1]-1, arr[0], reservation.endTime);
+                //var startDate = new Date(reservation.year, reservation.month, reservation.day, reservation.startTime),
+                //      endDate = new Date(reservation.year, reservation.month, reservation.day, reservation.endTime);
+                // todo if ($scope.checkReservation()) {
+                reservationFactory.createReservation(reservation, startDate, endDate)
+                    .success(function (err, status) {
+                        console.log('Chyba klient ', err);
+                        console.log('Status klient ', status);
+                    })
+                    .err(function (err) {
+                        console.log(err);
+                    });
         };
         
     }]);

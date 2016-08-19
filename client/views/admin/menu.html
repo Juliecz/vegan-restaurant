@@ -22,7 +22,7 @@
                         <tr ng-repeat="x in dataMenu | filter:t" id="{{x._id}}">
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{x.foodName}}</td>
                             <td class="col-lg-3 col-md-4 col-sm-4 col-xs-4">{{x.foodDescription}}</td>
-                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{x.price}}, -</td>
                             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><div ng-class="x.foodType">{{x.foodType}}</div></td>
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{x.foodSort}}</td>
                             <td class="col-lg-2 col-md-1 col-sm-1 col-xs-1">
@@ -39,7 +39,6 @@
                                 <td colspan="2">
                                     <div ng-hide="me.role=='employee'" class="btn-group btn-group-md" role="group">
                                         <button class="btn btn-warning" type="submit" ng-click="setAction('new', null, 'menu');"><span class="glyphicon glyphicon-plus"> &nbsp;{{actions.new}}</span></button>
-                                        <!--button class="btn btn-success"><span class="glyphicon glyphicon-trash"></span></button-->
                                     </div>
                                 </td>
                             </tr>
@@ -58,8 +57,8 @@
                             </td>
                         </tr>
                         </thead>
-                        <tbody ng-repeat="x in dataMenu ">
-                        <tr>
+                        <tbody ng-repeat="t in trida">
+                        <tr ng-repeat-start="x in dataMenu |filter:t">
                             <th>Název</th>
                             <td>{{x.foodName}} </td>
                             <td><div ng-class="x.foodType">{{x.foodType}}</div></td>
@@ -70,13 +69,13 @@
                         </tr>
                         <tr>
                             <th>Cena</th>
-                            <td colspan="2">{{x.price}}</td>
+                            <td colspan="2">{{x.price}}, -</td>
                         </tr>
                         <tr>
                             <th>Typ</th>
                             <td colspan="2">{{x.foodSort}}</td>
                         </tr>
-                        <tr ng-hide="me.role=='employee'">
+                        <tr ng-repeat-end ng-hide="me.role=='employee'">
                             <th>Akce</th>
                             <td colspan="2" class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">
@@ -94,20 +93,22 @@
                     <table class="table table-hover">
                         <thead class="thead-inverse">
                         <tr>
-                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Název</th>
+                            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Název</th>
                             <th class="col-lg-4 col-md-4 col-sm-4 col-xs-4">Složení</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Objem</th>
                             <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Cena</th>
-                            <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Typ</th>
-                            <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
+                            <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Typ</th>
+                            <th class="col-lg-2 col-md-2 col-sm-3 col-xs-2">Akce</th>
                         </tr>
                         </thead>
-                        <tbody>
-                        <tr ng-repeat="y in drinks" id="{{y._id}}">
-                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >{{y.drinkName}}</td>
+                        <tbody ng-repeat="t in sortD">
+                        <tr ng-repeat="y in drinks | filter:t" id="{{y._id}}">
+                            <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >{{y.drinkName}}</td>
                             <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{y.drinkDescription}}</td>
-                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.price}}</td>
-                            <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{y.drinkSort}}</td>
-                            <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.volume}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.price}}, -</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{y.drinkSort}}</td>
+                            <td class="col-lg-2 col-md-2 col-sm-3 col-xs-2">
                                 <div ng-hide="me.role=='employee'" class="btn-group btn-group-sm" role="group">
                                     <button class="btn btn-default" ng-click="setAction('edit', y._id, 'drink');"><span class="glyphicon glyphicon-edit"></span></button>
                                     <button class="btn btn-default" ng-click="setAction('delete', y._id, 'drink');"><span class="glyphicon glyphicon-trash"></span></button>
@@ -140,8 +141,8 @@
                             </td>
                         </tr>
                         </thead>
-                        <tbody ng-repeat="x in drinks">
-                        <tr>
+                        <tbody ng-repeat="t in sortD">
+                        <tr ng-repeat-start="x in drinks |filter:t">
                             <th>Název</th>
                             <td>{{x.drinkName}}</td>
                         </tr>
@@ -150,14 +151,18 @@
                             <td>{{x.drinkDescription}}</td>
                         </tr>
                         <tr>
+                            <th>Objem</th>
+                            <td>{{x.volume}}</td>
+                        </tr>
+                        <tr>
                             <th>Cena</th>
-                            <td>{{x.price}}</td>
+                            <td>{{x.price}}, -</td>
                         </tr>
                         <tr>
                             <th>Typ</th>
                             <td>{{x.drinkSort}}</td>
                         </tr>
-                        <tr ng-hide="me.role=='employee'">
+                        <tr ng-repeat-end ng-hide="me.role=='employee'">
                             <th>Akce</th>
                             <td class="wrapper text-center">
                                 <div class="btn-group btn-group-sm" role="group">

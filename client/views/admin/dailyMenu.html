@@ -23,7 +23,7 @@
                         <tr ng-repeat="d in data |filter:t | filter:activeTab" id="{{d._id}}">
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{d.foodName}}</td>
                             <td class="col-lg-4 col-md-4 col-sm-4 col-xs-4">{{d.foodDescription}}</td>
-                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{d.price}}</td>
+                            <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{d.price}}, -</td>
                             <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1"><div ng-class="d.foodType">{{d.foodType}}</div></td>
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{d.foodSort}}</td>
                             <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -78,7 +78,7 @@
                         </tr>
                         <tr>
                             <th>Cena</th>
-                            <td colspan="2">{{d.price}}</td>
+                            <td colspan="2">{{d.price}}, -</td>
                         </tr>
                         <tr>
                             <th>Typ</th>

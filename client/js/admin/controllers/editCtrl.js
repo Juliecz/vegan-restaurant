@@ -93,7 +93,8 @@ angular.module('veganapp.admin')
                         popis: data.drinkDescription,
                         trida: data.drinkSort,
                         cena: data.price,
-                        typMenu: $scope.typMenuId[2]
+                        typMenu: $scope.typMenuId[2],
+                        objem: data.volume
                     };
                 });
             }
@@ -134,47 +135,6 @@ angular.module('veganapp.admin')
         }
 
         $scope.sendPost = function () {
-            /*if ($stateParams.menuType !== 'user') {
-                //var data = {};
-                /*if($stateParams.action == 'new') {
-                    data = {
-                        jmeno: $scope.formData.jmeno,
-                        popis: $scope.formData.popis,
-                        typ: $scope.formData.typ,
-                        trida: $scope.formData.trida,
-                        cena: $scope.formData.cena,
-                        den: $scope.formData.den
-                    };
-                    $scope.createFood(data);
-                    //$state.go('admin.menu');
-                }
-                else if($stateParams.action == 'edit') {
-                    data = {
-                        jmeno: $scope.formData.jmeno,
-                        popis: $scope.formData.popis,
-                        typ: $scope.formData.typ,
-                        trida: $scope.formData.trida,
-                        cena: $scope.formData.cena,
-                        den: $scope.formData.den
-                    };
-                    $scope.editFood(data);
-                }*
-                if ($stateParams.action == 'new') {
-                    $scope.createFood($scope.formData);
-                }
-                else if ($stateParams.action == 'edit') {
-                    $scope.editFood($scope.formData);
-                }
-            }
-            else if ($stateParams.menuType === 'user') {
-                //var data = {};
-                if ($stateParams.action == 'new') {
-                    $scope.createFood($scope.formData);
-                }
-                else if ($stateParams.action == 'edit') {
-                    $scope.editFood($scope.formData);
-                }
-            }*/
             if ($stateParams.action == 'new') {
                 $scope.createFood($scope.formData);
             }
@@ -194,7 +154,7 @@ angular.module('veganapp.admin')
                         getMenu.createFood(formData).success(function (err) {
                             console.log(err);
                         });
-                        $state.go('admin.menu');
+                        $state.go('admin.menu', {activeTab: 'jidelni'});
                         break;
                     }
                     case 'daily':
@@ -202,8 +162,7 @@ angular.module('veganapp.admin')
                         dailyMenuAdmin.createFood(formData).success(function (err) {
                             console.log(err);
                         });
-                        //todo send activetab current day
-                        $state.go('admin.dailyMenu');
+                        $state.go('admin.dailyMenu', {activeTab: formData.den});
                         break;
                     }
                     case 'drink':
@@ -211,8 +170,7 @@ angular.module('veganapp.admin')
                         drinkMenu.createDrink(formData).success(function (err) {
                             console.log(err);
                         });
-                        //todo send activetab
-                        $state.go('admin.menu');
+                        $state.go('admin.menu', {activeTab: 'napojovy'});
                         break;
                     }
                     case 'user':
@@ -232,7 +190,7 @@ angular.module('veganapp.admin')
                         getMenu.updateFood($stateParams.id, formData).success(function (err) {
                             console.log(err);
                         });
-                        $state.go('admin.menu');
+                        $state.go('admin.menu', {activeTab: 'jidelni'});
                         break;
                     }
                     case 'daily':
@@ -241,15 +199,13 @@ angular.module('veganapp.admin')
                         dailyMenuAdmin.editFood(formData, $stateParams.id).success(function (err) {
                             console.log(err);
                         });
-                        //todo send activetab current day
-                        $state.go('admin.dailyMenu');
+                        $state.go('admin.dailyMenu', {activeTab: formData.den});
                         break;
                     }
                     case 'drink':
                     {
                         drinkMenu.updateDrink(formData, $stateParams.id).success(function (err) {});
-                        //todo send activetab
-                        $state.go('admin.menu');
+                        $state.go('admin.menu', {activeTab: 'napojovy'});
                         break;
                     }
                     case 'user':
