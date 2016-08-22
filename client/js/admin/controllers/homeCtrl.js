@@ -2,30 +2,93 @@
  * Created by yuliya on 14.11.15.
  */
 angular.module('veganapp.admin')
-    .controller('homeCtrlA', ['$scope', '$http', '$stateParams', 'authProvider', function($scope, $http, $stateParams, authProvider){
-        /*$scope.ifAuth = function () {
-            var check;
+    .controller('homeCtrlA', ['$scope', '$http', '$stateParams', 'authProvider', 'reservationFactory', 'userFactory', function($scope, $http, $stateParams, authProvider, reservationFactory, userFactory){
+        Date.prototype.ddmmyyyy = function () {
+            var dd = this.getDate();
+            var mm = parseInt(this.getMonth())+1;
+            var yyyy = this.getFullYear();
+            if (mm<10) { return [dd, '.0', mm, '.', yyyy].join(''); }
+            return [dd, '.', mm, '.', yyyy].join('');
+        };
+        $scope.firstDay = function () {
+            var date = new Date(),
+                day = date.getDay(),
+                d = date.getDate() - day + (day == 0 ? -6:1);
+            return new Date(date.setDate(d));
+        };
+        $scope.dis = true;
+        $scope.myInfo = function () {
             authProvider.isLoggedIn()
                 .then(function (data) {
-                    check = data;
-                }); 
-            return check;
+                    console.log(data);
+
+                    userFactory.getUserById(data.data)
+                        .success(function (data) {
+                            $scope.me = {
+                                id: data._id,
+                                uzivJm: data.username,
+                                jm: data.name,
+                                prijm: data.surname,
+                                role: data.role,
+                                email: data.email,
+                                phone: data.phone,
+                                phoneM: data.phoneMessage,
+                                emailM: data.emailMessage,
+                                password: data.password
+                            };
+                        });
+                });
         };
-        console.log('IF AUTH FUNCTION: ', $scope.ifAuth());
-        $scope.test = 'my admin test';
-        console.log('State home params: ', $stateParams.user);
-        //divMenuAdmin1(50);
-    
-        /*
-        $scope.navigationLeft = function () {
-            if (window.innerWidth<820) {
-                menuWidth = angular.element("#right");
-                console.log(menuWidth.offsetWidth);
+        $scope.myInfo();
+        $scope.send = function (id, me) {
+            if ($scope.me.passwStare !== '' || $scope.me.passwNove !== '') {
+                if($scope.me.passwStare !== $scope.me.password) {
+                    $scope.message = 'Zadejte správné heslo';
+                    return 0;
+                }
+                else {
+                    $scope.me.password = $scope.me.passwNove;
+                }
+            }
+            if (!$scope.dis) {
+                userFactory.updateUser(id, me).success(function (err, data) {
+                    //$scope.myInfo();
+                    $scope.dis = true;
+                    console.log(err);
+                    console.log('data ' , data);
+                });
             }
         };
-        $scope.navigationLeft();
-        //$scope.loginPost = loginPost();
-*/
+        $scope.navstevy = 0;
+        $scope.rezervace = 0;
+        reservationFactory.getForDay(new Date().ddmmyyyy()).success(function (data) {
+            $scope.rezervace = data.length;
+        });
+
+        /*$scope.canvas =
+        angular.element('canvas');
+        $scope.chart = new Chart($scope.canvas, {
+            type: 'line',
+            data: {
+                labels: ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'],
+                datasets: [{
+                    data: ar,
+                    backgroundColor: [ 'rgba(255, 99, 132, 0.2)' ],
+                    borderColor: [ 'rgba(255,99,132,1)' ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });*/
+
 }]);
 
 /*function divMenuAdmin1(wLeft) {

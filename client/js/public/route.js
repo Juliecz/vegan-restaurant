@@ -58,37 +58,65 @@ angular.module('veganapp.public')
 //TODO remove the contorller
 angular.module('veganapp.public')   
     .controller('headCtrlP', ['$scope', '$http', '$rootScope', '$window', function($scope, $http, $rootScope, $window) {
-        /*$scope.$on('$locationChangeStart', function() {
+        /*$scope.getWatchers = function(root) {
+            root = angular.element(root || document.documentElement);
+            var watcherCount = 0;
 
-        });*
-        $scope.setLink = function () {
-            console.log('ahoj');
-            /*$scope.set = $http.get('/api/logged')
-                .success(function (data) {
-                    /*if(data) {
-                        console.log('SET LINK!!!!!!!!!!!!!!!!');
-                        return '/#/admin/home';
+            function getElemWatchers(element) {
+                var isolateWatchers = getWatchersFromScope(element.data().$isolateScope);
+                var scopeWatchers = getWatchersFromScope(element.data().$scope);
+                var watchers = scopeWatchers.concat(isolateWatchers);
+                angular.forEach(element.children(), function (childElement) {
+                    watchers = watchers.concat(getElemWatchers(angular.element(childElement)));
+                });
+                return watchers;
+            }
+
+            function getWatchersFromScope(scope) {
+                if (scope) {
+                    return scope.$$watchers || [];
+                } else {
+                    return [];
+                }
+            }
+
+            return getElemWatchers(root);
+        };
+        console.log('watchers ', $scope.getWatchers().length);
+        */
+        //TODO visitors ????
+        (function () {
+            var root = angular.element(document.getElementsByTagName('body'));
+
+            var watchers = [];
+
+            var f = function (element) {
+                angular.forEach(['$scope', '$isolateScope'], function (scopeProperty) {
+                    if (element.data() && element.data().hasOwnProperty(scopeProperty)) {
+                        angular.forEach(element.data()[scopeProperty].$$watchers, function (watcher) {
+                            watchers.push(watcher);
+                        });
                     }
-                    else {
-                        return '/#/login';
-                    }*
-                    return data;
-                })
-                .error(function () {
-                    return '/#/login';
-                });*
-        };*/
-        
-    /*$(window).scroll(function(){
-     if ($(this).scrollTop()>150) {
-     $('.navbar').addClass('navbar-fixed-top');
-     $('li:hidden').show('fast');
-     }
-     else {
-     $('.navbar').removeClass('navbar-fixed-top');
-     $('li:last').hide();
-     }
-     });*/
+                });
+
+                angular.forEach(element.children(), function (childElement) {
+                    f(angular.element(childElement));
+                });
+            };
+
+            f(root);
+
+            // Remove duplicate watchers
+            var watchersWithoutDuplicates = [];
+            angular.forEach(watchers, function(item) {
+                if(watchersWithoutDuplicates.indexOf(item) < 0) {
+                    watchersWithoutDuplicates.push(item);
+                }
+            });
+
+            console.log(watchersWithoutDuplicates.length);
+        })();
+
         $scope.winSize = $window.innerWidth;
         $scope.resizeWin = function () {
             if ($window.innerWidth < 768) {
@@ -108,4 +136,5 @@ angular.module('veganapp.public')
             });
         });
 }]);
-    
+
+

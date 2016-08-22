@@ -1,43 +1,135 @@
 <div ng-controller="homeCtrlA">
-    <div id="right">
-        <p> {{ test }}</p>
-        <p>This is blabla a template___{{ menuWidth }}___ for a simple marketing or informational website. It
-            includes a large callout called the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.This is a template for a simple marketing or informational website. It
-            includes a large callout called the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
+    <div id="flex">
+        <div id="dashboard">
+            <div id="personalBlock">
+                <!--h3> {{ me.jm }} {{me.prijm}} </h3>
+                <h5>
+                    Tel. číslo: {{ me.phone }}
+                </h5>
+                <div class="form-group" ng-show="!dis">
+                    <label for="tel"><!-- TODO NOVE TEL cislo></label>
+                    <input type="text" class="form-control" id="tel" ng-model="me.phone">
+                </div>
+                <h5>
+                    Email: {{ me.email }}
+                </h5>
+                <div class="form-group" ng-show="!dis">
+                    <label for="email"><!-- TODO NOVE email></label>
+                    <input type="text" class="form-control" id="email" ng-model="me.email">
+                </div>
+                <h5>
+                    <div class="checkbox">
+                        <label> <input type="checkbox" ng-model="me.phoneM" ng-disabled="dis">phone message </label>
+                    </div>
+                    <div class="checkbox">
+                        <label> <input type="checkbox" ng-model="me.emailM" ng-disabled="dis">email message </label>
+                    </div>
+                </h5>
+                <h5 ng-hide="!dis">
+                    <button class="btn btn-default btn-xs" ng-click="dis=false;"> Změna údajů </button>
+                </h5>
+                <h5 ng-show="!dis">
+                    <button class="btn btn-default btn-xs" ng-click="send(me.id, me);"> Uložit </button>
+                </h5-->
+                <div>
+                    <table>
+                        <thead>
+                        <tr>
+                            <td colspan="2"><h3> {{ me.jm }} {{me.prijm}} </h3></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th>Tel. číslo:</th>
+                            <td>
+                                {{ me.phone }}
+                            </td>
+                        </tr>
+                        <tr ng-show="!dis">
+                            <td>Změna tel.č.</td>
+                            <td>
+                                <div class="form-group" >
+                                    <label for="tel"><!-- TODO NOVE TEL cislo--></label>
+                                    <input type="text" class="form-control" id="tel" ng-model="me.phone">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>
+                                {{ me.email }}
+                            </td>
+                        </tr>
+                        <tr  ng-show="!dis">
+                            <td>Změna email:</td>
+                            <td>
+                                <div class="form-group">
+                                    <label for="email"><!-- TODO NOVE email--></label>
+                                    <input type="text" class="form-control" id="email" ng-model="me.email">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"> <b>Notifikace:</b></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Tel. číslo:
+                                <input type="checkbox" ng-model="me.phoneM" ng-disabled="dis">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">Email:
+                                <input type="checkbox" ng-model="me.emailM" ng-disabled="dis">
+                            </td>
+                        </tr>
+                        <tr  ng-show="!dis">
+                            <th>Zadejte své heslo: </th>
+                            <td>
+                                <div class="form-group">
+                                    <label for="passwS"></label>
+                                    <input type="password" class="form-control" id="passwS" ng-model="me.passwStare">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr  ng-show="!dis">
+                            <th>Zadejte nové heslo: </th>
+                            <td>
+                                <div class="form-group">
+                                    <label for="passwN"></label>
+                                    <input type="password" class="form-control" id="passwN" ng-model="me.passwNove">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <h5 ng-hide="!dis">
+                                    <button class="btn btn-default btn-xs" ng-click="dis=false;"> Změna údajů </button>
+                                </h5>
+                                <h5 ng-show="!dis" class="btn-group">
+                                    <button class="btn btn-default btn-xs" ng-click="send(me.id, me);"> Uložit </button>
+                                    <button class="btn btn-default btn-xs" ng-click="dis=true"> Zrušit </button>
+                                </h5>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {{message}}
+                </div>
+            </div>
+            <div id="statistic">
+                <div>
+                    <h1>{{navstevy}}</h1>
+                    <h6>Počet návštěvníků webu</h6>
+                </div>
+                <div>
+                    <h1>{{rezervace}}</h1>
+                    <h6>Počet rezervací na dnešní den</h6>
+                </div>
+            </div>
 
-        <p>This is a template for a simple marketing or informational website. It
-            includes a large callouThis is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique.t called the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
-
-        <p>This is a template for a simple marketing or informational website. It
-            includes a large callout This is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique.This is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique.called the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
-
-        <p>This is a template for a simple marketing or informational website. It
-            includes a large callout called the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
-
-        <p>This is a template for a simple marketing or informational website. It
-            includes a large callout called This is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique.This is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique.the hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
-
-        <p>This is a template for a simple marketing or informational website. It
-            includes a large callout called theThis is a template for a simple marketing or informational website. It
-        includes a large callout called the hero unit and three supporting pieces
-        of content. Use it as a starting point to create something more unique. hero unit and three supporting pieces
-            of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-success btn-lg">Learn more »</a>
+            <!--div>
+                <canvas id="chart" class="chart" width="400px" height="240px"></canvas>
+            </div-->
+        </div>
     </div>
 </div>

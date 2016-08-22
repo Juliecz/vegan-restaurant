@@ -58,11 +58,56 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         concurrent: {
             options: {
                 logConcurrentOutput: true
             },
             tasks: ['nodemon', 'watch']
+        },
+        protractor: {
+            options: {
+                configFile: "test/conf.js",
+                noColor: false,
+                args: {}
+            },
+            e2e: {
+                options: {
+                    keepAlive: false
+                }
+            },
+            continuous: {
+                options: {
+                    keepAlive: false
+                }
+            }
+        },
+        connect: {
+            options: {
+                port: 9000,
+                hostname: 'localhost'
+            },
+            test: {
+                options: {
+                    base: ['app']
+                }
+            }
+        },
+        webdrivermanager: {
+            out_dir: './selenium',
+            capabilities: {
+                browserName: 'chrome'
+            },
+            seleniumArgs: [],
+            //seleniumPort: 4444,
+            //ignore_ssl: false,
+            //proxy: false,
+            method: 'GET',
+            webdriverVersions: {
+                selenium: '2.44.0',
+                chromedriver: '2.12',
+                iedriver: '2.44.0'
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -72,7 +117,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jade');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-concurrent');
-
+    grunt.loadNpmTasks('grunt-webdriver-manager');
+    grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     grunt.registerTask('default', ['concurrent', 'nodemon','jshint']);
+    grunt.registerTask('test', ['webdrivermanager', 'connect:test', 'protractor:e2e']);
 }

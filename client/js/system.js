@@ -6,5 +6,6 @@ angular.module('veganapp.system', [
     'ui.router.stateHelper',
     'ui.bootstrap',
     'ngRoute',
-    'angularjs-datetime-picker'
+    'angularjs-datetime-picker',
+    'chart.js'
 ]);

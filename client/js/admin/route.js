@@ -16,7 +16,7 @@ angular.module('veganapp.admin')
                     loggedInResolve: function (authProvider, $state, $rootScope) {
                         authProvider.isLoggedIn()
                             .then(function (data) {
-                                if(data.data !== '' && data.data !== '0' ) {
+                                if(data.data !== '' && data.data !== '401' ) {
                                     //when update go to admin.home
                                     //$state.go('admin.home');
                                     //when update go to current state
@@ -154,9 +154,11 @@ angular.module('veganapp.admin')
             });
     }])
     .run(['$state', '$rootScope', '$location', 'authProvider', function ($state, $rootScope, $location, authProvider) {
+        //console.log('state go');
+        //$state.go('admin.home');
     }])
     .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', '$window','$document', 'authProvider', 'userFactory', function ($scope, $state, $stateParams, $location, $window, $document, authProvider, userFactory) {
-        
+        $scope.c = 'home';
         $scope.logout = function () {
             authProvider.logout()
                 .then(function () {

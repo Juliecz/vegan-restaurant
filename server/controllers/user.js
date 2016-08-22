@@ -1,7 +1,9 @@
 
 var connection = require('../config/database'),
-    userSchema = require('../models/user');
-    User = connection.model('User', userSchema);
+    userSchema = require('../models/user'),
+    User = connection.model('User', userSchema),
+    nodemailer = require('nodemailer'),
+    smtpTransport = require('nodemailer-smtp-transport');
 
 function randomPassword() {
     var charts = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -28,6 +30,8 @@ exports.findUserById = function (req, res) {
 };
 exports.createUser = function (req, res) {
     var p = randomPassword();
+    var text = 'Uživatelské jméno: ' + req.body.username + '\nHeslo: ' + p;
+    text += '\nPřejít do administračního rozhraní: '+'http://localhost:3000/#/login';
     var user = User({
         username: req.body.username,
         name: req.body.name,
@@ -37,6 +41,26 @@ exports.createUser = function (req, res) {
         phone: req.body.phone,
         password: p,
         emailMessage: true
+    });
+    var transport = nodemailer.createTransport(
+        smtpTransport({
+            service: 'gmail',
+            auth: {
+                user: 'veganskarestaurace@gmail.com',
+                pass: 'veganThesis'
+            }
+        })
+    );
+    var params = {
+        from: 'vegan@restaurant.cz',
+        to: req.body.email,
+        subject: 'Přístup do administračního rozhraní',
+        text: text
+    };
+    transport.sendMail(params, function (err, res) {
+        if (err) {
+            console.log('err send email ', err);
+        }
     });
     user.save(function (err, user) {
         if (err) { console.log(err); res.send(err); }
@@ -59,5 +83,4 @@ exports.editUser = function (req, res) {
         if(err) { res.send(err);}
         res.json(data);
     });
-    console.log(req.body);
 };

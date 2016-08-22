@@ -37,44 +37,29 @@
         </nav>
         <nav class="navbar navbar-default navbar-fixed-left" ng-hide="!showLeftMenu" ng-click="showHideLeftMenu()">
             <ul class="nav navbar-nav">
-                <li>
-                    <a ui-sref="admin.home">
-                        <div class="spanClass">
-                            <span class="glyphicon glyphicon-home"></span>
-                        </div>
-                        <div class="nameClass">Home </div>
+                <li ng-class="{selected: c == 'home'}" ng-click="c='home'">
+                    <a ui-sref="admin.home" href="#">
+                        <div class="nameClass">Domovská stránka </div>
                     </a>
                 </li>
-                <li>
-                    <a ui-sref="admin.menu">
-                        <div class="spanClass">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                        </div>
-                        <div class="nameClass">Jidelni listek</div>
+                <li ng-class="{selected: c == 'menu'}" ng-click="c='menu'">
+                    <a ui-sref="admin.menu" href="#">
+                        <div class="nameClass">Jídelní <br />lístek</div>
                     </a>
                 </li>
-                <li>
+                <li ng-class="{selected: c == 'daily'}" ng-click="c='daily'">
                     <a ui-sref="admin.dailyMenu">
-                        <div class="spanClass">
-                            <span class="glyphicon glyphicon-list-alt"></span>
-                        </div>
-                        <div class="nameClass">Poledni menu</div>
+                        <div class="nameClass">Polední <br />menu</div>
                     </a>
                 </li>
-                <li>
+                <li ng-class="{selected: c == 'reservation'}" ng-click="c='reservation'">
                     <a ui-sref="admin.reservation">
-                        <div class="spanClass">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </div>
-                        <div class="nameClass">Rezervace stolu</div>
+                        <div class="nameClass">Rezervace stolů</div>
                     </a>
                 </li>
-                <li ng-show="uzivatel.role == 'admin'">
+                <li ng-show="uzivatel.role == 'admin'" ng-class="{selected: c == 'users'}" ng-click="c='users'">
                     <a ui-sref="admin.users">
-                        <div class="spanClass">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </div>
-                        <div class="nameClass">Uzivatele {{testVar}}</div>
+                        <div class="nameClass">Uživatele {{testVar}}</div>
                     </a>
                 </li>
             </ul>

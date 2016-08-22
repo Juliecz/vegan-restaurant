@@ -3,7 +3,6 @@ body {
 }
 .contentPublic {
   /*todo depends on footer size*/
-  margin-bottom: 20px;
 }
 body header {
   background-color: #ffffff;
@@ -19,7 +18,7 @@ body header {
   font-weight: 600;
 }
 .veganNapis {
-  color: #5B8B77;
+  color: #3a6d44;
   font-weight: 600;
   text-shadow: 2px 2px white;
 }
@@ -47,16 +46,16 @@ body header {
 }
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
   /* TODO color: white;*/
-  color: white;
+  color: #3a6d44;
   font-size: 40px;
   text-decoration: none;
   text-align: center;
   line-height: normal;
   width: 100%;
   margin: auto;
-  text-shadow: 2px 2px 6px black;
+  text-shadow: 2px 2px 6px #ffffff;
 }
-/* footer style for public page */
+/* footer style for public page *
 footer {
   height: 18px;
   background-color: #374b37;
@@ -64,7 +63,7 @@ footer {
   bottom: 0;
   width: 100%;
   position: relative;
-  /* todo visible footer*/
+  /* todo visible footer*
   visibility: hidden;
 }
 /*@media screen and (min-height: 633px)
@@ -410,9 +409,13 @@ body {
   position: fixed;
   top: 0px;
   border-radius: 0;
-  background-color: rgba(114, 173, 122, 0.43);
-  /* background-color: #ACE1AF; */
+  /*background-color: rgb(242, 240, 255);
+  /*background-color: rgba(114, 173, 122, 0.43);*/
+  background-color: #effadb;
   height: 100vh;
+}
+header .navbar-fixed-top  ul#loginList li {
+  color: white !important;
 }
 .navbar-fixed-left ul.nav.navbar-nav {
   margin-top: 30px;
@@ -425,7 +428,14 @@ body {
   height: 100%;
 }
 .navbar-fixed-left .nav.navbar-nav li:hover {
-  border-bottom: 1px solid black;
+  background-color: #dfe9cc;
+}
+.navbar-fixed-left .nav.navbar-nav li.selected {
+  background-color: #d2dbbf;
+}
+.navbar-fixed-left .nav.navbar-nav li.selected a div {
+  color: black;
+  text-shadow: 0px 1px #b6c0a7;
 }
 .navbar-fixed-top div.navbar-header a {
   color: white;
@@ -434,7 +444,10 @@ body {
   padding: 10px;
   font-size: larger;
 }
-.navbar-fixed-left .navbar-nav li a, .navbar-fixed-top div .nav.navbar-nav li a {
+.navbar-fixed-left .navbar-nav li a/*, .navbar-fixed-top div .nav.navbar-nav li a */{
+  color: #666;
+}
+.navbar-fixed-top div .nav.navbar-nav li a {
   color: white;
 }
 .navbar-fixed-top div ul li {
@@ -542,9 +555,6 @@ div.tabset ul.tabs {
 /*_________reservations__________*/
 .contentAdmin div {
   width: 100%;
-}
-#hledaniRezervace div {
-  width: calc(100%/3.5);
 }
 .seatingChart {
   width: 300px !important;
@@ -671,13 +681,52 @@ div.tabset ul.tabs {
 }
 
 table .me {
-  background-color: rgba(220, 250, 211, 0.3);
+  /*background-color: rgba(220, 250, 211, 0.3);*/
+  background-color: #f2fdde;
 }
-#personalBlock {
+#personalBlock > div {
   background-color: white;
   border: 1px solid #e4e4e4;
   text-align: center;
   margin: auto;
+}
+#personalBlock table {
+  margin: auto;
+}
+#personalBlock > div {
+  width: 420px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#dashboard {
+  width: 100%;
+  margin: auto;
+  display: flex;
+}
+#dashboard > div {
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 50%;
+}
+#statistic > div {
+  width: 250px;
+  margin-left: auto;
+  margin-right: 30px;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+#statistic > div:first-child {
+  height: 120px;
+  background-color: #488b68;
+}
+#statistic > div:last-child {
+  height: 120px;
+  background-color: #ffab05;
+  margin-top: 50px;
 }
 /*#calendar form .row label, #calendar form .row input {
   display: block;
@@ -696,12 +745,13 @@ table .me {
     width: 50%;
   }
   .navbar-fixed-left {
-    max-width: 250px;
+    max-width: 120px;
+    text-align: center;
   }
   .contentAdmin {
-    margin-left: 260px;
+    margin-left: 130px;
     margin-top: 35px;
-    width: calc(100vw - 275px);
+    width: calc(100vw - 130px);
   }
 
   /*admin reservation page*/
@@ -713,7 +763,7 @@ table .me {
   }
   /*admin my personal page*/
   #personalBlock {
-    width: 85%;
+    width: 450px;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -725,12 +775,13 @@ table .me {
     width: 50%;
   }
   .navbar-fixed-left {
-    max-width: 200px;
+    max-width: 110px;
+    text-align: center;
   }
   .contentAdmin {
-    margin-left: 210px;
+    margin-left: 115px;
     margin-top: 35px;
-    width: calc(100vw - 225px);
+    width: calc(100vw - 115px);
   }
   .seatingChart {
     width: 300px !important;
@@ -766,25 +817,25 @@ table .me {
     width: 100%;
   }
   .navbar-fixed-left {
-    width: 200px !important;
+    width: 110px !important;
   }
   .navbar-fixed-left ul li, .navbar-fixed-left ul li a {
-    width: 200px !important;
+    max-width: 110px !important;
   }
   .navbar-fixed-left ul.nav.navbar-nav {
-    margin-top: 80px;
+    margin-top: 70px;
   }
   .contentAdmin {
     margin-top: 70px;
-    margin-left: 210px;
-    width: calc(100vw - 225px);
+    margin-left: 115px;
+    width: calc(100vw - 115px);
   }
   .smallScreen {
     margin-left: 5px !important;
     width: 100vw;
   }
   .contentAdmin div form {
-    width: calc(100vw - 225px);
+    width: calc(100vw - 115px);
   }
   .tabContent {
     margin: auto;
@@ -830,15 +881,15 @@ table .me {
     width: 100%;
   }
   .navbar-fixed-left {
-    width: 200px !important;
+    max-width: 110px !important;
   }
   .navbar-fixed-left ul li, .navbar-fixed-left ul li a {
-    width: 200px !important;
+    max-width: 110px !important;
   }
   .contentAdmin {
     margin-top: 70px;
-    margin-left: 205px;
-    width: calc(100vw - 205px);
+    margin-left: 115px;
+    width: calc(100vw - 115px);
   }
   .smallScreen {
     margin-left: 5px !important;

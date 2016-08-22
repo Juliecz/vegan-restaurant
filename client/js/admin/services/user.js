@@ -20,7 +20,7 @@ angular.module('veganapp.admin')
                 return $http.delete('/api/user/'+id, {id: id});
             }, 
             updateUser: function (id, formData) {
-                return $http.put('/api/user/'+id, {id: id, username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role, email: formData.email, phone: formData.phone, emailMessage: formData.emailM, phoneMessage: formData.phoneM });
+                return $http.put('/api/user/'+id, {id: id, username: formData.uzivJm, name: formData.jm, surname: formData.prijm, role: formData.role, email: formData.email, phone: formData.phone, emailMessage: formData.emailM, phoneMessage: formData.phoneM, password: formData.password });
             }
         };
     });

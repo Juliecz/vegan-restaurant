@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
 
     app.get('/', index.render);
     //TODO admin route
-    app.get('/admin', admin.render);
+    //app.get('/admin', admin.render);
 
     app.get('/api/menu', menu.findAll);
     app.post('/api/menu', menu.createFood);
