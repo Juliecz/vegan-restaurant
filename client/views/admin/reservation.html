@@ -2,26 +2,25 @@
 
     <div class="flex">
         <div ng-show="winSize>875" class="bigTableBlock">
-            {{upravit}}
             <table class="table table-hover" id="rezervace">
                 <thead>
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         Najít rezervaci:
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         <div>
                             <!--input type="date" class="form-control"-->
                             <input class="form-control" ng-model="Filter.ByDate" datetime-picker date-only
                                    date-format="dd.MM.yyyy" future-only ng-click="datepicker();" onkeypress="checkdate();" placeholder="Vyberte datum"/>
                         </div>
                     </td>
-                    <td colspan="2">
+                    <td colspan="2" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                         <div>
                             <input type="text" class="form-control" ng-model="Filter.ByText" placeholder="Zadejte text">
                         </div>
                     </td>
-                    <td colspan="3">
+                    <td colspan="3" class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                         <div class="btn-group">
                             <button type="button" class="btn btn-warning" ng-click="Filter.ByText=''; Filter.ByDate=''; Filter.validDate=''"> Budoucí </button>
                             <button type="button" class="btn btn-warning" ng-click="Filter.validDate='prev'; Filter.ByDate = ''; Filter.ByText = ''"> Dřívější  </button>
@@ -31,7 +30,6 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Id</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Jméno</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Příjmení</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Tel.</th>
@@ -39,12 +37,11 @@
                     <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Den</th>
                     <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Čas</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Stůl</th>
-                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Akce</th>
+                    <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Akce</th>
                 </tr>
                 </tbody>
                 <tbody>
                 <tr ng-repeat="rezervace in reservations | orderBy:'startDate' | filter: showReservations | filter:Filter.ByText">
-                    <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{}}</td>
                     <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                         <div ng-hide="rezervace._id==upravit._id">{{rezervace.name}}</div>
                         <div ng-show="rezervace._id==upravit._id"><input type="text" class="form-control" ng-model="upravit.name" disabled></div>
@@ -85,7 +82,7 @@
                         </div>
                     </td>
                     <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.tableNum}}</td>
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                         <div class="btn-group btn-group-sm" role="group">
                             <button class="btn btn-default" ng-click="editRes(rezervace._id);">
                                 <span class="glyphicon glyphicon-edit"></span>
@@ -127,10 +124,6 @@
                 </tr>
                 </thead>
                 <tbody ng-repeat="rezervace in reservations | orderBy:'startDate' | filter:showReservations | filter:Filter.ByText">
-                <tr>
-                    <th>Id</th>
-                    <td>{{}}</td>
-                </tr>
                 <tr>
                     <th>Jméno</th>
                     <td>{{rezervace.name}}</td>

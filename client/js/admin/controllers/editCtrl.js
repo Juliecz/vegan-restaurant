@@ -1,5 +1,5 @@
 angular.module('veganapp.admin')
-    .controller('editCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'dailyMenuAdmin', 'drinkMenu', 'userFactory', function ($scope, $state, $stateParams, getMenu, dailyMenuAdmin, drinkMenu, userFactory) {
+    .controller('editCtrl', ['$scope', '$state', '$stateParams', 'menuFactory', 'dailyMenuFactory', 'drinkMenu', 'userFactory', function ($scope, $state, $stateParams, menuFactory, dailyMenuFactory, drinkMenu, userFactory) {
         $scope.typMenu = ['Staly jídelní lístek', 'Polední menu', 'Nápojový lístek'];
         $scope.typMenuId = ['menu', 'daily', 'drink', 'user'];
         $scope.role = ['admin', 'employee'];
@@ -51,18 +51,18 @@ angular.module('veganapp.admin')
                 $state.go('admin.menu');
             }
         }
-        dailyMenuAdmin.getDay().success(function (data, status) {
+        dailyMenuFactory.getDay().success(function (data, status) {
             $scope.den = data;
         });
-        getMenu.getFood().success(function (data, status) {
+        menuFactory.getFood().success(function (data, status) {
             $scope.dataMenu = data;
             console.log(status);
             console.log($scope.dataMenu);
         });
-        getMenu.getSort().success(function (data) {
+        menuFactory.getSort().success(function (data) {
             $scope.trida = data;
         });
-        getMenu.getTyp().success(function (data) {
+        menuFactory.getTyp().success(function (data) {
             $scope.typ = data;
         });
         drinkMenu.getSort().success(function (data) {
@@ -151,7 +151,7 @@ angular.module('veganapp.admin')
                 switch ($stateParams.menuType) {
                     case 'menu':
                     {
-                        getMenu.createFood(formData).success(function (err) {
+                        menuFactory.createFood(formData).success(function (err) {
                             console.log(err);
                         });
                         $state.go('admin.menu', {activeTab: 'jidelni'});
@@ -159,7 +159,7 @@ angular.module('veganapp.admin')
                     }
                     case 'daily':
                     {
-                        dailyMenuAdmin.createFood(formData).success(function (err) {
+                        dailyMenuFactory.createFood(formData).success(function (err) {
                             console.log(err);
                         });
                         $state.go('admin.dailyMenu', {activeTab: formData.den});
@@ -187,7 +187,7 @@ angular.module('veganapp.admin')
                 switch ($stateParams.menuType) {
                     case 'menu':
                     {
-                        getMenu.updateFood($stateParams.id, formData).success(function (err) {
+                        menuFactory.updateFood($stateParams.id, formData).success(function (err) {
                             console.log(err);
                         });
                         $state.go('admin.menu', {activeTab: 'jidelni'});
@@ -196,7 +196,7 @@ angular.module('veganapp.admin')
                     case 'daily':
                     {
                         console.log(formData);
-                        dailyMenuAdmin.editFood(formData, $stateParams.id).success(function (err) {
+                        dailyMenuFactory.editFood(formData, $stateParams.id).success(function (err) {
                             console.log(err);
                         });
                         $state.go('admin.dailyMenu', {activeTab: formData.den});

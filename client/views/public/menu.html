@@ -5,7 +5,7 @@
             <table class="table">
                 <tbody ng-repeat="t in ['polevka', 'hlavni']">
                 <tr ng-repeat="p in poledni |filter:t">
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="p.foodType">{{p.foodType}}</div></td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="p.foodType"></div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{p.foodName}}</td>
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{p.price}}, -</td>
                 </tr>
@@ -25,7 +25,7 @@
                 </thead>
                 <tbody ng-repeat="t in ['polevka', 'hlavni']">
                 <tr ng-repeat="cele in celePoledni |filter:k |filter:t">
-                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="cele.foodType">{{cele.foodType}}</div></td>
+                    <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="cele.foodType"></div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{cele.foodName}}</td>
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{cele.price}}, -</td>
                 </tr>
@@ -53,7 +53,7 @@
                     </th>
                 </tr>
                 <tr ng-repeat="f in data | filter:t.name">
-                    <td><div ng-class="f.foodType">{{f.foodType}}</div></td>
+                    <td><div ng-class="f.foodType"></div></td>
                     <td>{{f.foodName}}</td>
                     <td>{{f.price}}, -</td>
                 </tr>

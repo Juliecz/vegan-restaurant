@@ -23,7 +23,7 @@ body header {
   text-shadow: 2px 2px white;
 }
 .vegan {
-  background-color: #6ab978;
+  /*background-color: #6ab978;
   color: white;
   font-weight: 600;
   max-width: 45px;
@@ -31,17 +31,26 @@ body header {
   text-shadow: 1px 1px 2px #3b6f45;
   border-radius: 5px;
   box-shadow: 0 0 1px 1px #50965d inset;
+  margin: auto;*/
+  content: url("../img/fontVegan.png");
+  width: 50px !important;
+  height: auto;
   margin: auto;
 }
+#menuBlock table tr td, #dailyMenuBlock table tr td {
+  vertical-align: middle;
+}
 .raw {
-  background-color: orange;
-  color: white;
-  font-weight: 600;
-  max-width: 40px;
-  text-align: center;
-  text-shadow: 1px 1px 2px #a06800;
-  border-radius: 5px;
-  box-shadow: 0 0 1px 1px #ce8600 inset;
+  width: 34px !important;
+  height: auto;
+  margin: auto;
+}
+.raw:after {
+  content: url("../img/fontrawSmall.png");
+  margin: auto;
+}
+.vegan:after {
+  content: url("../img/fontveganSmall.png");
   margin: auto;
 }
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
@@ -117,8 +126,11 @@ and (orientation: portrait) {
   margin: auto;
 }
 /* public reservation page*/
-
-
+#loginBlock form > div h3 a {
+  color: #3a6d44 !important;
+  font-weight: 600;
+  text-shadow: 2px 2px white;
+}
 #loginSelection #loginBlock form div h3 a:hover, #loginSelection #loginBlock form div h3 a:visited, #loginSelection #loginBlock form div h3 a:link, #loginSelection #loginBlock form div h3 a {
   text-decoration: none;
   color: black;
@@ -134,10 +146,32 @@ section #loginSelection {
 }
 section #loginSelection > #loginBlock {
   margin: auto;
+  text-align: center;
 }
 #formularBlock div.row .formular {
   margin: auto;
   text-align: center;
+}
+#formularBlock table tr td div:first-child {
+  font-size: small;
+}
+#formularBlock div.row .formular tr td {
+  margin: auto;
+  border: none;
+}
+#formularBlock > form div table {
+  background-color: #fbfbfb;
+  box-shadow: 1px 1px 10px rgba(182, 192, 167, 0.64);
+}
+#personalBlock table tr td input {
+  max-width: 200px;
+  margin: auto;
+}
+#personalBlock table tr td {
+  border: none;
+}
+.zprava {
+  color: red;
 }
 /* large desktop */
 @media screen and (min-width: 1200px) {
@@ -154,16 +188,25 @@ section #loginSelection > #loginBlock {
   }
   .flex > div {
     width: 50%;
+    margin: auto;
   }
   /*public home page flexbox */
   .flex > div > img {
     float: right;
   }
   /* public contact page */
+  .flex #mapBlock {
+    width: 69%;
+    margin: auto;
+  }
+  .flex .kontakt {
+    width: 31%;
+  }
   .flex > div > #map {
     max-width: 600px;
     height: 370px;
     font-weight: 800;
+    margin: auto;
   }
   .flex > div:nth-child(2) {
     text-align: center;
@@ -184,6 +227,10 @@ section #loginSelection > #loginBlock {
   }
   /* public reservation page*/
 
+  #seatingBlock .seatingChart {
+    margin-right: auto;
+    margin-left: 60px;
+  }
 
   /* login page*/
   #loginBlock {
@@ -196,8 +243,9 @@ section #loginSelection > #loginBlock {
   }
   #formularBlock div.row .formular {
     width: 70%;
+    max-width: 410px;
+    margin-right: 60px;
   }
-
 }
 /* medium desktop/tablet */
 @media screen and (max-width: 1199px) {
@@ -217,14 +265,27 @@ section #loginSelection > #loginBlock {
     margin: auto;
   }
   /*public home page flexbox */
+  #imgHome img {
+    width: 100%;
+    max-width: 520px;
+    display: block;
+    margin: auto;
+  }
 
   /* public contact page */
+  .flex #mapBlock {
+    width: 63%;
+  }
+  .flex .kontakt {
+    width: 37%;
+  }
   .flex > div:nth-child(2) {
     text-align: center;
   }
   .flex > div > #map {
     max-width: 500px;
     height: 370px;
+    margin: auto;
   }
   .kontakt {
     text-align: left !important;
@@ -239,7 +300,21 @@ section #loginSelection > #loginBlock {
   }
 
   /* public reservation page*/
-
+  #seatingBlock {
+    width: 45%;
+  }
+  #formularBlock {
+    width: 55%;
+  }
+  #seatingBlock .seatingChart {
+    margin-right: auto;
+    margin-left: 60px;
+  }
+  #formularBlock div.row .formular {
+    width: 80%;
+    max-width: 410px;
+    margin-right: 60px;
+  }
 
   /* login page*/
   #loginBlock {
@@ -250,18 +325,24 @@ section #loginSelection > #loginBlock {
     padding-top: 7px;
     border: 2px solid #a6a6a6;
   }
-  #formularBlock div.row .formular {
-    width: 80%;
-  }
 }
 
 /* small tablet/mobile */
 @media screen and (max-width: 875px) {
   .flex {
-    display: -webkit-flex;
     display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+  }
+  #formularBlock, #seatingBlock {
     width: 100%;
   }
   .flex > div {
@@ -294,7 +375,10 @@ section #loginSelection > #loginBlock {
     width: 85%;
   }
   /* public reservation page*/
-
+  #formularBlock > form div table {
+    width: 80% !important;
+    margin: auto !important;
+  }
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -304,13 +388,8 @@ section #loginSelection > #loginBlock {
     padding-top: 7px;
     border: 2px solid #a6a6a6;
   }
-  #formularBlock table {
+  #seatingBlock .seatingChart {
     margin: auto;
-    width: 70%;
-    max-width: 380px;
-  }
-  #formularBlock {
-    order: 1;
   }
 }
 /* extra small mobile*/
@@ -355,7 +434,15 @@ section #loginSelection > #loginBlock {
   /*#calendar, */#tables {
     width: 100%;
   }
-
+  #seatingBlock {
+    width: 300px;
+  }
+  #seatingBlock .seatingChart {
+    margin: auto;
+  }
+  .kontakt  {
+    width: 90% !important;
+  }
   /* login page*/
   #loginBlock {
     background-color: white;
@@ -364,10 +451,6 @@ section #loginSelection > #loginBlock {
     padding-bottom: 60px;
     padding-top: 60px;
     border: 2px solid #a6a6a6;
-  }
-  #formularBlock {
-    width: 95%;
-    margin: auto;
   }
 }
 
@@ -381,7 +464,7 @@ body {
 }
 .contentAdmin {
   display: flex;
-  margin-bottom: -80px;
+  /*margin-bottom: -80px;*/
 }
 /*.contentAdmin table:not(.calendar) {
   background-color: white;
@@ -557,11 +640,10 @@ div.tabset ul.tabs {
   width: 100%;
 }
 .seatingChart {
-  width: 300px !important;
-  margin: auto;
+  width: 300px;
   height: 450px;
-  border: 1px solid #999;
-  background-color: #eee;
+  border: 2px solid #cbcbcb;
+  background-color: #f5f5f5;
   position: relative;
 }
 .seatingChart ul li {
@@ -576,7 +658,7 @@ div.tabset ul.tabs {
   background:url("../img/seatingChart/icons_seating_chart.png") -234px -129px no-repeat;
   height: 60px;
   width: 143px;
-  top: 0px;
+  top: -35px;
   margin: auto;
   position: relative;
 }
@@ -584,15 +666,15 @@ div.tabset ul.tabs {
   background:url("../img/seatingChart/icons_seating_chart.png") -234px -50px no-repeat;
   height: 80px;
   width: 50px;
-  top: -392px;
-  left: -127px;
+  top: -427px;
+  left: -130px;
   position: relative;
 }
 .seatingChart ul li.wc input[type=checkbox] + label {
   background:url("../img/seatingChart/icons_seating_chart.png") -230px top no-repeat;
   height: 40px;
   width: 100px;
-  top: -540px;
+  top: -575px;
   left: -67px;
   position: relative;
 }
@@ -650,7 +732,7 @@ div.tabset ul.tabs {
   top: 145px;
   left: -125px;
 }
-.seatingChart ul li:nth-child(7) input[type=checkbox] + label {
+.seatingChart ul li:nth-child(7) input[type=checkbox] +  label {
   -ms-transform: rotate(90deg); /* IE 9 */
   -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
   transform: rotate(90deg);
@@ -661,8 +743,8 @@ div.tabset ul.tabs {
   top: 30px;
 }
 .seatingChart ul li:nth-child(4) input[type=checkbox] + label {
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
   transform: rotate(90deg);
   left: -125px;
   top: 93px;
@@ -685,33 +767,24 @@ table .me {
   background-color: #f2fdde;
 }
 #personalBlock > div {
-  background-color: white;
+  background-color: #fbfbfb;
+  box-shadow: 1px 1px 10px rgba(182, 192, 167, 0.64);
   border: 1px solid #e4e4e4;
   text-align: center;
   margin: auto;
+  width: 90%;
+  max-width: 650px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 #personalBlock table {
   margin: auto;
 }
-#personalBlock > div {
-  width: 420px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-#dashboard {
-  width: 100%;
-  margin: auto;
-  display: flex;
-}
-#dashboard > div {
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  width: 50%;
-}
+
 #statistic > div {
   width: 250px;
-  margin-left: auto;
-  margin-right: 30px;
+  height: 120px;
+  margin: auto;
   color: white;
   text-align: center;
   justify-content: center;
@@ -720,11 +793,9 @@ table .me {
   display: flex;
 }
 #statistic > div:first-child {
-  height: 120px;
   background-color: #488b68;
 }
 #statistic > div:last-child {
-  height: 120px;
   background-color: #ffab05;
   margin-top: 50px;
 }
@@ -762,8 +833,18 @@ table .me {
     background-color: white;
   }
   /*admin my personal page*/
-  #personalBlock {
-    width: 450px;
+  #dashboard {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+  }
+  #dashboard > div:first-child {
+    width: 70%;
+  }
+  #dashboard > div:last-child {
+    width: 30%;
   }
 }
 @media screen and (max-width: 1199px) {
@@ -802,8 +883,18 @@ table .me {
     background-color: white;
   }
   /*admin my personal page*/
-  #personalBlock {
-    width: 90%;
+  #dashboard {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+  }
+  #dashboard > div:first-child {
+    width: 60%;
+  }
+  #dashboard > div:last-child {
+    width: 40%;
   }
 }
 @media screen and (max-width: 875px) {
@@ -865,6 +956,21 @@ table .me {
   #divForm form {
     width: 90%;
   }
+  /*admin my personal page*/
+  #dashboard {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+  }
+  #dashboard > div {
+    width: 100%;
+  }
+  #personalBlock, #statistic {
+    width: 80% !important;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 768px) {
   .contentAdmin div form {
@@ -921,8 +1027,18 @@ table .me {
     text-align: center;
   }
   /*admin my personal page*/
-  #personalBlock {
+  #dashboard {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    margin-right: auto;
+  }
+  #personalBlock, #statistic {
+    width: 100% !important;
+  }
+  #personalBlock > div {
     width: 95%;
   }
-
 }

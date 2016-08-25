@@ -1,6 +1,6 @@
 
-angular.module('veganapp.admin')
-    .factory('getMenu', function ($http) {
+angular.module('veganapp')
+    .factory('menuFactory', function ($http) {
     return {
         getFood: function () {
             return $http.get('/api/menu')

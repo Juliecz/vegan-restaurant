@@ -35,10 +35,6 @@ var userSchema = new mongoose.Schema({
         type: Number,
         required: false
     },
-    phoneMessage: {
-        type: Boolean,
-        required: false
-    },
     created: {
         type: Date,
         default: Date.now

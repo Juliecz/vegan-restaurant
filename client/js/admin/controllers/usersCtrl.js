@@ -1,5 +1,5 @@
 angular.module('veganapp.admin')
-    .controller('usersCtrl', ['$scope', '$state', '$stateParams', '$window', 'getMenu', 'dailyMenuAdmin', 'userFactory', 'authProvider', function ($scope, $state, $stateParams, $window, getMenu, dailyMenuAdmin, userFactory, authProvider) {
+    .controller('usersCtrl', ['$scope', '$state', '$stateParams', '$window', 'menuFactory', 'dailyMenuFactory', 'userFactory', 'authProvider', function ($scope, $state, $stateParams, $window, menuFactory, dailyMenuFactory, userFactory, authProvider) {
         authProvider.isLoggedIn()
             .then(function (data) {
                 userFactory.getUserById(data.data)

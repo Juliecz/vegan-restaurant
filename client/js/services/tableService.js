@@ -2,7 +2,7 @@
  * Created by yuliya on 13.4.16.
  */
 angular.module('veganapp')
-    .factory('getTable', function ($http) {
+    .factory('tablesFactory', function ($http) {
     return {
         getTables: function () {
             return $http.get('/api/table')

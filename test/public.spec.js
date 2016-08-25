@@ -60,5 +60,27 @@ describe('homepage', function () {
             element(by.model('reservation.endTime')).getAttribute('value').then(function (value) {
                 expect(value).toEqual('19');
             }));
+        ch = element.all(by.css('.seatingChart ul li')).get(0)
+        for (var i=0; i<8; i++) {
+            console.log('cyklus ', i);
+            ch = element.all(by.css('.seatingChart ul li')).get(i);
+            ch.getAttribute('class').then(function (classes) {
+                if (classes.indexOf('reserved') === -1) {
+                    console.log('dslfkds ', i);
+                    ch.click();
+                    expect(ch.getAttribute('checked').then(function (value) {
+                        console.log('value: ', i);
+                    }))//.toBeTruthy();
+                    return 0;
+                }
+                else if(classes.indexOf('reserved') > -1) {
+                    console.log('yes');
+                }
+            });
+
+        }
+        //var element = driver.find_elements(:css, 'ul li:not(".reserved")')[0];
+        //expect(element.all(by.css('.seatingChart > ul > li:not(".reserved")')).click());//.get(0).isPresent()).toBe(true);//.element(by.css('input[type="checkbox"]')).click();
+        //element(by.css('.seatingChart ul li:not("reserved")')).getAttribute('checked').toBeTruthy();
     });
 });

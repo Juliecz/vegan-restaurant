@@ -1,6 +1,6 @@
 //angular.module('admin', ['ui.router', 'ngRoute'])
 angular.module('veganapp.admin')
-    .controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', '$window', 'dailyMenuAdmin', function($scope, $state, $stateParams, $window, dailyMenuAdmin) {
+    .controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', '$window', 'dailyMenuFactory', function($scope, $state, $stateParams, $window, dailyMenuFactory) {
         $scope.day=['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek'];
         $scope.dayObj = [];
 
@@ -38,11 +38,11 @@ angular.module('veganapp.admin')
         ];
 
         //_______________________
-        dailyMenuAdmin.getDay().success(function (data, status) {
+        dailyMenuFactory.getDay().success(function (data, status) {
             $scope.datum = data;
             console.log('Status getday: ', status);
         });
-        dailyMenuAdmin.getDailyMenu().success(function (data, status) {
+        dailyMenuFactory.getDailyMenu().success(function (data, status) {
             $scope.data = data;
             if($scope.data) {
                 if($scope.datum) {
@@ -56,7 +56,7 @@ angular.module('veganapp.admin')
                 }
             }
         });
-        dailyMenuAdmin.getSort().success(function (data, status) {
+        dailyMenuFactory.getSort().success(function (data, status) {
             $scope.typ = data;
             console.log('Typ: ', $scope.typ);
         });
@@ -84,7 +84,7 @@ angular.module('veganapp.admin')
                         break;
                     }
                 }*/
-                dailyMenuAdmin.getById(id)
+                dailyMenuFactory.getById(id)
                     .success(function (data, status) {
                         res = {
                             action: $stateParams.action,
@@ -102,8 +102,8 @@ angular.module('veganapp.admin')
                     actionName: 'delete',
                     id: $stateParams.id
                 };
-                dailyMenuAdmin.removeFood(res.id);
-                dailyMenuAdmin.getDailyMenu().success(function (data, status) {
+                dailyMenuFactory.removeFood(res.id);
+                dailyMenuFactory.getDailyMenu().success(function (data, status) {
                     $scope.data = data;
                     if($scope.data) {
                         if($scope.datum) {

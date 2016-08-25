@@ -32,7 +32,6 @@ angular.module('veganapp.admin')
                                 role: data.role,
                                 email: data.email,
                                 phone: data.phone,
-                                phoneM: data.phoneMessage,
                                 emailM: data.emailMessage,
                                 password: data.password
                             };
@@ -41,9 +40,9 @@ angular.module('veganapp.admin')
         };
         $scope.myInfo();
         $scope.send = function (id, me) {
-            if ($scope.me.passwStare !== '' || $scope.me.passwNove !== '') {
+            if (($scope.me.passwStare !== '' || $scope.me.passwNove !== '') && ($scope.me.passwStare && $scope.me.passwNove)) {
                 if($scope.me.passwStare !== $scope.me.password) {
-                    $scope.message = 'Zadejte správné heslo';
+                    $scope.message = '* Zadejte správné heslo';
                     return 0;
                 }
                 else {
@@ -52,11 +51,11 @@ angular.module('veganapp.admin')
             }
             if (!$scope.dis) {
                 userFactory.updateUser(id, me).success(function (err, data) {
-                    //$scope.myInfo();
                     $scope.dis = true;
-                    console.log(err);
-                    console.log('data ' , data);
                 });
+                $scope.me.passwStare = '';
+                $scope.me.passwNove = '';
+                $scope.message = '';
             }
         };
         $scope.navstevy = 0;
@@ -91,48 +90,6 @@ angular.module('veganapp.admin')
 
 }]);
 
-/*function divMenuAdmin1(wLeft) {
-
-    var wAll = $(document).width();
-    var hAll = $(document).height();
-    if (wLeft==50) {$('.nameMenu').empty();}
-    else {
-        $('.nameMenu:eq(0)').text('  Home');
-        $('.nameMenu:eq(1)').text('  Users');
-        $('.nameMenu:eq(2)').text('  Menu')
-    }
-    var class1 = (wLeft==50) ? "glyphicon glyphicon-menu-right" : "glyphicon glyphicon-menu-left";
-    $('#spanMenuAdmin').attr('class', class1); //sipky
-
-    $("#left").css({"width": wLeft+"px", "height": hAll});
-    $("#right").css({"width": wAll-wLeft+"px", "height": hAll});
-    $('#spanMenuAdmin').css({"float": "right"});
-    console.log(window.location.pathname);
-    console.log(window.location.href);
-}
-function divMenuAdmin() {
-
-    var wAll = $(document).width();
-    var s = $("#left").width();
-    var wLeft = (wAll*0.2).toFixed();//(wAll>=700) ? wAll : 0.4*wAll;
-    var w = (s==50) ? wLeft : 50;
-    $("#left").css("width", w+'px');
-    divMenuAdmin1(w);
-    //console.log('w ',w);
-}
-
-$(window).resize(function () {
-    var wLeft = $("#left").width();
-    var wAll = $(window).width();
-    if (wLeft==50) {
-        divMenuAdmin1(wLeft);
-    }
-    else {
-        divMenuAdmin1(wAll*0.2);
-    }
- });
-*/
-//TODO change function
 function loginPost()
 {
     $(document).ready(function() {

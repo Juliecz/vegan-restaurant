@@ -1,27 +1,31 @@
 <section  ng-app="admin" ui-view="login" >
     <div id="loginSelection">
         <div id="loginBlock" ng-controller="loginCtrl">
-            <form ng-submit="login()"> <!-- TODO change action action="/api/user" method="post" ___ -->
+            <form ng-submit="login()">
                 <div class="form-group">
-                    <h3><a ui-sref="public.home">Veganska Restaurace</a></h3>
+                    <h3><a ui-sref="public.home">Veganská restaurace</a></h3>
+                    <h4>Přístup do administračního rozhraní</h4>
                 </div>
                 <div class="form-group">
-                    <p> {{ outputData }} </p>
+                    <label for="username">Uživatelské jméno </label>
+                    <input type="text" class="form-control" name="username"
+                           id="username" ng-model="user.username" required>
                 </div>
                 <div class="form-group">
-                    <!--label class="sr-only" for="username">Username </label-->
-                    <label for="username">Username </label>
-                    <input type="text" class="form-control" name="username" id="username" ng-model="user.username" required>
+                    <label for="password">Heslo </label>
+                    <input type="password" class="form-control" name="password"
+                           id="password" ng-model="user.password" required>
                 </div>
                 <div class="form-group">
-                    <!--label class="sr-only" for="password">Password </label-->
-                    <label for="password">Password </label>
-                    <input type="password" class="form-control" name="password" id="password" ng-model="user.password" required>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-default" id="submit">Prihlasit se</button>
+                    <button type="submit" class="btn btn-default" id="submit">
+                        Přihlásit se
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 </section>
+
+
+
+

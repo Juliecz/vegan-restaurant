@@ -2,10 +2,10 @@
  * Created by yuliya on 12.11.15.
  */
 angular.module('veganapp.public')
-    .controller('tablesCtrl', ['$scope', 'getTable', 'reservationFactory', function($scope, getTable, reservationFactory) {
+    .controller('tablesCtrl', ['$scope', 'tablesFactory', 'reservationFactory', function($scope, tablesFactory, reservationFactory) {
         $scope.tableObj = [];
         $scope.availability = [];
-        getTable.getTables().success(function (data, status) {
+        tablesFactory.getTables().success(function (data, status) {
             for (var i=0; i<data.length; i++) {
                 $scope.availability.push({
                     table: data[i],
@@ -134,21 +134,18 @@ angular.module('veganapp.public')
             $scope.checkAvailability();
         });
         $scope.sendReservation = function (reservation) {
-            //if (reservation.table) {
-                var arr = reservation.datum.split('.');
-                var startDate = new Date(arr[2], arr[1]-1, arr[0], reservation.startTime),
-                    endDate = new Date(arr[2], arr[1]-1, arr[0], reservation.endTime);
-                //var startDate = new Date(reservation.year, reservation.month, reservation.day, reservation.startTime),
-                //      endDate = new Date(reservation.year, reservation.month, reservation.day, reservation.endTime);
-                // todo if ($scope.checkReservation()) {
-                reservationFactory.createReservation(reservation, startDate, endDate)
-                    .success(function (err, status) {
-                        console.log('Chyba klient ', err);
-                        console.log('Status klient ', status);
-                    })
-                    .err(function (err) {
-                        console.log(err);
-                    });
+            if ($scope.reservation.table === '' || !$scope.reservation.table) {
+                $scope.message = '* Vyberte stůl';
+                return 0;
+            }
+            var arr = reservation.datum.split('.');
+            var startDate = new Date(arr[2], arr[1]-1, arr[0], reservation.startTime),
+                endDate = new Date(arr[2], arr[1]-1, arr[0], reservation.endTime);
+            // todo if ($scope.checkReservation()) {
+            reservationFactory.createReservation(reservation, startDate, endDate)
+                .success(function (err, status) {
+                    //console.log('Status: ', status);
+                });
         };
         
     }]);

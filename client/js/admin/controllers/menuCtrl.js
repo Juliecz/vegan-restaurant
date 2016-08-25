@@ -1,5 +1,5 @@
 angular.module('veganapp.admin')
-    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'getMenu', 'drinkMenu', 'userFactory', 'authProvider', function($scope, $state, $stateParams, getMenu, drinkMenu, userFactory, authProvider){
+    .controller('menuCtrl', ['$scope', '$state', '$stateParams', 'menuFactory', 'drinkMenu', 'userFactory', 'authProvider', function($scope, $state, $stateParams, menuFactory, drinkMenu, userFactory, authProvider){
         authProvider.isLoggedIn()
             .then(function (data) {
                 userFactory.getUserById(data.data)
@@ -50,14 +50,14 @@ angular.module('veganapp.admin')
         $scope.typ = {};
         $scope.trida = {};
         $scope.tridaVar = [];
-        getMenu.getFood().success(function (data, status) {
+        menuFactory.getFood().success(function (data, status) {
                 $scope.dataMenu = data;
             });
-        getMenu.getTyp().success(function (data, status) {
+        menuFactory.getTyp().success(function (data, status) {
                 $scope.typ = data;
                 //console.log($scope.typ);
             });
-        getMenu.getSort().success(function (data, status) {
+        menuFactory.getSort().success(function (data, status) {
                 $scope.trida = data;
                 //console.log($scope.trida);
                 if ($scope.trida) {
@@ -139,8 +139,8 @@ angular.module('veganapp.admin')
                         actionName: 'delete',
                         id: $stateParams.id
                     };
-                    getMenu.removeFood(res.id);
-                    getMenu.getFood().success(function (data, status) {
+                    menuFactory.removeFood(res.id);
+                    menuFactory.getFood().success(function (data, status) {
                         $scope.dataMenu = data;
                     });
                 }

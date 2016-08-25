@@ -1,5 +1,5 @@
 angular.module('veganapp.admin')
-    .controller('reservationCtrl', ['$scope', 'getTable', 'reservationFactory', function ($scope, getTable, reservationFactory) {
+    .controller('reservationCtrl', ['$scope', 'tablesFactory', 'reservationFactory', function ($scope, tablesFactory, reservationFactory) {
 
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;
@@ -34,7 +34,7 @@ angular.module('veganapp.admin')
         //console.log($scope.mdays);
         //$scope.startDayWeek = $scope.Calendar.weekStartDate($scope.today);
         $scope.getTables = function () {
-            getTable.getTables()
+            tablesFactory.getTables()
             .success(function (data) {
                 $scope.tables = data;
                 for (var i = 0; i < data.length; i++) {

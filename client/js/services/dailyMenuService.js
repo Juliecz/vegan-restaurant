@@ -1,5 +1,5 @@
-angular.module('veganapp.admin')
-    .factory('dailyMenuAdmin', function ($http) {
+angular.module('veganapp')
+    .factory('dailyMenuFactory', function ($http) {
     return {
         getDailyMenu: function () {
             return $http.get('/api/dailymenu')

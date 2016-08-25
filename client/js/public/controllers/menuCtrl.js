@@ -2,7 +2,7 @@
  * Created by yuliya on 12.11.15.
  */
 angular.module('veganapp.public')
-    .controller('menuCtrlP', ['$scope', '$http', 'menuPublic', 'drinkMenu', function($scope, $http, menuPublic, drinkMenu) {
+    .controller('menuCtrlP', ['$scope', '$http', 'menuFactory', 'dailyMenuFactory', 'drinkMenu', function($scope, $http, menuFactory, dailyMenuFactory, drinkMenu) {
         $scope.today = new Date().getDay();
         //console.log('Today is: ', $scope.today);
         if ($scope.today === 0 || $scope.today === 6) {
@@ -45,11 +45,11 @@ angular.module('veganapp.public')
                 name: 'hlavni',
                 text: 'Hlavní chody'
             }];
-        menuPublic.getMenu().success(function (data, status) {
+        menuFactory.getFood().success(function (data, status) {
             $scope.data = data;
             //console.log('data: ', status);
         });
-        menuPublic.getDailyMenu().success(function (data, status) {
+        dailyMenuFactory.getDailyMenu().success(function (data, status) {
             $scope.celePoledni = data;
             for (var i=0; i<data.length; i++) {
                 if (data[i].day === $scope.todayStr) {
@@ -61,7 +61,7 @@ angular.module('veganapp.public')
                 console.log($scope.vikend);
             }
         });
-        menuPublic.getSort().success(function (data, status) {
+        menuFactory.getSort().success(function (data, status) {
             $scope.trida = data;
             //console.log($scope.trida);
             $scope.amount = $scope.trida.length;
