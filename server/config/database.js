@@ -4,8 +4,8 @@
 var mongoose = require('mongoose');
 
 var config = require('./config');
-//var __db = mongoose.connection;
-var dbMongo = mongoose.createConnection(config.mongoose.uri);
+var mongoURI = process.env.MONGODB_URI || config.mongoose.uri;
+var dbMongo = mongoose.createConnection(mongoURI);
 dbMongo.on('error', console.error);
 dbMongo.once('open', function() {
     console.log('Connected to database');
