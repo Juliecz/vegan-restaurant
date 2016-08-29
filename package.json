@@ -22,7 +22,7 @@
   "devDependencies": {
     "angular-route": "^1.5.5",
     "bower-npm-resolver": "^0.4.0",
-    "express-session": "^1.13.0",
+    "express-session": "^1.14.1",
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.0",
     "grunt-contrib-concat": "^1.0.1",
