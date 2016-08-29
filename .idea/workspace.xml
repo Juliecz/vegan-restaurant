@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02944914-8655-4952-b5a8-866ce3668332" name="Default" comment="">
+    <list default="true" id="047a109b-b74f-49b4-8664-e6052bac0876" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/mongoSettings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/runConfigurations/bin_www.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="veganRestaurant.iws" />
@@ -21,101 +25,12 @@
   <component name="FavoritesManager">
     <favorites_list name="veganRestaurant" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="tsconfig.json" />
-        <option value="Jade File" />
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/client/js/public/route.js" />
-        <option value="$PROJECT_DIR$/.bowerrc" />
-        <option value="$PROJECT_DIR$/client/js/system.js" />
-        <option value="$PROJECT_DIR$/server/views/index.jade" />
-        <option value="$PROJECT_DIR$/client/js/admin/services/user.js" />
-        <option value="$PROJECT_DIR$/gruntfile.js" />
-        <option value="$PROJECT_DIR$/client/js/app.js" />
-        <option value="$PROJECT_DIR$/test/public.js" />
-        <option value="$PROJECT_DIR$/test/conf.js" />
-        <option value="$PROJECT_DIR$/client/js/public/services/table.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/services/menu.js" />
-        <option value="$PROJECT_DIR$/client/js/services/dailyMenuService.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/usersCtrl.js" />
-        <option value="$PROJECT_DIR$/client/views/public/content.html" />
-        <option value="$PROJECT_DIR$/server/models/user.js" />
-        <option value="$PROJECT_DIR$/client/js/services/userService.js" />
-        <option value="$PROJECT_DIR$/test/login.spec.js" />
-        <option value="$PROJECT_DIR$/client/views/admin/home.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/reservation.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/dailyMenu.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/users.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/content.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/menu.html" />
-        <option value="$PROJECT_DIR$/client/views/admin/login.html" />
-        <option value="$PROJECT_DIR$/client/js/services/menuService.js" />
-        <option value="$PROJECT_DIR$/client/views/public/menu.html" />
-        <option value="$PROJECT_DIR$/client/js/public/controllers/menuCtrl.js" />
-        <option value="$PROJECT_DIR$/client/views/public/tables.html" />
-        <option value="$PROJECT_DIR$/server/config/routes.js" />
-        <option value="$PROJECT_DIR$/test/public.spec.js" />
-        <option value="$PROJECT_DIR$/client/js/public/controllers/contactCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/public/controllers/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/client/views/public/contact.html" />
-        <option value="$PROJECT_DIR$/client/views/public/home.html" />
-        <option value="$PROJECT_DIR$/client/css/style.css" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/menuCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/public/controllers/tablesCtrl.js" />
-        <option value="$PROJECT_DIR$/server/controllers/table.js" />
-        <option value="$PROJECT_DIR$/server/controllers/authenticate.js" />
-        <option value="$PROJECT_DIR$/server/controllers/reservation.js" />
-        <option value="$PROJECT_DIR$/server/controllers/user.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/reservationCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/dailyMenuCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/editCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/homeCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/controllers/loginCtrl.js" />
-        <option value="$PROJECT_DIR$/client/js/admin/route.js" />
-        <option value="$PROJECT_DIR$/server/views/links.jade" />
-        <option value="$PROJECT_DIR$/Procfile" />
-        <option value="$PROJECT_DIR$/server/config/database.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-      </list>
-    </option>
+  <component name="JsBuildToolGruntFileManager" detection-done="true">
+    <gruntfile path="$PROJECT_DIR$/gruntfile.js" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsBuildToolPackageJson" detection-done="true">
     <package-json value="$PROJECT_DIR$/package.json" />
   </component>
@@ -124,60 +39,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="796" />
-    <option name="width" value="804" />
+    <option name="width" value="802" />
     <option name="height" value="860" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>CSS</id>
-          </State>
-          <State>
-            <id>Code quality toolsJavaScript</id>
-          </State>
-          <State>
-            <id>Code style issuesCSS</id>
-          </State>
-          <State>
-            <id>Code style issuesJavaScript</id>
-          </State>
-          <State>
-            <id>Data flow issuesJavaScript</id>
-          </State>
-          <State>
-            <id>General</id>
-          </State>
-          <State>
-            <id>HTML</id>
-          </State>
-          <State>
-            <id>JavaScript</id>
-          </State>
-          <State>
-            <id>Probable bugsCSS</id>
-          </State>
-          <State>
-            <id>RELAX NG</id>
-          </State>
-          <State>
-            <id>XPath</id>
-          </State>
-          <State>
-            <id>XSLT</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>AngularJS</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -186,7 +49,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="1" id="Add" />
+    <ConfirmationsSetting value="0" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -204,6 +67,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -213,166 +77,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="node_modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base64-url" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="veganRestaurant" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path" value="$USER_HOME$/Downloads/node-v4.2.2-linux-x64/bin/node" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="javascript.nodejs.core.library.configured.version" value="4.2.2" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../mySite" />
-    <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
-    <property name="settings.editor.selected.configurable" value="org.codinjutsu.tools.mongo.view.MongoConfigurable" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="ToolWindowHierarchy.ShowToolbar" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="btn-success&#9;null&#9;null" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/server" />
-      <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/css" />
-      <recent name="$PROJECT_DIR$/server/views" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/js/services" />
-      <recent name="$PROJECT_DIR$/client/bower_components" />
-      <recent name="$PROJECT_DIR$/client/css" />
-      <recent name="$PROJECT_DIR$/client" />
-      <recent name="$PROJECT_DIR$/client/js" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JavaScript Debug.home.html">
-    <configuration default="false" name="home.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/veganRestaurant/client/views/public/home.html">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
-    <configuration default="true" type="DartTestRunConfigurationType" factoryName="Dart Test">
-      <method />
-    </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma">
-      <config-file value="" />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
-      <method />
-    </configuration>
-    <configuration default="true" type="MongoRunConfiguration" factoryName="Mongo">
-      <setting name="path" value="" />
-      <setting name="shellParams" value="" />
-      <method />
-    </configuration>
-    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
-      <method />
-    </configuration>
-    <configuration default="true" type="cucumber.js" factoryName="Cucumber.js">
-      <option name="cucumberJsArguments" value="" />
-      <option name="executablePath" />
-      <option name="filePath" />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <gulpfile />
-      <tasks />
-      <arguments />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
-      <command value="run-script" />
-      <scripts />
-      <node-interpreter value="project" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
-      <node-interpreter>project</node-interpreter>
-      <node-options />
-      <working-directory />
-      <pass-parent-env>true</pass-parent-env>
-      <envs />
-      <ui>bdd</ui>
-      <extra-mocha-options />
-      <test-kind>DIRECTORY</test-kind>
-      <test-directory />
-      <recursive>false</recursive>
-      <method />
-    </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Node.js.bin/www" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.home.html" />
-    </list>
-    <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.home.html" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -382,245 +93,42 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="02944914-8655-4952-b5a8-866ce3668332" name="Default" comment="" />
-      <created>1462404312113</created>
+      <changelist id="047a109b-b74f-49b4-8664-e6052bac0876" name="Default" comment="" />
+      <created>1472511101832</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1462404312113</updated>
-      <workItem from="1462404313515" duration="179000" />
-      <workItem from="1462405034191" duration="2792000" />
-      <workItem from="1462409582326" duration="10650000" />
-      <workItem from="1462451964223" duration="4797000" />
-      <workItem from="1462458162137" duration="5409000" />
-      <workItem from="1462467633399" duration="2613000" />
-      <workItem from="1463703611896" duration="16291000" />
-      <workItem from="1463765905768" duration="8685000" />
-      <workItem from="1463784083718" duration="2892000" />
-      <workItem from="1463848801560" duration="2692000" />
-      <workItem from="1463851641528" duration="4413000" />
-      <workItem from="1463860800572" duration="20139000" />
-      <workItem from="1463939802998" duration="13921000" />
-      <workItem from="1464015883167" duration="3366000" />
-      <workItem from="1464019289914" duration="3322000" />
-      <workItem from="1464104656528" duration="20000" />
-      <workItem from="1464383419316" duration="7248000" />
-      <workItem from="1464450233199" duration="2189000" />
-      <workItem from="1464454816223" duration="2335000" />
-      <workItem from="1464479643056" duration="5331000" />
-      <workItem from="1464528309399" duration="1150000" />
-      <workItem from="1464537292112" duration="28011000" />
-      <workItem from="1464625499159" duration="9088000" />
-      <workItem from="1464640597158" duration="2177000" />
-      <workItem from="1464697797465" duration="6653000" />
-      <workItem from="1464792402929" duration="8389000" />
-      <workItem from="1464810608166" duration="6337000" />
-      <workItem from="1464871922837" duration="2073000" />
-      <workItem from="1464875542871" duration="923000" />
-      <workItem from="1464876489570" duration="9114000" />
-      <workItem from="1464966773947" duration="9412000" />
-      <workItem from="1464976260225" duration="1000" />
-      <workItem from="1464982431040" duration="4201000" />
-      <workItem from="1464989493865" duration="2994000" />
-      <workItem from="1465053068995" duration="3116000" />
-      <workItem from="1465139584231" duration="9469000" />
-      <workItem from="1465153965490" duration="1010000" />
-      <workItem from="1465159333055" duration="5398000" />
-      <workItem from="1465228133679" duration="926000" />
-      <workItem from="1465229100914" duration="5071000" />
-      <workItem from="1465306635892" duration="3219000" />
-      <workItem from="1465316631529" duration="1640000" />
-      <workItem from="1465324424942" duration="1365000" />
-      <workItem from="1465325820364" duration="656000" />
-      <workItem from="1465327051936" duration="2424000" />
-      <workItem from="1465395621484" duration="685000" />
-      <workItem from="1465414220876" duration="1635000" />
-      <workItem from="1465476222602" duration="3775000" />
-      <workItem from="1465486883928" duration="669000" />
-      <workItem from="1465496261222" duration="15030000" />
-      <workItem from="1465517365046" duration="1557000" />
-      <workItem from="1465519465722" duration="360000" />
-      <workItem from="1465552128812" duration="1553000" />
-      <workItem from="1465553713386" duration="8081000" />
-      <workItem from="1465582167237" duration="5260000" />
-      <workItem from="1465653228748" duration="9093000" />
-      <workItem from="1465662894448" duration="5605000" />
-      <workItem from="1465732321464" duration="1867000" />
-      <workItem from="1465744760313" duration="1923000" />
-      <workItem from="1465758746069" duration="331000" />
-      <workItem from="1465831473486" duration="6995000" />
-      <workItem from="1465842669722" duration="3933000" />
-      <workItem from="1465863049498" duration="1958000" />
-      <workItem from="1465913699513" duration="12007000" />
-      <workItem from="1465946078767" duration="618000" />
-      <workItem from="1465952517624" duration="6479000" />
-      <workItem from="1465991983225" duration="9749000" />
-      <workItem from="1466027647925" duration="4499000" />
-      <workItem from="1466452961242" duration="7585000" />
-      <workItem from="1466508877741" duration="599000" />
-      <workItem from="1466515999314" duration="12084000" />
-      <workItem from="1466547094540" duration="10356000" />
-      <workItem from="1466608240188" duration="9244000" />
-      <workItem from="1466621674937" duration="11000" />
-      <workItem from="1466631162770" duration="4512000" />
-      <workItem from="1466648711814" duration="863000" />
-      <workItem from="1466672065788" duration="2094000" />
-      <workItem from="1466694955311" duration="5604000" />
-      <workItem from="1466713673357" duration="4860000" />
-      <workItem from="1466762297183" duration="7861000" />
-      <workItem from="1466786758259" duration="10951000" />
-      <workItem from="1466864106098" duration="4619000" />
-      <workItem from="1466873171342" duration="7094000" />
-      <workItem from="1466887132615" duration="12650000" />
-      <workItem from="1466957586561" duration="8156000" />
-      <workItem from="1466972940613" duration="4568000" />
-      <workItem from="1466990640248" duration="5736000" />
-      <workItem from="1467049542293" duration="1941000" />
-      <workItem from="1467051854397" duration="7105000" />
-      <workItem from="1467062141442" duration="10665000" />
-      <workItem from="1467124463599" duration="7239000" />
-      <workItem from="1467144667654" duration="4352000" />
-      <workItem from="1467210572914" duration="4763000" />
-      <workItem from="1467218632031" duration="5149000" />
-      <workItem from="1467240008712" duration="9041000" />
-      <workItem from="1467289858314" duration="11380000" />
-      <workItem from="1467579895983" duration="1769000" />
-      <workItem from="1467706710768" duration="19479000" />
-      <workItem from="1467798723420" duration="4169000" />
-      <workItem from="1467893137275" duration="9944000" />
-      <workItem from="1467904732008" duration="6119000" />
-      <workItem from="1467991655190" duration="7827000" />
-      <workItem from="1468163499204" duration="3127000" />
-      <workItem from="1468166740548" duration="1461000" />
-      <workItem from="1468168606009" duration="4406000" />
-      <workItem from="1468334789273" duration="8035000" />
-      <workItem from="1468590417996" duration="599000" />
-      <workItem from="1468598367183" duration="4598000" />
-      <workItem from="1468630873067" duration="38000" />
-      <workItem from="1468633358408" duration="201000" />
-      <workItem from="1469021841903" duration="5602000" />
-      <workItem from="1469051492422" duration="1496000" />
-      <workItem from="1469111477755" duration="7952000" />
-      <workItem from="1469194028185" duration="5433000" />
-      <workItem from="1469284206303" duration="5032000" />
-      <workItem from="1469375392116" duration="599000" />
-      <workItem from="1469452848189" duration="6391000" />
-      <workItem from="1469471282454" duration="6756000" />
-      <workItem from="1469537761897" duration="11277000" />
-      <workItem from="1469566297157" duration="622000" />
-      <workItem from="1469632681054" duration="5224000" />
-      <workItem from="1469649565846" duration="5026000" />
-      <workItem from="1470010213210" duration="1313000" />
-      <workItem from="1470055585584" duration="3727000" />
-      <workItem from="1470062203297" duration="7706000" />
-      <workItem from="1470081833441" duration="3468000" />
-      <workItem from="1470131058782" duration="8649000" />
-      <workItem from="1470176859158" duration="599000" />
-      <workItem from="1470651005615" duration="2538000" />
-      <workItem from="1470702145214" duration="394000" />
-      <workItem from="1470745014307" duration="1375000" />
-      <workItem from="1470757869623" duration="4782000" />
-      <workItem from="1470940774216" duration="1459000" />
-      <workItem from="1470965577960" duration="1335000" />
-      <workItem from="1471013419273" duration="4766000" />
-      <workItem from="1471101463030" duration="2823000" />
-      <workItem from="1471185635200" duration="3099000" />
-      <workItem from="1471213205679" duration="4567000" />
-      <workItem from="1471220859482" duration="858000" />
-      <workItem from="1471267355794" duration="1037000" />
-      <workItem from="1471273645551" duration="1559000" />
-      <workItem from="1471292622247" duration="3858000" />
-      <workItem from="1471298678913" duration="12894000" />
-      <workItem from="1471435290685" duration="25356000" />
-      <workItem from="1471484463668" duration="1602000" />
-      <workItem from="1471550990568" duration="227000" />
-      <workItem from="1471553620281" duration="3757000" />
-      <workItem from="1471572602051" duration="194000" />
-      <workItem from="1471573072846" duration="726000" />
-      <workItem from="1471629121271" duration="7555000" />
-      <workItem from="1471645077595" duration="12215000" />
-      <workItem from="1471698365161" duration="2779000" />
-      <workItem from="1471732648276" duration="2926000" />
-      <workItem from="1471737235487" duration="14522000" />
-      <workItem from="1471802799972" duration="28993000" />
-      <workItem from="1471880916192" duration="7064000" />
-      <workItem from="1471906076393" duration="8858000" />
-      <workItem from="1471928953433" duration="10000" />
-      <workItem from="1471931328967" duration="4293000" />
-      <workItem from="1471937855124" duration="4231000" />
-      <workItem from="1471946936438" duration="2167000" />
-      <workItem from="1472053033680" duration="27283000" />
-      <workItem from="1472090095472" duration="4193000" />
-      <workItem from="1472135595779" duration="5970000" />
-      <workItem from="1472141871109" duration="1053000" />
-      <workItem from="1472156449378" duration="1198000" />
-      <workItem from="1472188805107" duration="3448000" />
-      <workItem from="1472193098423" duration="2413000" />
-      <workItem from="1472202940975" duration="259000" />
-      <workItem from="1472308625003" duration="677000" />
-      <workItem from="1472310401586" duration="872000" />
-      <workItem from="1472478821402" duration="5290000" />
-      <workItem from="1472495104791" duration="627000" />
-      <workItem from="1472496372460" duration="982000" />
-      <workItem from="1472501348571" duration="2526000" />
-      <workItem from="1472504156049" duration="10000" />
+      <updated>1472511101832</updated>
+      <workItem from="1472511106264" duration="593000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="919109000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="593000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="796" y="0" width="804" height="860" extended-state="4" />
+    <frame x="796" y="0" width="802" height="860" extended-state="4" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30901858" sideWeight="0.49527666" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32831737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35941646" sideWeight="0.50472337" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32742155" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19191271" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4439946" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="false" weight="0.24980783" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32205683" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994528" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32831737" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35941646" sideWeight="0.50472337" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32742155" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292517" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19495922" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4480432" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38318357" sideWeight="0.49527666" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="true" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="false" weight="0.24980783" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32253712" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3994528" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -634,255 +142,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <option name="time" value="2" />
-    </breakpoint-manager>
+    <breakpoint-manager />
     <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/views/public/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="65" column="45" selection-start-line="65" selection-start-column="45" selection-end-line="65" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/public.spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="72" column="35" selection-start-line="72" selection-start-column="35" selection-end-line="72" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/public/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/public/controllers/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/public/controllers/contactCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/views/public/tables.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="33" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="52" column="77" selection-start-line="52" selection-start-column="77" selection-end-line="52" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/background.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/favicon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/font.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/fontRaw.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/homepage.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/img/homepage1.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/img/fontrawSmall.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/fontraw.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restAdminLogin.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restAdminLogin1.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restAdminRes1.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restAdminRes.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restaurantMap.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restPublicMenu.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/restPublicMenuMobile.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/vegExampleHome.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/img/vzor.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/img/organiz.png" />
-    <entry file="file://$PROJECT_DIR$/client/img/homepage4.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/homepage2.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/img/homepage3.jpg" />
-    <entry file="file://$PROJECT_DIR$/client/img/green-grid-turquoise.svg" />
-    <entry file="file://$PROJECT_DIR$/client/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="731" column="16" selection-start-line="731" selection-start-column="16" selection-end-line="731" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/public/controllers/tablesCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="982">
-          <caret line="119" column="62" selection-start-line="119" selection-start-column="62" selection-end-line="119" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/authenticate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/controllers/reservation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/reservationCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="154" column="30" selection-start-line="154" selection-start-column="25" selection-end-line="154" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/menuCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="150" column="23" selection-start-line="150" selection-start-column="23" selection-end-line="150" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/editCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="198" column="30" selection-start-line="198" selection-start-column="30" selection-end-line="198" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/dailyMenuCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="117" column="14" selection-start-line="117" selection-start-column="14" selection-end-line="117" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/homeCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="22" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/loginCtrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="32" selection-start-line="11" selection-start-column="32" selection-end-line="11" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/admin/controllers/____meCtrl.js" />
-    <entry file="file://$PROJECT_DIR$/client/js/admin/route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="44" column="14" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/views/links.jade">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Procfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/config/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="25" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
