@@ -30,14 +30,14 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Jméno</th>
-                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Příjmení</th>
+                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Jméno</th>
+                    <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Příjmení</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Tel.</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Email</th>
                     <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Den</th>
                     <th class="col-lg-2 col-md-2 col-sm-2 col-xs-2">Čas</th>
                     <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1">Stůl</th>
-                    <th class="col-lg-3 col-md-3 col-sm-3 col-xs-3">Akce</th>
+                    <th class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></th> <!-- todo Akce -->
                 </tr>
                 </tbody>
                 <tbody>
@@ -84,9 +84,9 @@
                     <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{rezervace.tableNum}}</td>
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                         <div class="btn-group btn-group-sm" role="group">
-                            <button class="btn btn-default" ng-click="editRes(rezervace._id);">
+                            <!--button class="btn btn-default" ng-click="editRes(rezervace._id);">
                                 <span class="glyphicon glyphicon-edit"></span>
-                            </button>
+                            </button-->
                             <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash"></span></button>
                         </div>
                     </td>
@@ -156,7 +156,7 @@
                     <th>Akce</th>
                     <td class="wrapper text-center">
                         <div class="btn-group btn-group-sm" role="group">
-                            <button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit">&nbsp;Upravit</span></button>
+                            <!--button class="btn btn-default" ng-click=""><span class="glyphicon glyphicon-edit">&nbsp;Upravit</span></button-->
                             <button class="btn btn-default" ng-click="deleteReservation(rezervace._id)"><span class="glyphicon glyphicon-trash">&nbsp;Smazat</span></button>
                         </div>
                     </td>

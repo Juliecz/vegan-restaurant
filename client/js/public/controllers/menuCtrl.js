@@ -36,6 +36,22 @@ angular.module('veganapp.public')
                 break;
             }
         }
+        $scope.tyden = [{
+            name: 'pondeli',
+            text: 'Pondělí'
+        }, {
+            name: 'utery',
+            text: 'Úterý'
+        }, {
+            name: 'streda',
+            text: 'Středa'
+        }, {
+            name: 'ctvrtek',
+            text: 'Čtvrtek'
+        }, {
+            name: 'patek',
+            text: 'Pátek'
+        }];
         $scope.tridaDaily = [
             {
                 name: 'polevka',
@@ -100,7 +116,19 @@ angular.module('veganapp.public')
             $scope.napojovy = data;
         });
         drinkMenu.getSort().success(function (data) {
-            $scope.sortD = data;
+            $scope.sortD = [{
+                name: data[0],
+                text: 'Čaj'
+            }, {
+                name: data[1],
+                text: 'Káva'
+            }, {
+                name: data[2],
+                text: 'Fresh'
+            }, {
+                name: data[3],
+                text: 'Ostatní'
+            }];
         });
         $scope.tabs = [{
             title: 'Polední menu',

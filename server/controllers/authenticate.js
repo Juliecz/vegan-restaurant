@@ -1,7 +1,7 @@
 var local = require('passport-local').Strategy,
     passport = require('passport');
 exports.login = function(req, res) {
-    console.log(req.body);
+    //console.log(req.body);
     res.send(req.body);
 };
 exports.logout = function (req, res) {
@@ -22,6 +22,6 @@ exports.logged = function (req, res) {
         res.send(req.session.passport.user);
     }
     else {
-        res.sendStatus(401)
+        res.sendStatus(401);
     }
 };

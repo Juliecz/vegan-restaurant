@@ -41,8 +41,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td colspan="2"><br /> Posílat informací o nových rezervacích na email &nbsp;
-                                <input type="checkbox" ng-model="me.emailM" ng-disabled="dis">
+                            <td><br />
+                                Posílat informací o nových rezervacích na email
+                                <input type="checkbox" ng-model="me.emailMTmp" ng-disabled="dis">
                             </td>
                         </tr>
                         <tr class="zprava" ng-show="message">
@@ -73,7 +74,7 @@
                                 </h5>
                                 <h5 ng-show="!dis" class="btn-group">
                                     <button class="btn btn-warning btn-md" ng-click="send(me.id, me);"> Uložit </button>
-                                    <button class="btn btn-warning btn-md" ng-click="dis=true"> Zrušit </button>
+                                    <button class="btn btn-warning btn-md" ng-click="zrusit()"> Zrušit </button>
                                 </h5>
                             </td>
                         </tr>

@@ -8,6 +8,8 @@ angular.module('veganapp.admin')
             var dd = this.getDate();
             var mm = parseInt(this.getMonth())+1;
             var yyyy = this.getFullYear();
+            if (mm<10) { mm = '0'+mm; }
+            if (dd<10) { dd = '0'+dd; }
             return [dd, '.', mm, '.', yyyy].join('');
         };
         Date.prototype.hhmm = function () {
@@ -50,9 +52,7 @@ angular.module('veganapp.admin')
                 var arr = $scope.Filter.ByDate.split('.');
                 var dateFilter = new Date(arr[2], arr[1]-1, arr[0]);
                 var date = new Date(rezervace.startDate.getFullYear(), rezervace.startDate.getMonth(), rezervace.startDate.getDate());
-                return rezervace.startDate.getFullYear() === dateFilter.getFullYear()
-                    && rezervace.startDate.getMonth() == dateFilter.getMonth()
-                    && rezervace.startDate.getDate() === dateFilter.getDate();
+                return rezervace.startDate.getFullYear() === dateFilter.getFullYear() && rezervace.startDate.getMonth() == dateFilter.getMonth() && rezervace.startDate.getDate() === dateFilter.getDate();
             }
             if($scope.Filter.validDate === '') {
                 if ($scope.Filter.ByDate === '') {
@@ -91,15 +91,15 @@ angular.module('veganapp.admin')
                         }
                         else {
                             $scope.getTables();
-                            for (var j = 0; j < $scope.tableObj.length; j++) {
-                                if ($scope.tableObj[j].table._id === data[i].table) {
-                                    $scope.reservations[i].tableNum = $scope.tableObj[j].table.name;
+                            for (var k = 0; k < $scope.tableObj.length; k++) {
+                                if ($scope.tableObj[k].table._id === data[i].table) {
+                                    $scope.reservations[i].tableNum = $scope.tableObj[k].table.name;
                                     break;
                                 }
                             }
                         }
                     }
-                    console.log($scope.reservations);
+                    //console.log($scope.reservations);
                 });
         };
         $scope.allReservations();
@@ -134,65 +134,7 @@ angular.module('veganapp.admin')
                 //console.log($scope.reservations[i].name);
             }
         };
-        //$scope.arr = [0,1,2,3,4,5,6];
-
-        //$scope.todayChosen = new Date();
-        //$scope.selected = $scope.todayChosen.getDate();
-        /*$scope.filterDay = function (den) {
-            if (den === 0) {
-                return false;
-            }
-            return true;
-        };
-        /*$scope.firstDayInWeek = $scope.Calendar.weekStartDate($scope.today);
-        $scope.lastDayInWeek = new Date($scope.firstDayInWeek.getFullYear(), $scope.firstDayInWeek.getMonth(), $scope.firstDayInWeek.getDate() + 7);
-        $scope.nextMonth = function (month) {
-            if (month < 11) {
-                if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month + 1)) {
-                    var posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month + 1);
-                    $scope.today.setDate(posledni);
-                    $scope.selected = posledni;
-                }
-                $scope.today.setMonth(month + 1);
-                $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-            }
-            else if (month === 11) {
-                $scope.today.setMonth(0);
-                $scope.today.setFullYear($scope.today.getFullYear() + 1);
-                $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-            }
-        };
-        $scope.prevMonth = function (month) {
-            var dnesni = new Date();
-            var posledni;
-            if ($scope.today.getFullYear() >= dnesni.getFullYear()) {
-                if (month > dnesni.getMonth() && $scope.today.getFullYear() === dnesni.getFullYear()) {
-                    if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month - 1)) {
-                        posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month - 1);
-                        $scope.today.setDate(posledni);
-                        $scope.selected = posledni;
-                    }
-                    $scope.today.setMonth(month - 1);
-                    $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-                }
-                else if ($scope.today.getFullYear() > dnesni.getFullYear()) {
-                    if (month === 0) {
-                        $scope.today.setMonth(11);
-                        $scope.today.setFullYear($scope.today.getFullYear() - 1);
-                        $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-                    }
-                    else {
-                        if ($scope.today.getDate() > $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month - 1)) {
-                            posledni = $scope.Calendar.lastDayInMonth($scope.today.getFullYear(), month - 1);
-                            $scope.today.setDate(posledni);
-                            $scope.selected = posledni;
-                        }
-                        $scope.today.setMonth(month - 1);
-                        $scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-                    }
-                }
-            }
-        };*/
+        
         $scope.onclickDate = function (den, mesic, rok) {
             $scope.today = new Date(rok, mesic, den);
             $scope.selected = den;

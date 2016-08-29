@@ -18,7 +18,7 @@ function randomPassword() {
 exports.findAll = function (req, res, next) {
     User.find(function(err, data) {
         if (err) res.send(err);
-        console.log(data);
+        //console.log(data);
         res.json(data);
     });
 };
@@ -59,15 +59,18 @@ exports.createUser = function (req, res) {
     };
     transport.sendMail(params, function (err, res) {
         if (err) {
-            console.log('err send email ', err);
+            //console.log('err send email ', err);
         }
     });
     user.save(function (err, user) {
-        if (err) { console.log(err); res.send(err); }
+        if (err) {
+            //console.log(err);
+            res.send(err);
+        }
         else {
             User.find(function(err, data) {
                 if (err) res.send(err);
-                console.log(data);
+                //console.log(data);
                 res.json(data);
             });
         }
@@ -75,7 +78,10 @@ exports.createUser = function (req, res) {
 };
 exports.deleteUser = function (req, res) {
     User.findByIdAndRemove(req.params.id, function (err) {
-        if (err) { console.log(err); res.send(err); }
+        if (err) {
+            //console.log(err);
+            res.send(err);
+        }
     });
 };
 exports.editUser = function (req, res) {

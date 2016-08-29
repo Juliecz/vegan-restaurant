@@ -50,7 +50,7 @@ module.exports = function(app, passport) {
     app.get('/api/table', tables.findAll);
     app.get('/api/table/:id', tables.findById);
 
-    app.get('/api/reservation', reservation.findAll);
+    app.get('/api/reservation', auth.checkAuthenticate, reservation.findAll);
     app.get('/api/reservation/:date', reservation.findForDay);
     app.post('/api/reservation', reservation.createReservation);
     app.delete('/api/reservation/:id', reservation.deleteReservation);

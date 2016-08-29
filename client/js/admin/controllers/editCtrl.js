@@ -56,8 +56,8 @@ angular.module('veganapp.admin')
         });
         menuFactory.getFood().success(function (data, status) {
             $scope.dataMenu = data;
-            console.log(status);
-            console.log($scope.dataMenu);
+            //console.log(status);
+            //console.log($scope.dataMenu);
         });
         menuFactory.getSort().success(function (data) {
             $scope.trida = data;
@@ -147,12 +147,11 @@ angular.module('veganapp.admin')
 
         $scope.createFood = function (formData) {
             if(formData) {
-                console.log($stateParams.menuType);
                 switch ($stateParams.menuType) {
                     case 'menu':
                     {
                         menuFactory.createFood(formData).success(function (err) {
-                            console.log(err);
+                            //console.log(err);
                         });
                         $state.go('admin.menu', {activeTab: 'jidelni'});
                         break;
@@ -160,7 +159,7 @@ angular.module('veganapp.admin')
                     case 'daily':
                     {
                         dailyMenuFactory.createFood(formData).success(function (err) {
-                            console.log(err);
+                            //console.log(err);
                         });
                         $state.go('admin.dailyMenu', {activeTab: formData.den});
                         break;
@@ -168,7 +167,7 @@ angular.module('veganapp.admin')
                     case 'drink':
                     {
                         drinkMenu.createDrink(formData).success(function (err) {
-                            console.log(err);
+                            //console.log(err);
                         });
                         $state.go('admin.menu', {activeTab: 'napojovy'});
                         break;
@@ -188,16 +187,16 @@ angular.module('veganapp.admin')
                     case 'menu':
                     {
                         menuFactory.updateFood($stateParams.id, formData).success(function (err) {
-                            console.log(err);
+                            //console.log(err);
                         });
                         $state.go('admin.menu', {activeTab: 'jidelni'});
                         break;
                     }
                     case 'daily':
                     {
-                        console.log(formData);
+                        //console.log(formData);
                         dailyMenuFactory.editFood(formData, $stateParams.id).success(function (err) {
-                            console.log(err);
+                            //console.log(err);
                         });
                         $state.go('admin.dailyMenu', {activeTab: formData.den});
                         break;

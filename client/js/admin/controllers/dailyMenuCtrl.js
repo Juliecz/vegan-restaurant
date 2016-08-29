@@ -52,13 +52,11 @@ angular.module('veganapp.admin')
                             text: $scope.day[i]
                         });
                     }
-                    console.log('Day arr object', $scope.dayObj);
                 }
             }
         });
         dailyMenuFactory.getSort().success(function (data, status) {
             $scope.typ = data;
-            console.log('Typ: ', $scope.typ);
         });
 
         $scope.setAction = function (action, id) {
@@ -113,12 +111,11 @@ angular.module('veganapp.admin')
                                     text: $scope.day[i]
                                 });
                             }
-                            console.log('Day arr object', $scope.dayObj);
                         }
                     }
                 });
             }
-            console.log(res);
+            //console.log(res);
         };
         $scope.setTab = function (tab) {
             $scope.activeTab = tab;

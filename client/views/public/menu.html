@@ -3,8 +3,8 @@
         <div ng-hide="allDaily==true">
             <h4>{{ tabs[0].title }}</h4>
             <table class="table">
-                <tbody ng-repeat="t in ['polevka', 'hlavni']">
-                <tr ng-repeat="p in poledni |filter:t">
+                <tbody ng-repeat="t in tridaDaily">
+                <tr ng-repeat="p in poledni |filter:t.name">
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="p.foodType"></div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{p.foodName}}</td>
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{p.price}}, -</td>
@@ -19,12 +19,12 @@
         </div>
         <div ng-show="allDaily==true">
             <h4>{{ tabs[0].title }}</h4>
-            <table ng-repeat="k in ['pondeli','utery','streda','ctvrtek','patek']" class="table">
+            <table ng-repeat="k in tyden" class="table">
                 <thead>
-                <tr><th colspan="3">{{k}}</th></tr>
+                <tr><th colspan="3">{{k.text}}</th></tr>
                 </thead>
-                <tbody ng-repeat="t in ['polevka', 'hlavni']">
-                <tr ng-repeat="cele in celePoledni |filter:k |filter:t">
+                <tbody ng-repeat="t in tridaDaily">
+                <tr ng-repeat="cele in celePoledni |filter:k.name |filter:t.name">
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><div ng-class="cele.foodType"></div></td>
                     <td class="col-lg-7 col-md-7 col-sm-7 col-xs-7">{{cele.foodName}}</td>
                     <td class="col-lg-3 col-md-3 col-sm-3 col-xs-3">{{cele.price}}, -</td>
@@ -63,8 +63,8 @@
         <div class="tabContent" ng-show="activeTab == 'napojovy'">
             <table class="table">
                 <tbody ng-repeat="t in sortD">
-                <tr><th colspan="3">{{t}}</th></tr>
-                <tr ng-repeat="n in napojovy |filter:t">
+                <tr><th colspan="3">{{t.text}}</th></tr>
+                <tr ng-repeat="n in napojovy |filter:t.name">
                     <td class="col-lg-9 col-md-9 col-sm-9 col-xs-9">{{n.drinkName}}</td>
                     <td class="col-lg-1 col-md-1 col-sm-1 col-xs-1">{{n.volume}}</td>
                     <td class="col-lg-2 col-md-2 col-sm-2 col-xs-2">{{n.price}}</td>

@@ -6,7 +6,8 @@ Date.prototype.ddmmyyyy = function () {
     var dd = this.getDate();
     var mm = parseInt(this.getMonth())+1;
     var yyyy = this.getFullYear();
-    if (mm<10) { return [dd, '.0', mm, '.', yyyy].join(''); }
+    if (mm<10) { mm = '0'+mm; }
+    if (dd<10) { dd = '0'+dd; }
     return [dd, '.', mm, '.', yyyy].join('');
 };
 
@@ -23,7 +24,7 @@ exports.createReservation = function (req, res) {
     });
     rezervace.save(function (err, status) {
         if(err) {
-            console.log(err);
+            //console.log(err);
             //res.send('CHYBA SERVER ', err);
             res.sendStatus(400);
         }

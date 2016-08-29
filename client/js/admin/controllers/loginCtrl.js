@@ -10,7 +10,6 @@ angular.module('veganapp.admin')
                 $state.go('admin');
             })
             .catch(function () {
-                //todo change text
                 $scope.outputData = 'Zadejte spravne udaje';
             });
     };

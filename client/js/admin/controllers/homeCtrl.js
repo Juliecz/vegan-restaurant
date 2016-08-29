@@ -7,20 +7,21 @@ angular.module('veganapp.admin')
             var dd = this.getDate();
             var mm = parseInt(this.getMonth())+1;
             var yyyy = this.getFullYear();
-            if (mm<10) { return [dd, '.0', mm, '.', yyyy].join(''); }
+            if (mm<10) { mm = '0'+mm; }
+            if (dd<10) { dd = '0'+dd; }            
             return [dd, '.', mm, '.', yyyy].join('');
         };
         $scope.firstDay = function () {
             var date = new Date(),
                 day = date.getDay(),
-                d = date.getDate() - day + (day == 0 ? -6:1);
+                d = date.getDate() - day + (day === 0 ? -6:1);
             return new Date(date.setDate(d));
         };
         $scope.dis = true;
         $scope.myInfo = function () {
             authProvider.isLoggedIn()
                 .then(function (data) {
-                    console.log(data);
+                    //console.log(data);
 
                     userFactory.getUserById(data.data)
                         .success(function (data) {
@@ -33,7 +34,8 @@ angular.module('veganapp.admin')
                                 email: data.email,
                                 phone: data.phone,
                                 emailM: data.emailMessage,
-                                password: data.password
+                                password: data.password,
+                                emailMTmp:data.emailMessage
                             };
                         });
                 });
@@ -63,30 +65,13 @@ angular.module('veganapp.admin')
         reservationFactory.getForDay(new Date().ddmmyyyy()).success(function (data) {
             $scope.rezervace = data.length;
         });
-
-        /*$scope.canvas =
-        angular.element('canvas');
-        $scope.chart = new Chart($scope.canvas, {
-            type: 'line',
-            data: {
-                labels: ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'],
-                datasets: [{
-                    data: ar,
-                    backgroundColor: [ 'rgba(255, 99, 132, 0.2)' ],
-                    borderColor: [ 'rgba(255,99,132,1)' ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });*/
+        $scope.zrusit = function () {
+            $scope.message = '';
+            $scope.me.passwStare = '';
+            $scope.me.passwNove = '';
+            $scope.dis = true;
+            $scope.me.emailMTmp = $scope.me.emailM;
+        };
 
 }]);
 

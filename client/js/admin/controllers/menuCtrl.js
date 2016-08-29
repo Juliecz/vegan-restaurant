@@ -96,7 +96,7 @@ angular.module('veganapp.admin')
         });
         drinkMenu.getSort().success(function (data) {
             $scope.sortD = data;
-        })
+        });
         //________________________
         
 
@@ -148,7 +148,7 @@ angular.module('veganapp.admin')
                     drinkMenu.removeDrink(id);
                     drinkMenu.getDrinks().success(function (data) {
                         $scope.drinks = data;
-                    })
+                    });
                 }
             }
             //console.log(res);

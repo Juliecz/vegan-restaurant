@@ -1,4 +1,8 @@
 <div ng-controller="tablesCtrl">
+    <div ng-show="prijataRezervace" class="alert alert-success fade in">
+        <a href="" class="close" data-dismiss="alert" aria-label="close" ng-click="prijataRezervace=false">&times;</a>
+        <strong>Vaše rezervace byla úspěšně přijata!</strong>
+    </div>
     <div id="tableArea" class="flex">
         <div id="formularBlock" >
             <form ng-submit="sendReservation(reservation);">

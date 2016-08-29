@@ -170,8 +170,22 @@ section #loginSelection > #loginBlock {
 #personalBlock table tr td {
   border: none;
 }
+.alert.alert-success {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 30px;
+}
 .zprava {
   color: red;
+}
+#loginBlock {
+  background-color: white;
+  border: 1px solid #bac3a9;
+  box-shadow: 1px 1px 10px rgba(144, 151, 131, 0.64);
+}
+#textHome .kontakt {
+  width: 100%;
+  text-align: center !important;
 }
 /* large desktop */
 @media screen and (min-width: 1200px) {
@@ -234,12 +248,11 @@ section #loginSelection > #loginBlock {
 
   /* login page*/
   #loginBlock {
-    background-color: white;
     padding-left: 70px;
     padding-right: 70px;
     padding-bottom: 7px;
     padding-top: 7px;
-    border: 2px solid #a6a6a6;
+    box-shadow: 1px 1px 10px rgba(182, 192, 167, 0.64);
   }
   #formularBlock div.row .formular {
     width: 70%;
@@ -318,12 +331,10 @@ section #loginSelection > #loginBlock {
 
   /* login page*/
   #loginBlock {
-    background-color: white;
     padding-left: 70px;
     padding-right: 70px;
     padding-bottom: 7px;
     padding-top: 7px;
-    border: 2px solid #a6a6a6;
   }
 }
 
@@ -381,15 +392,30 @@ section #loginSelection > #loginBlock {
   }
   /* login page*/
   #loginBlock {
-    background-color: white;
     padding-left: 70px;
     padding-right: 70px;
     padding-bottom: 7px;
     padding-top: 7px;
-    border: 2px solid #a6a6a6;
   }
   #seatingBlock .seatingChart {
     margin: auto;
+  }
+  #personalBlock {
+    order: 1;
+  }
+  #statistic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    -webkit-flex-direction: row !important;
+    flex-direction: row !important;
+  }
+  #statistic > div {
+    width: 130px !important;
+    /*display: inline-flex !important;
+    margin: 10px !important;*/
+
   }
 }
 /* extra small mobile*/
@@ -445,12 +471,10 @@ section #loginSelection > #loginBlock {
   }
   /* login page*/
   #loginBlock {
-    background-color: white;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 60px;
     padding-top: 60px;
-    border: 2px solid #a6a6a6;
   }
 }
 
@@ -655,7 +679,7 @@ div.tabset ul.tabs {
   display: none;
 }
 .seatingChart ul li.bar input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -234px -129px no-repeat;
+  background:url("../img/icons_seating_chart.png") -234px -129px no-repeat;
   height: 60px;
   width: 143px;
   top: -35px;
@@ -663,7 +687,7 @@ div.tabset ul.tabs {
   position: relative;
 }
 .seatingChart ul li.door input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -234px -50px no-repeat;
+  background:url("../img/icons_seating_chart.png") -234px -50px no-repeat;
   height: 80px;
   width: 50px;
   top: -427px;
@@ -671,7 +695,7 @@ div.tabset ul.tabs {
   position: relative;
 }
 .seatingChart ul li.wc input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -230px top no-repeat;
+  background:url("../img/icons_seating_chart.png") -230px top no-repeat;
   height: 40px;
   width: 100px;
   top: -575px;
@@ -679,50 +703,50 @@ div.tabset ul.tabs {
   position: relative;
 }
 .seatingChart ul li.two input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -181px -110px no-repeat;
+  background:url("../img/icons_seating_chart.png") -181px -110px no-repeat;
   height: 50px;
   width: 50px;
   position: relative;
 }
 .seatingChart ul li.two input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") -181px -55px no-repeat;
+  background:url("../img/icons_seating_chart.png") -181px -55px no-repeat;
 }
 .seatingChart ul li.two input[type=checkbox]:checked + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -181px top no-repeat;
+  background:url("../img/icons_seating_chart.png") -181px top no-repeat;
 }
 .seatingChart ul li.four input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -105px -110px no-repeat;
+  background:url("../img/icons_seating_chart.png") -105px -110px no-repeat;
   height: 50px;
   width: 80px;
   position: relative;
 }
 .seatingChart ul li.four input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") -105px -55px no-repeat;
+  background:url("../img/icons_seating_chart.png") -105px -55px no-repeat;
 }
 .seatingChart ul li.four input[type=checkbox]:checked + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") -105px top no-repeat;
+  background:url("../img/icons_seating_chart.png") -105px top no-repeat;
 
 }
 .seatingChart ul li.six input[type=checkbox] + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") left -197px no-repeat;
+  background:url("../img/icons_seating_chart.png") left -197px no-repeat;
   height: 100px;
   width: 100px;
   position: absolute;
 }
 .seatingChart ul li.six input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") left -100px no-repeat;
+  background:url("../img/icons_seating_chart.png") left -100px no-repeat;
 }
 .seatingChart ul li.six input[type=checkbox]:checked + label {
-  background:url("../img/seatingChart/icons_seating_chart.png") left top no-repeat;
+  background:url("../img/icons_seating_chart.png") left top no-repeat;
 }
 .six.reserved input[type=checkbox]:checked + label, .six.reserved input[type=checkbox] + label, .six.reserved input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") -120px -230px no-repeat !important;
+  background:url("../img/icons_seating_chart.png") -120px -230px no-repeat !important;
 }
 .four.reserved input[type=checkbox]:checked + label, .four.reserved input[type=checkbox] + label, .four.reserved input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") -105px -165px no-repeat !important;
+  background:url("../img/icons_seating_chart.png") -105px -165px no-repeat !important;
 }
 .two.reserved input[type=checkbox]:checked + label, .two.reserved input[type=checkbox] + label, .two.reserved input[type=checkbox] + label:hover {
-  background:url("../img/seatingChart/icons_seating_chart.png") -181px -165px no-repeat !important;
+  background:url("../img/icons_seating_chart.png") -181px -165px no-repeat !important;
 }
 .seatingChart ul li:nth-child(8) input[type=checkbox] + label {
   top: -20px;
@@ -797,7 +821,6 @@ table .me {
 }
 #statistic > div:last-child {
   background-color: #ffab05;
-  margin-top: 50px;
 }
 /*#calendar form .row label, #calendar form .row input {
   display: block;
@@ -808,6 +831,19 @@ table .me {
 /* _________responsitive_________ */
 
 @media screen and (min-width: 1200px) {
+  .smallTableBlock table tr td:last-child {
+    text-align: center;
+
+  }
+  .smallTableBlock table tr td button {
+    /*position: relative;
+    top: 50%;
+    left: 50%;*/
+    margin: 0 auto;
+  }
+  .contentAdmin {
+    margin-bottom: 181px;
+  }
   .navbar-fixed-top {
     -webkit-flex-direction: row;
     flex-direction: row;
@@ -968,7 +1004,8 @@ table .me {
     width: 100%;
   }
   #personalBlock, #statistic {
-    width: 80% !important;
+    width: 80%;
+    min-width: 370px;
     margin: auto;
   }
 }

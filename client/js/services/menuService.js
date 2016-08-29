@@ -3,10 +3,7 @@ angular.module('veganapp')
     .factory('menuFactory', function ($http) {
     return {
         getFood: function () {
-            return $http.get('/api/menu')
-                .success(function (data) {
-                    this.jsonData = data;
-                });
+            return $http.get('/api/menu');
         },
         getSort: function () {
             return $http.get('/api/menu/sort')

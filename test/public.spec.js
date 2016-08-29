@@ -60,17 +60,41 @@ describe('homepage', function () {
             element(by.model('reservation.endTime')).getAttribute('value').then(function (value) {
                 expect(value).toEqual('19');
             }));
-        ch = element.all(by.css('.seatingChart ul li')).get(0)
-        for (var i=0; i<8; i++) {
+        //var table = element.all(by.css('input[type="checkbox"]')).get(9);
+        var table = element.all(by.model('stul.checked'));
+        table.map(function (elem) {
+            elem.getAttribute('class').then(function (cl) {
+                console.log(cl);
+            });
+        });
+        //var oneT = table.get(10);
+        //oneT.click();
+        //var ptor = protractor.getInstance();
+        /*var driver = ptor.driver;
+        driver.executeScript('arguments[0].click()', oneT).then(function () {
+            expect(whatever).toMatch(whatever);
+        })
+        /*.map(function (value) {
+            value.getAttribute('value').then(function (v) {
+                console.log(v);
+            });
+        });*/
+
+        /*var el = element()
+        var visTable = table.filter(function (elem) {
+            return elem.isDisplayed();
+        }).first();
+        expect(visTable.isPresent()).toBe(true);
+        if ()
+        //browser.actions().mouseMove(table).click().perform();
+        //expect(table.isSelected()).toBeTruthy();
+        /*for (var i=0; i<tables.length; i++) {
             console.log('cyklus ', i);
-            ch = element.all(by.css('.seatingChart ul li')).get(i);
-            ch.getAttribute('class').then(function (classes) {
+            ch = tables.get(i).getAttribute('class').then(function (classes) {
                 if (classes.indexOf('reserved') === -1) {
-                    console.log('dslfkds ', i);
-                    ch.click();
-                    expect(ch.getAttribute('checked').then(function (value) {
-                        console.log('value: ', i);
-                    }))//.toBeTruthy();
+                    tables.get(i).click();
+                    expect(tables.get(i).isSelected()).toBe(true);
+
                     return 0;
                 }
                 else if(classes.indexOf('reserved') > -1) {
@@ -78,7 +102,10 @@ describe('homepage', function () {
                 }
             });
 
-        }
+        }*/
+        //table.click();
+        //expect(table.isSelected()).toBe(true);
+        //browser.sleep(5500);
         //var element = driver.find_elements(:css, 'ul li:not(".reserved")')[0];
         //expect(element.all(by.css('.seatingChart > ul > li:not(".reserved")')).click());//.get(0).isPresent()).toBe(true);//.element(by.css('input[type="checkbox"]')).click();
         //element(by.css('.seatingChart ul li:not("reserved")')).getAttribute('checked').toBeTruthy();

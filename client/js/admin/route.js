@@ -43,15 +43,6 @@ angular.module('veganapp.admin')
                     }
                 }
             })
-            .state('admin.me', {
-                url: '/me',
-                views: {
-                    'admin' : {
-                        templateUrl: '/views/admin/me.html',
-                        controller: 'meCtrl'
-                    }
-                }
-            })
             .state('admin.users', {
                 url: '/users',
                 views: {
