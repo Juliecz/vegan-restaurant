@@ -17,7 +17,6 @@ process.env.TZ = 'Europe/Prague';
 app.set('views', path.join(__dirname, 'server/views'));
 app.set('view engine', 'jade');
 
-//TODO uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -28,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'server/config/database')));
 
 //for using passport middleware by express
 app.use(session({
-  //TODO check sets save or not and set time
   secret: 'secret',
   resave: true,
   saveUninitialized: true

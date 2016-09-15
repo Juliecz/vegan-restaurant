@@ -1,4 +1,3 @@
-//angular.module('admin', ['ui.router', 'ngRoute'])
 angular.module('veganapp.admin')
     .controller('dailyMenuCtrl', ['$scope', '$state', '$stateParams', '$window', 'dailyMenuFactory', function($scope, $state, $stateParams, $window, dailyMenuFactory) {
         $scope.day=['Pondělí', 'Úterý', 'Středa', 'Čtvrtek', 'Pátek'];
@@ -40,7 +39,6 @@ angular.module('veganapp.admin')
         //_______________________
         dailyMenuFactory.getDay().success(function (data, status) {
             $scope.datum = data;
-            console.log('Status getday: ', status);
         });
         dailyMenuFactory.getDailyMenu().success(function (data, status) {
             $scope.data = data;

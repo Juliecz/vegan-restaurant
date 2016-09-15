@@ -1,12 +1,8 @@
-/**
- * Created by yuliya on 11.11.15.
- */
 angular.module('veganapp.public')
     .controller('contactCtrl', function($scope) {
         
 
 });
-//todo rewrite this
 function initialize() {
     var directionsService = new google.maps.DirectionsService();
     var directionsDisplay = new google.maps.DirectionsRenderer();

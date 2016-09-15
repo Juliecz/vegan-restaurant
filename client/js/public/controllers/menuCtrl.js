@@ -1,6 +1,3 @@
-/**
- * Created by yuliya on 12.11.15.
- */
 angular.module('veganapp.public')
     .controller('menuCtrlP', ['$scope', '$http', 'menuFactory', 'dailyMenuFactory', 'drinkMenu', function($scope, $http, menuFactory, dailyMenuFactory, drinkMenu) {
         $scope.today = new Date().getDay();
@@ -69,12 +66,11 @@ angular.module('veganapp.public')
             $scope.celePoledni = data;
             for (var i=0; i<data.length; i++) {
                 if (data[i].day === $scope.todayStr) {
-                    console.log('Cislo: ', i, ' object: ', data[i]);
                     $scope.poledni.push(data[i]);
                 }
             }
             if ($scope.poledni.length < 1) {
-                console.log($scope.vikend);
+                //console.log($scope.vikend);
             }
         });
         menuFactory.getSort().success(function (data, status) {

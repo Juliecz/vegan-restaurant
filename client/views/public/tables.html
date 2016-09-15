@@ -14,7 +14,7 @@
                             </td>
                         </tr>
                         <tr class="zprava" class="form-group" ng-hide="!message">
-                            <td><h4>{{message}}</h4></td>
+                            <td><h5>{{message}}</h5></td>
                         </tr>
                         <tr class="form-group">
                             <td>
@@ -108,7 +108,7 @@
                         </tr>
                         <tr class="form-group">
                             <td colspan="2">
-                                <button type="submit" class="btn btn-default btn-md btn-block"> Vytvořit rezervaci </button>
+                                <button type="submit" class="btn btn-default btn-md btn-block" ng-disabled="message === 'Vyberte dnešní nebo budoucí datum'"> Vytvořit rezervaci </button>
                             </td>
                         </tr>
                     </table>

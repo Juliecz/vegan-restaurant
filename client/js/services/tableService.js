@@ -1,6 +1,3 @@
-/**
- * Created by yuliya on 13.4.16.
- */
 angular.module('veganapp')
     .factory('tablesFactory', function ($http) {
     return {

@@ -27,14 +27,9 @@ angular.module('veganapp.admin')
             ByText: ''
         };
 
-        //$scope.month = ['Leden', 'Únor', 'Březen', 'Duben', 'Květen', 'Červen', 'Červenec', 'Srpen', 'Září', 'Říjen', 'Listopad', 'Prosinec'];
-        //$scope.weeks = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
         $scope.today = new Date();
         $scope.activeTab = $scope.today.getDate();
-        //$scope.Calendar = new Calendar(1);
-        //$scope.mdays = $scope.Calendar.monthDays($scope.today.getFullYear(), $scope.today.getMonth());
-        //console.log($scope.mdays);
-        //$scope.startDayWeek = $scope.Calendar.weekStartDate($scope.today);
+        
         $scope.getTables = function () {
             tablesFactory.getTables()
             .success(function (data) {

@@ -1,6 +1,3 @@
-
-//todo var routeApp = angular.module('public', ['ui.router', 'ui.bootstrap']);
-//angular.module('veganapp.public', ['veganapp.system']);
 angular.module('veganapp.public')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -55,7 +52,6 @@ angular.module('veganapp.public')
         $rootScope.$state = $state;
         $state.go('public.home');
     }]);
-//TODO remove the contorller
 angular.module('veganapp.public')   
     .controller('headCtrlP', ['$scope', '$http', '$rootScope', '$window', function($scope, $http, $rootScope, $window) {
         /*$scope.getWatchers = function(root) {
@@ -114,7 +110,7 @@ angular.module('veganapp.public')
                 }
             });
 
-            console.log(watchersWithoutDuplicates.length);
+            //console.log(watchersWithoutDuplicates.length);
         })();
 
         $scope.winSize = $window.innerWidth;

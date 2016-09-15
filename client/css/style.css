@@ -1,16 +1,12 @@
 body {
   background-image: url("../img/background.jpg");
 }
-.contentPublic {
-  /*todo depends on footer size*/
-}
 body header {
   background-color: #ffffff;
 }
 /* header style for public page */
 .headClass {
   background-color: rgba(141, 188, 102, 0.29);
-  /*ACE1AF*/
   height: 130px;
 }
 .openToday {
@@ -23,15 +19,6 @@ body header {
   text-shadow: 2px 2px white;
 }
 .vegan {
-  /*background-color: #6ab978;
-  color: white;
-  font-weight: 600;
-  max-width: 45px;
-  text-align: center;
-  text-shadow: 1px 1px 2px #3b6f45;
-  border-radius: 5px;
-  box-shadow: 0 0 1px 1px #50965d inset;
-  margin: auto;*/
   content: url("../img/fontVegan.png");
   width: 50px !important;
   height: auto;
@@ -54,7 +41,7 @@ body header {
   margin: auto;
 }
 .navbar-brand, .navbar-brand:hover, .navbar-brand:active, .navbar-brand:visited {
-  /* TODO color: white;*/
+
   color: #3a6d44;
   font-size: 40px;
   text-decoration: none;
@@ -64,48 +51,6 @@ body header {
   margin: auto;
   text-shadow: 2px 2px 6px #ffffff;
 }
-/* footer style for public page *
-footer {
-  height: 18px;
-  background-color: #374b37;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  position: relative;
-  /* todo visible footer*
-  visibility: hidden;
-}
-/*@media screen and (min-height: 633px)
-and (min-width: 801px) {
-  footer {
-    position: absolute;
-  }
-}
-/*
-@media screen and (max-width: 800px)
-and (orientation: landscape) {
-  footer {
-    height: 18px;
-    background-color: #374b37;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-}
-@media screen and (max-width: 800px)
-and (min-width: 750px)
-and (orientation: portrait) {
-  footer {
-    height: 18px;
-    background-color: #374b37;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-}
-*/
 
 /*public menu page*/
 
@@ -176,7 +121,7 @@ section #loginSelection > #loginBlock {
   margin-bottom: 30px;
 }
 .zprava {
-  color: red;
+  color: #ff6000;
 }
 #loginBlock {
   background-color: white;

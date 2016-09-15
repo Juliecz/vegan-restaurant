@@ -1,6 +1,3 @@
-/**
- * Created by yuliya on 19.3.16.
- */
 angular.module('veganapp.admin')
     .controller('loginCtrl', ['$scope', '$state', '$http', '$rootScope', '$location', 'authProvider', function($scope, $state, $http, $rootScope, $location, authProvider){
     $scope.user = {};

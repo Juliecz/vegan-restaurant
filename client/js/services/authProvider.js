@@ -1,7 +1,3 @@
-/**
- * Created by yuliya on 21.5.16.
- */
-//TODO move to sevices
 angular.module('veganapp.admin')
     .factory('authProvider', ['$q', '$timeout', '$http', '$location', function ($q, $timeout, $http, $location) {
         var user = null;

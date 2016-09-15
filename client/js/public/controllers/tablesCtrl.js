@@ -1,6 +1,3 @@
-/**
- * Created by yuliya on 12.11.15.
- */
 angular.module('veganapp.public')
     .controller('tablesCtrl', ['$scope', 'tablesFactory', 'reservationFactory', function($scope, tablesFactory, reservationFactory) {
         $scope.tableObj = [];
@@ -26,7 +23,7 @@ angular.module('veganapp.public')
         };
 
         $scope.today = new Date();
-        $scope.datum = new Date(); //todo ???
+        $scope.datum = new Date(); 
         $scope.reservation = {
             day: $scope.today.getDate(),
             month: $scope.today.getMonth(),
@@ -113,7 +110,7 @@ angular.module('veganapp.public')
         };
         //check if date was changed
         $scope.$watch('reservation.datum', function () {
-            console.log($scope.reservation.datum);
+            //console.log($scope.reservation.datum);
             reservationFactory.getForDay($scope.reservation.datum)
                 .success(function (data) {
                     $scope.reservations = data;
@@ -124,6 +121,16 @@ angular.module('veganapp.public')
             angular.forEach($scope.availability, function (item) {
                 item.checked = false;
             });
+            var d = new Date().ddmmyyyy(),
+                vybranyArr = $scope.reservation.datum.split('.'),
+                dnesniArr = d.split('.'),
+                vybrany = new Date(vybranyArr[2], vybranyArr[1], vybranyArr[0]),
+                dnesni = new Date(dnesniArr[2], dnesniArr[1], dnesniArr[0]);
+            if (vybrany < dnesni) {
+                $scope.message = 'Vyberte dnešní nebo budoucí datum';
+            }
+            else { $scope.message = ''; }
+
         }, true);
         //check if start time was changed
         $scope.$watch('reservation.startTime', function () {

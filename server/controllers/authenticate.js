@@ -17,7 +17,6 @@ exports.checkAuthenticate = function (req, res, next) {
     }
 };
 exports.logged = function (req, res) {
-    //todo comment
     if (req.isAuthenticated()) {
         res.send(req.session.passport.user);
     }

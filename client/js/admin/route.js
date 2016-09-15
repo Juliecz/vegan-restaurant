@@ -1,6 +1,3 @@
-//'use strict';
-
-//todo var routeAppAdmin = angular.module('admin', ['ui.router', 'ngRoute']);
 angular.module('veganapp.admin')
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider
@@ -17,9 +14,6 @@ angular.module('veganapp.admin')
                         authProvider.isLoggedIn()
                             .then(function (data) {
                                 if(data.data !== '' && data.data !== '401' ) {
-                                    //when update go to admin.home
-                                    //$state.go('admin.home');
-                                    //when update go to current state
                                     if ($rootScope.$state.current.name === 'admin') {
                                         $state.go('admin.home');
                                     }
@@ -130,7 +124,7 @@ angular.module('veganapp.admin')
                     loggedInResolve: function (authProvider, $state) {
                         authProvider.isLoggedIn()
                             .then(function (data) {
-                                console.log('resolve is running: ', data.data);
+                                //console.log('resolve is running: ', data.data);
                                 if(data.data !== '' && data.data !== '0' ) {
                                     $state.go('admin.home');
                                 }
@@ -160,7 +154,6 @@ angular.module('veganapp.admin')
             .then(function (data) {
                 userFactory.getUserById(data.data)
                     .success(function (data) {
-                        console.log('Data from server: ', data);
                         $scope.uzivatel = data;
                     });
             });

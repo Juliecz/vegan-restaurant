@@ -1,6 +1,3 @@
-/**
- * Created by yuliya on 14.11.15.
- */
 angular.module('veganapp.admin')
     .controller('homeCtrlA', ['$scope', '$http', '$stateParams', 'authProvider', 'reservationFactory', 'userFactory', function($scope, $http, $stateParams, authProvider, reservationFactory, userFactory){
         Date.prototype.ddmmyyyy = function () {

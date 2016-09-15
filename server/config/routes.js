@@ -14,9 +14,6 @@ var index = require('../controllers/index'),
 module.exports = function(app, passport) {
 
     app.get('/', index.render);
-    //TODO admin route
-    //app.get('/admin', admin.render);
-
     app.get('/api/menu', menu.findAll);
     app.post('/api/menu', menu.createFood);
     app.get('/api/menu/type', menu.enumType);
