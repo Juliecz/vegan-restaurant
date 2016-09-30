@@ -139,7 +139,7 @@ angular.module('veganapp.admin')
             });
     }])
     .run(['$state', '$rootScope', '$location', 'authProvider', function ($state, $rootScope, $location, authProvider) {
-        //console.log('state go');
+        console.log($location);
         //$state.go('admin.home');
     }])
     .controller('headCtrlA', ['$scope', '$state', '$stateParams', '$location', '$window','$document', 'authProvider', 'userFactory', function ($scope, $state, $stateParams, $location, $window, $document, authProvider, userFactory) {
