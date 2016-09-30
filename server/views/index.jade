@@ -1,5 +1,5 @@
 doctype html
-html(ng="http://angularjs.org", lang="en" ng-app='veganapp')
+html(data-ng="http://angularjs.org", lang="en" data-ng-app='veganapp')
   head
     title= title
     meta(charset='utf-8')
@@ -7,5 +7,5 @@ html(ng="http://angularjs.org", lang="en" ng-app='veganapp')
     link(rel="icon" href="http://localhost:3000/img/favicon.png" type="image/png")
     include links
 
-  body(ng-controller='contentCtrl')
-    div(ui-view="main")
+  body(data-ng-controller='contentCtrl')
+    div(data-ui-view="main")

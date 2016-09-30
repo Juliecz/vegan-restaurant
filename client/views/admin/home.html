@@ -1,5 +1,5 @@
 <div ng-controller="homeCtrlA">
-    <div id="flex">
+    <div id="flex" class="dashboardClass">
         <div id="dashboard">
             <div id="personalBlock">
                 <div>
@@ -41,8 +41,8 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><br />
-                                Posílat informací o nových rezervacích na email
+                            <td><br>
+                                Posílat informací o nových <br>rezervacích na email
                                 <input type="checkbox" ng-model="me.emailMTmp" ng-disabled="dis">
                             </td>
                         </tr>
@@ -83,10 +83,6 @@
                 </div>
             </div>
             <div id="statistic">
-                <div>
-                    <h1>{{navstevy}}</h1>
-                    <h6>Počet návštěvníků webu</h6>
-                </div>
                 <div>
                     <h1>{{rezervace}}</h1>
                     <h6>Počet rezervací na dnešní den</h6>
